@@ -5,7 +5,7 @@ import subprocess
 import sys
 
 from doxygen_management.file_handler import FileHandler
-from paths_and_variables.paths import *
+from doxygen_config.config_paths import *
 from error_handler.error_handler import ErrorHandler
 
 
