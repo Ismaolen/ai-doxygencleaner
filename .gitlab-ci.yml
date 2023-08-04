@@ -1,24 +1,179 @@
-# Define the stages that will be used in this pipeline
-stages:
-  - build
+stages:                                           # Define the pipeline stages
+  - preparation                                   # First stage for setup and configuration tasks
+  - execution                                     # Second stage for main task execution
+  - evaluation                                    # Third stage for checking the results and adjustments
+  - results_presentation                          # Final stage for output generation and presentation
 
-# Define the job for the build stage
-build_job:
-  # Use the 'development' runner for this job
+
+
+
+workflow:
+  rules:                                          # Define the pipeline execution rules
+    # Skip pipeline for automated commits
+    - exists:
+        - .gitlab/skip_commit.txt
+      when: never
+    # Trigger pipeline for changes on develop or feature branches, or if manually triggered
+    - if: '$CI_COMMIT_BRANCH =~ /^(develop|feature\/)/ || $CI_PIPELINE_SOURCE == "web"'
+
+default:                                          # Default configuration for all jobs
   tags:
-    - development
-  # Assign this job to the 'build' stage
-  stage: build
-  # Use the 'alpine:latest' Docker image to run this job
-  image: alpine:latest
+    - development                                 # Assign the 'development' tag to all jobs
+  image: registry.gitlab.com/ismsh/ai-doxygencleaner/doxycleaner:latest
+                                                  # Specify Docker image for all jobs
 
-  # Define the script that will be run for this job
+doxygen_configuration:                            # Job for Doxygen configuration
+  stage: preparation                              # Assign to 'preparation' stage
   script:
-    # Install Python3, Doxygen, and pip3
-    - apk add python3 doxygen py3-pip
-    # Install the 'openai' Python package
-    - pip3 install openai
-    # Change the working directory to 'main'
     - cd main
-    # Run 'main.py' with Python3
-    - python3 main.py
+    - python3 main.py --configure-doxygen         # Run script for Doxygen configuration
+  artifacts:
+    paths:
+      - ./main/config/Doxyfile                    # Specify Doxyfile as an artifact
+    expire_in: 4 month                            # Set artifact expiration time
+
+pre_fix_warning_detection:                        # Job for detecting warnings before fixing
+  stage: preparation                              # Assign to 'preparation' stage
+  needs: ["doxygen_configuration"]                # Specify job dependency
+  script:
+    - cd main
+    - rm -f transport_data/data.json
+    - python3 main.py --detect-warnings-pre-fix   # Run script for warning detection
+  artifacts:
+    paths:
+      - ./main/transport_data/preprocessed_warnings_data.json  # Specify artifact
+    expire_in: 4 month                                        # Set artifact expiration time
+
+warnings_database_insertion:                      # Job for inserting warnings into the database
+  stage: preparation                              # Assign to 'preparation' stage
+  needs: ["pre_fix_warning_detection"]            # Specify job dependency
+  script:
+    - cd main
+    - python3 main.py --insert-warnings-db        # Run script for database insertion
+  artifacts:
+    paths:
+      - ./main/transport_data/pipeline_id.json    # Specify artifact
+    expire_in: 4 month                            # Set artifact expiration time
+
+doxygen_warning_fix:                              # Job for fixing Doxygen warnings
+  stage: execution                                # Assign to 'execution' stage
+  needs: ["pre_fix_warning_detection"]            # Specify job dependency
+  script:
+    - cd main
+    - python3 main.py --fix-doxygen-warnings      # Run script for fixing warnings
+  artifacts:
+    paths:
+      - ./main/transport_data/preprocessed_warnings_data.json  # Specify artifact
+      - ./main/transport_data/postprocessed_warnings_data.json # Specify additional artifact
+    expire_in: 4 month                                        # Set artifact expiration time
+
+fix_application:                                  # Job for applying the fixes
+  stage: execution                                # Assign to 'execution' stage
+  needs: ["doxygen_warning_fix"]                  # Specify job dependency
+  script:
+    - cd main
+    - python3 main.py --apply-fix                 # Run script for applying fixes
+  artifacts:
+    paths:
+      - ./main/doxygen_projects                   # Specify artifact
+    expire_in: 4 month                            # Set artifact expiration time
+
+post_fix_warning_detection:                       # Job for detecting warnings after fixes applied
+  stage: evaluation                               # Assign to 'evaluation' stage
+  needs:
+    - doxygen_warning_fix                         # Specify job dependencies
+    - fix_application
+    - doxygen_configuration
+  script:
+    - cd main
+    - python3 main.py --detect-warnings-post-fix  # Run script for post-fix warning detection
+  artifacts:
+    paths:
+      - ./main/transport_data                     # Specify artifact
+    expire_in: 4 month                            # Set artifact expiration time
+
+warning_data_db_update:                           # Job for updating warning data in the database
+  stage: evaluation                               # Assign to 'evaluation' stage
+  needs: ["post_fix_warning_detection", "warnings_database_insertion"] # Specify job dependencies
+  script:
+    - cd main
+    - python3 main.py --update-warning-data-in-db # Run script for database update
+
+warnings_diff_extraction:                         # Job for extracting differences in warnings
+  stage: results_presentation                     # Assign to 'results_presentation' stage
+  needs: ["post_fix_warning_detection"]           # Specify job dependency
+  script:
+    - cd main
+    - python3 main.py --print-warning-details-to-file  # Run script for warning difference extraction
+  artifacts:
+    paths:
+      - ./main/data/different_between_pre_and_post     # Specify artifact
+    expire_in: 4 month                                 # Set artifact expiration time
+
+diff_html_page_generation:                         # Job for generating HTML page of differences
+  stage: results_presentation                      # Assign to 'results_presentation' stage
+  needs: ["warnings_diff_extraction"]              # Specify job dependency
+  script:
+    - cd main
+    - python3 main.py --generate-html-diff-page    # Run script for HTML page generation
+  artifacts:
+    paths:
+      - ./main/data/different_between_pre_and_post # Specify artifact
+    expire_in: never                               # Set artifact to never expire
+
+diff_page_publication:                            # Job for publishing the difference page
+  stage: results_presentation                      # Assign to 'results_presentation' stage
+  needs: ["diff_html_page_generation"]             # Specify job dependency
+  script:
+      - mkdir -p public;                           # Create public directory if not exist
+      - ls -lisa                                  # List directory details
+      - pwd                                        # Print current working directory
+      - cp main/data/different_between_pre_and_post/diff.html  public; # Copy diff file to public directory
+      - cp -r documentation/html public;           # Copy html documentation to public directory
+      - cp -r documentation/latex public;          # Copy latex documentation to public directory
+      - 'echo -e "\n\033[4;33mNOTE:\033[0m You can open the HTML diff page by clicking the following link:\n\033[1;34mhttps://ismsh.gitlab.io/-/ai-doxygencleaner/-/jobs/${CI_JOB_ID}/artifacts/public/diff.html\033[0m\n\n";'
+                                                  # Display note with the link to the HTML diff page
+  artifacts:
+    paths:
+      - public                                    # Specify artifact
+
+
+
+
+commit_and_push_changes:                          # Job for committing and pushing changes
+  stage: results_presentation                     # Assign to 'results_presentation' stage
+  needs:
+    - diff_html_page_generation
+    - post_fix_warning_detection
+    - fix_application
+  script:
+    - git config --global user.email "$GIT_USER_EMAIL"
+    - git config --global user.name "$GITLAB_USER_LOGIN"
+    - git remote set-url origin "https://ismsh:$PERSONAL_NEEDED@gitlab.com/ismsh/ai-doxygencleaner.git"
+    - git checkout -b "${CI_COMMIT_BRANCH}_$(date +%Y_%m_%d_%H)_pipeline_id_${CI_PIPELINE_ID}"
+    - git add -A                                # Add all changes to staging area
+    - mkdir .gitlab
+    - touch .gitlab/skip_commit.txt
+    - echo "Automated commit by CI/CD" > .gitlab/skip_commit.txt
+    - git commit -m "Automated commit by CI/CD [ci skip]" # Commit changes with a message, skip if no changes
+    - git show --name-only
+    ## 1. GitLab. (no date). Push Options. GitLab Documentation.
+    ## Available at: https://docs.gitlab.com/ee/user/project/push_options.html. Accessed on July 16, 2023.
+    - >
+      git push origin "${CI_COMMIT_BRANCH}_$(date +%Y_%m_%d_%H)_pipeline_id_${CI_PIPELINE_ID}"  
+      -o merge_request.create 
+      -o merge_request.target="feature/fix_doxy_warnings" 
+      -o merge_request.merge_when_pipeline_succeeds 
+      -o merge_request.title="Automated Fix for Doxygen Warnings" 
+      -o merge_request.description="This merge request includes changes automatically generated to address and resolve Doxygen warnings in the project."
+      -o merge_request.remove_source_branch
+  artifacts:
+    paths:
+      - .gitlab/skip_commit.txt
+    expire_in: 1 week
+
+
+
+
+
+
