@@ -64,7 +64,7 @@
 
 
 \title{AI\sphinxhyphen{}DoxygenCleaner}
-\date{Aug 04, 2023}
+\date{Aug 05, 2023}
 \release{}
 \author{Ismial Al Shuaybi}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -418,6 +418,238 @@ Various status messages with timestamps indicating the start and end of the data
 \subsection{main.ai\_language\_model package}
 \label{\detokenize{main.ai_language_model:main-ai-language-model-package}}\label{\detokenize{main.ai_language_model::doc}}
 
+\subsubsection{Subpackages}
+\label{\detokenize{main.ai_language_model:subpackages}}
+\sphinxstepscope
+
+
+\paragraph{main.ai\_language\_model.models package}
+\label{\detokenize{main.ai_language_model.models:main-ai-language-model-models-package}}\label{\detokenize{main.ai_language_model.models::doc}}
+
+\subparagraph{Submodules}
+\label{\detokenize{main.ai_language_model.models:submodules}}
+
+\subparagraph{main.ai\_language\_model.models.gpt\_3\_5\_turbo module}
+\label{\detokenize{main.ai_language_model.models:module-main.ai_language_model.models.gpt_3_5_turbo}}\label{\detokenize{main.ai_language_model.models:main-ai-language-model-models-gpt-3-5-turbo-module}}\index{module@\spxentry{module}!main.ai\_language\_model.models.gpt\_3\_5\_turbo@\spxentry{main.ai\_language\_model.models.gpt\_3\_5\_turbo}}\index{main.ai\_language\_model.models.gpt\_3\_5\_turbo@\spxentry{main.ai\_language\_model.models.gpt\_3\_5\_turbo}!module@\spxentry{module}}\index{GPT3\_5TurboModel (class in main.ai\_language\_model.models.gpt\_3\_5\_turbo)@\spxentry{GPT3\_5TurboModel}\spxextra{class in main.ai\_language\_model.models.gpt\_3\_5\_turbo}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{main.ai_language_model.models:main.ai_language_model.models.gpt_3_5_turbo.GPT3_5TurboModel}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{main.ai\_language\_model.models.gpt\_3\_5\_turbo.}}\sphinxbfcode{\sphinxupquote{GPT3\_5TurboModel}}}{\sphinxparam{\DUrole{n,n}{prompt\_instruction}}, \sphinxparam{\DUrole{n,n}{prompt\_input\_str}}, \sphinxparam{\DUrole{n,n}{api\_key}}}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Bases: \sphinxcode{\sphinxupquote{AILanguageModel}}
+
+\sphinxAtStartPar
+This class extends the AILanguageModel class and is specifically designed to
+handle interaction with the GPT\sphinxhyphen{}3.5 Turbo model provided by OpenAI. It enables
+communication with the model, formatting and validation of the responses, and
+also contains utility functions for token counting and line removal.
+…
+
+
+\subparagraph{Attributes}
+\label{\detokenize{main.ai_language_model.models:attributes}}\begin{description}
+\sphinxlineitem{\_\_api\_key}{[}str{]}
+\sphinxAtStartPar
+The OpenAI API key used to authenticate requests to the API.
+
+\end{description}
+
+
+\subparagraph{Methods}
+\label{\detokenize{main.ai_language_model.models:methods}}\begin{description}
+\sphinxlineitem{\_create\_response(prompt\_content):}
+\sphinxAtStartPar
+Creates a response from the GPT\sphinxhyphen{}3.5 Turbo model using the given prompt content.
+
+\sphinxlineitem{validate\_response\_content():}
+\sphinxAtStartPar
+Validates the content of the model’s response and performs necessary modifications.
+
+\sphinxlineitem{set\_response\_content():}
+\sphinxAtStartPar
+Sets the processed content of the model’s response.
+
+\sphinxlineitem{get\_num\_tokens\_from\_response(string: str, encoding\_name: str) \sphinxhyphen{}\textgreater{} int:}
+\sphinxAtStartPar
+Counts the number of tokens in a given string.
+
+\sphinxlineitem{remove\_back\_quote():}
+\sphinxAtStartPar
+Removes backquote encapsulated strings from the model’s response.
+
+\sphinxlineitem{remove\_cpp\_directives():}
+\sphinxAtStartPar
+Removes C++ directive lines from the model’s response.
+
+\sphinxlineitem{remove\_unwanted\_line():}
+\sphinxAtStartPar
+Removes unwanted lines from the model’s response.
+
+\end{description}
+
+\sphinxAtStartPar
+\_set\_api\_key(self, api\_key):
+
+\sphinxAtStartPar
+set\_prompt\_input\_str(self, prompt\_input\_str):
+
+\sphinxAtStartPar
+set\_prompt\_instruction(self, prompt\_instruction):
+\index{get\_num\_tokens\_from\_response() (main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method)@\spxentry{get\_num\_tokens\_from\_response()}\spxextra{main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{main.ai_language_model.models:main.ai_language_model.models.gpt_3_5_turbo.GPT3_5TurboModel.get_num_tokens_from_response}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_num\_tokens\_from\_response}}}{\sphinxparam{\DUrole{n,n}{string}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{encoding\_name}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}}{{ $\rightarrow$ int}}
+\pysigstopsignatures
+\sphinxAtStartPar
+Counts the number of tokens in a given string using OpenAI’s tiktoken library.
+
+
+\subparagraph{Parameters}
+\label{\detokenize{main.ai_language_model.models:parameters}}\begin{description}
+\sphinxlineitem{string}{[}str{]}
+\sphinxAtStartPar
+The string from which tokens are to be counted.
+
+\sphinxlineitem{encoding\_name}{[}str{]}
+\sphinxAtStartPar
+The name of the encoding method to be used for token counting.
+
+\end{description}
+
+
+\subparagraph{Returns}
+\label{\detokenize{main.ai_language_model.models:returns}}\begin{description}
+\sphinxlineitem{int}
+\sphinxAtStartPar
+The number of tokens in the input string.
+
+\end{description}
+
+\sphinxAtStartPar
+openai\sphinxhyphen{}cookbook/examples
+References
+———\sphinxhyphen{}
+1. OpenAI Cookbook. (no date). How to count tokens with tiktoken. GitHub. Available at:
+\begin{quote}
+
+\sphinxAtStartPar
+\sphinxurl{https://github.com/openai/openai-cookbook/blob/main/examples/How\_to\_count\_tokens\_with\_tiktoken.ipynb}
+Accessed on July 8, 2023.
+\end{quote}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{1}
+\item {} \begin{description}
+\sphinxlineitem{OpenAI. (no date). tiktoken. GitHub. Available at:}
+\sphinxAtStartPar
+\sphinxurl{https://github.com/openai/tiktoken/blob/main/tiktoken/model.py} Accessed on July 8, 2023.
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{OpenAI. (no date). Tokenizer. OpenAI Platform. Ac Available at:}
+\sphinxAtStartPar
+\sphinxurl{https://platform.openai.com/tokenizer} Accessed on July 8, 2023.
+
+\end{description}
+
+\end{enumerate}
+
+\end{fulllineitems}
+
+\index{remove\_back\_quote() (main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method)@\spxentry{remove\_back\_quote()}\spxextra{main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{main.ai_language_model.models:main.ai_language_model.models.gpt_3_5_turbo.GPT3_5TurboModel.remove_back_quote}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{remove\_back\_quote}}}{}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Removes lines containing backquote encapsulated strings from the model’s response.
+
+\end{fulllineitems}
+
+\index{remove\_cpp\_directives() (main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method)@\spxentry{remove\_cpp\_directives()}\spxextra{main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{main.ai_language_model.models:main.ai_language_model.models.gpt_3_5_turbo.GPT3_5TurboModel.remove_cpp_directives}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{remove\_cpp\_directives}}}{}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Removes C++ directive lines from the model’s response.
+
+\end{fulllineitems}
+
+\index{remove\_unwanted\_line() (main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method)@\spxentry{remove\_unwanted\_line()}\spxextra{main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{main.ai_language_model.models:main.ai_language_model.models.gpt_3_5_turbo.GPT3_5TurboModel.remove_unwanted_line}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{remove\_unwanted\_line}}}{}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Removes unwanted lines from the model’s response using regex in multiline mode for better efficiency.
+Further details and examples can be found in /utils/runtime\_measurement.py.
+
+\end{fulllineitems}
+
+\index{set\_prompt\_input\_str() (main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method)@\spxentry{set\_prompt\_input\_str()}\spxextra{main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{main.ai_language_model.models:main.ai_language_model.models.gpt_3_5_turbo.GPT3_5TurboModel.set_prompt_input_str}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{set\_prompt\_input\_str}}}{\sphinxparam{\DUrole{n,n}{prompt\_input\_str}}}{}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{set\_prompt\_instruction() (main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method)@\spxentry{set\_prompt\_instruction()}\spxextra{main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{main.ai_language_model.models:main.ai_language_model.models.gpt_3_5_turbo.GPT3_5TurboModel.set_prompt_instruction}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{set\_prompt\_instruction}}}{\sphinxparam{\DUrole{n,n}{prompt\_instruction}}}{}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{set\_response\_content() (main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method)@\spxentry{set\_response\_content()}\spxextra{main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{main.ai_language_model.models:main.ai_language_model.models.gpt_3_5_turbo.GPT3_5TurboModel.set_response_content}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{set\_response\_content}}}{}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Sets the content of the model’s response by extracting the relevant portion
+from the model’s response.
+
+\end{fulllineitems}
+
+\index{validate\_response\_content() (main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method)@\spxentry{validate\_response\_content()}\spxextra{main.ai\_language\_model.models.gpt\_3\_5\_turbo.GPT3\_5TurboModel method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{main.ai_language_model.models:main.ai_language_model.models.gpt_3_5_turbo.GPT3_5TurboModel.validate_response_content}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{validate\_response\_content}}}{}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Validates the content of the model’s response and performs necessary modifications like removing backquotes and
+unwanted lines, and C++ directives.
+
+\end{fulllineitems}
+
+
+\end{fulllineitems}
+
+
+
+\subparagraph{Module contents}
+\label{\detokenize{main.ai_language_model.models:module-main.ai_language_model.models}}\label{\detokenize{main.ai_language_model.models:module-contents}}\index{module@\spxentry{module}!main.ai\_language\_model.models@\spxentry{main.ai\_language\_model.models}}\index{main.ai\_language\_model.models@\spxentry{main.ai\_language\_model.models}!module@\spxentry{module}}
+
 \subsubsection{Submodules}
 \label{\detokenize{main.ai_language_model:submodules}}
 
@@ -617,14 +849,6 @@ In the actual Doxygen configuration file, each parameter is followed by either �
 
 \subsubsection{Module contents}
 \label{\detokenize{main.config:module-main.config}}\label{\detokenize{main.config:module-contents}}\index{module@\spxentry{module}!main.config@\spxentry{main.config}}\index{main.config@\spxentry{main.config}!module@\spxentry{module}}
-\sphinxstepscope
-
-
-\subsection{main.data package}
-\label{\detokenize{main.data:main-data-package}}\label{\detokenize{main.data::doc}}
-
-\subsubsection{Module contents}
-\label{\detokenize{main.data:module-main.data}}\label{\detokenize{main.data:module-contents}}\index{module@\spxentry{module}!main.data@\spxentry{main.data}}\index{main.data@\spxentry{main.data}!module@\spxentry{module}}
 \sphinxstepscope
 
 
@@ -2324,7 +2548,7 @@ Removes unwanted lines from the model’s response.
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{main.utils:main.utils.runtime_measurement.runtimes}}
 \pysigstartsignatures
-\pysigline{\sphinxcode{\sphinxupquote{main.utils.runtime\_measurement.}}\sphinxbfcode{\sphinxupquote{runtimes}}\sphinxbfcode{\sphinxupquote{\DUrole{w,w}{  }\DUrole{p,p}{=}\DUrole{w,w}{  }\{10: \{\textquotesingle{}dict\_method\textquotesingle{}: 1.8199003534391522e\sphinxhyphen{}05, \textquotesingle{}regex\_method\textquotesingle{}: 4.759000148624182e\sphinxhyphen{}06, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 1.2368996976874769e\sphinxhyphen{}05\}, 50: \{\textquotesingle{}dict\_method\textquotesingle{}: 5.5406009778380394e\sphinxhyphen{}05, \textquotesingle{}regex\_method\textquotesingle{}: 7.30800093151629e\sphinxhyphen{}06, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 2.2688996978104115e\sphinxhyphen{}05\}, 100: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.00011409299622755498, \textquotesingle{}regex\_method\textquotesingle{}: 1.3611992471851408e\sphinxhyphen{}05, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 5.807899287901819e\sphinxhyphen{}05\}, 500: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.0005285770021146163, \textquotesingle{}regex\_method\textquotesingle{}: 6.570399273186922e\sphinxhyphen{}05, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.00018376500520389527\}, 1000: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.001031874999171123, \textquotesingle{}regex\_method\textquotesingle{}: 9.082800534088165e\sphinxhyphen{}05, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.0003573260037228465\}, 5000: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.005800165003165603, \textquotesingle{}regex\_method\textquotesingle{}: 0.0004864369984716177, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.0022031480039004236\}, 10000: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.011811809992650524, \textquotesingle{}regex\_method\textquotesingle{}: 0.0010164989944314584, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.003925994999008253\}, 50000: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.05639708900707774, \textquotesingle{}regex\_method\textquotesingle{}: 0.005216495002969168, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.021319448002032004\}, 100000: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.12259472699952312, \textquotesingle{}regex\_method\textquotesingle{}: 0.010382110995124094, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.040552343998569995\}, 1000000: \{\textquotesingle{}dict\_method\textquotesingle{}: 1.1640679920092225, \textquotesingle{}regex\_method\textquotesingle{}: 0.10644538400811143, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.4248778629989829\}, 10000000: \{\textquotesingle{}dict\_method\textquotesingle{}: 11.906525145997875, \textquotesingle{}regex\_method\textquotesingle{}: 1.0933152100042207, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 4.281598171000951\}\}}}}
+\pysigline{\sphinxcode{\sphinxupquote{main.utils.runtime\_measurement.}}\sphinxbfcode{\sphinxupquote{runtimes}}\sphinxbfcode{\sphinxupquote{\DUrole{w,w}{  }\DUrole{p,p}{=}\DUrole{w,w}{  }\{10: \{\textquotesingle{}dict\_method\textquotesingle{}: 1.6393998521380126e\sphinxhyphen{}05, \textquotesingle{}regex\_method\textquotesingle{}: 3.994995495304465e\sphinxhyphen{}06, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 1.1544994777068496e\sphinxhyphen{}05\}, 50: \{\textquotesingle{}dict\_method\textquotesingle{}: 4.731900116894394e\sphinxhyphen{}05, \textquotesingle{}regex\_method\textquotesingle{}: 6.753005436621606e\sphinxhyphen{}06, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 2.2243009880185127e\sphinxhyphen{}05\}, 100: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.00010419700993224978, \textquotesingle{}regex\_method\textquotesingle{}: 1.2630000128410757e\sphinxhyphen{}05, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 5.186800262890756e\sphinxhyphen{}05\}, 500: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.0004596639919327572, \textquotesingle{}regex\_method\textquotesingle{}: 4.8698013415560126e\sphinxhyphen{}05, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.00018371301121078432\}, 1000: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.0011788800038630143, \textquotesingle{}regex\_method\textquotesingle{}: 0.00013619200035464019, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.0003563319914974272\}, 5000: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.005277675008983351, \textquotesingle{}regex\_method\textquotesingle{}: 0.0005421590030891821, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.0021572310070041567\}, 10000: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.009691760002169758, \textquotesingle{}regex\_method\textquotesingle{}: 0.001033189008012414, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.0037504350038943812\}, 50000: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.051396222988842055, \textquotesingle{}regex\_method\textquotesingle{}: 0.004968471999745816, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.020234083000104874\}, 100000: \{\textquotesingle{}dict\_method\textquotesingle{}: 0.09916960999544244, \textquotesingle{}regex\_method\textquotesingle{}: 0.010196021001320332, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.0392535210121423\}, 1000000: \{\textquotesingle{}dict\_method\textquotesingle{}: 1.0397337609902024, \textquotesingle{}regex\_method\textquotesingle{}: 0.09795145099633373, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 0.40519127700827084\}, 10000000: \{\textquotesingle{}dict\_method\textquotesingle{}: 10.142900172009831, \textquotesingle{}regex\_method\textquotesingle{}: 1.0494480009947438, \textquotesingle{}remove\_unwanted\_line\textquotesingle{}: 4.091417456991621\}\}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 For 10 lines:
@@ -2550,10 +2774,11 @@ generating a diff page in HTML format, and updating warning data in the database
 \item\relax\sphinxstyleindexentry{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner}\sphinxstyleindexpageref{main.ai_doxygen_cleaner:\detokenize{module-main.ai_doxygen_cleaner.ai_doxygen_cleaner}}
 \item\relax\sphinxstyleindexentry{main.ai\_language\_model}\sphinxstyleindexpageref{main.ai_language_model:\detokenize{module-main.ai_language_model}}
 \item\relax\sphinxstyleindexentry{main.ai\_language\_model.ai\_language\_model}\sphinxstyleindexpageref{main.ai_language_model:\detokenize{module-main.ai_language_model.ai_language_model}}
+\item\relax\sphinxstyleindexentry{main.ai\_language\_model.models}\sphinxstyleindexpageref{main.ai_language_model.models:\detokenize{module-main.ai_language_model.models}}
+\item\relax\sphinxstyleindexentry{main.ai\_language\_model.models.gpt\_3\_5\_turbo}\sphinxstyleindexpageref{main.ai_language_model.models:\detokenize{module-main.ai_language_model.models.gpt_3_5_turbo}}
 \item\relax\sphinxstyleindexentry{main.config}\sphinxstyleindexpageref{main.config:\detokenize{module-main.config}}
 \item\relax\sphinxstyleindexentry{main.config.config\_paths}\sphinxstyleindexpageref{main.config:\detokenize{module-main.config.config_paths}}
 \item\relax\sphinxstyleindexentry{main.config.config\_variables}\sphinxstyleindexpageref{main.config:\detokenize{module-main.config.config_variables}}
-\item\relax\sphinxstyleindexentry{main.data}\sphinxstyleindexpageref{main.data:\detokenize{module-main.data}}
 \item\relax\sphinxstyleindexentry{main.db\_operations}\sphinxstyleindexpageref{main.db_operations:\detokenize{module-main.db_operations}}
 \item\relax\sphinxstyleindexentry{main.db\_operations.db\_insertion\_handler}\sphinxstyleindexpageref{main.db_operations:\detokenize{module-main.db_operations.db_insertion_handler}}
 \item\relax\sphinxstyleindexentry{main.doxy\_warning\_post\_processor}\sphinxstyleindexpageref{main.doxy_warning_post_processor:\detokenize{module-main.doxy_warning_post_processor}}

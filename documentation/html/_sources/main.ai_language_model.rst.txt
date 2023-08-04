@@ -1,6 +1,14 @@
 main.ai\_language\_model package
 ================================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   main.ai_language_model.models
+
 Submodules
 ----------
 

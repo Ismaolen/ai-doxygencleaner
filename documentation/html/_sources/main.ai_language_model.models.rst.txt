@@ -1,0 +1,21 @@
+main.ai\_language\_model.models package
+=======================================
+
+Submodules
+----------
+
+main.ai\_language\_model.models.gpt\_3\_5\_turbo module
+-------------------------------------------------------
+
+.. automodule:: main.ai_language_model.models.gpt_3_5_turbo
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: main.ai_language_model.models
+   :members:
+   :undoc-members:
+   :show-inheritance:

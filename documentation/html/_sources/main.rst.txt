@@ -11,7 +11,6 @@ Subpackages
    main.ai_doxygen_cleaner
    main.ai_language_model
    main.config
-   main.data
    main.db_operations
    main.doxy_warning_post_processor
    main.doxygen_management

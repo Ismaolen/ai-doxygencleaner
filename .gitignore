@@ -5,3 +5,4 @@ docs
 *.bak
 *.env
 uml
+__init__.py
