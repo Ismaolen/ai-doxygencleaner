@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>main.utils package &#8212; AI-DoxygenCleaner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="main.transport_data package" href="main.transport_data.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="main-utils-package">
+<h1>main.utils package<a class="headerlink" href="#main-utils-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-main.utils.runtime_measurement">
+<span id="main-utils-runtime-measurement-module"></span><h2>main.utils.runtime_measurement module<a class="headerlink" href="#module-main.utils.runtime_measurement" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="main.utils.runtime_measurement.measure_runtimes_for_different_lines">
+<span class="sig-prename descclassname"><span class="pre">main.utils.runtime_measurement.</span></span><span class="sig-name descname"><span class="pre">measure_runtimes_for_different_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_template</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/utils/runtime_measurement.html#measure_runtimes_for_different_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.utils.runtime_measurement.measure_runtimes_for_different_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Measure the runtime of the three functions for texts with varying number of lines.</p>
+<p>Parameters:
+- text_template (str): The template text to be repeated.</p>
+<p>Returns:
+- dict: A dictionary with line counts as keys and runtimes as values.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.utils.runtime_measurement.remove_unwanted_line">
+<span class="sig-prename descclassname"><span class="pre">main.utils.runtime_measurement.</span></span><span class="sig-name descname"><span class="pre">remove_unwanted_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/utils/runtime_measurement.html#remove_unwanted_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.utils.runtime_measurement.remove_unwanted_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes unwanted lines from the model’s response.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.utils.runtime_measurement.remove_unwanted_lines_more_efficient">
+<span class="sig-prename descclassname"><span class="pre">main.utils.runtime_measurement.</span></span><span class="sig-name descname"><span class="pre">remove_unwanted_lines_more_efficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/main/utils/runtime_measurement.html#remove_unwanted_lines_more_efficient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.utils.runtime_measurement.remove_unwanted_lines_more_efficient" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.utils.runtime_measurement.remove_unwanted_lines_with_dict">
+<span class="sig-prename descclassname"><span class="pre">main.utils.runtime_measurement.</span></span><span class="sig-name descname"><span class="pre">remove_unwanted_lines_with_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/main/utils/runtime_measurement.html#remove_unwanted_lines_with_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.utils.runtime_measurement.remove_unwanted_lines_with_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="main.utils.runtime_measurement.runtimes">
+<span class="sig-prename descclassname"><span class="pre">main.utils.runtime_measurement.</span></span><span class="sig-name descname"><span class="pre">runtimes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{10:</span> <span class="pre">{'dict_method':</span> <span class="pre">1.798100129235536e-05,</span> <span class="pre">'regex_method':</span> <span class="pre">4.2120082071051e-06,</span> <span class="pre">'remove_unwanted_line':</span> <span class="pre">1.1759999324567616e-05},</span> <span class="pre">50:</span> <span class="pre">{'dict_method':</span> <span class="pre">5.455499922391027e-05,</span> <span class="pre">'regex_method':</span> <span class="pre">6.9119996624067426e-06,</span> <span class="pre">'remove_unwanted_line':</span> <span class="pre">2.205799682997167e-05},</span> <span class="pre">100:</span> <span class="pre">{'dict_method':</span> <span class="pre">0.00011246399662923068,</span> <span class="pre">'regex_method':</span> <span class="pre">1.0730000212788582e-05,</span> <span class="pre">'remove_unwanted_line':</span> <span class="pre">3.55160009348765e-05},</span> <span class="pre">500:</span> <span class="pre">{'dict_method':</span> <span class="pre">0.0010080849897349253,</span> <span class="pre">'regex_method':</span> <span class="pre">0.00037221900129225105,</span> <span class="pre">'remove_unwanted_line':</span> <span class="pre">0.00018257400370202959},</span> <span class="pre">1000:</span> <span class="pre">{'dict_method':</span> <span class="pre">0.001186990994028747,</span> <span class="pre">'regex_method':</span> <span class="pre">9.792500350158662e-05,</span> <span class="pre">'remove_unwanted_line':</span> <span class="pre">0.0003663649986265227},</span> <span class="pre">5000:</span> <span class="pre">{'dict_method':</span> <span class="pre">0.005975691994535737,</span> <span class="pre">'regex_method':</span> <span class="pre">0.0004750780062749982,</span> <span class="pre">'remove_unwanted_line':</span> <span class="pre">0.0018051700026262552},</span> <span class="pre">10000:</span> <span class="pre">{'dict_method':</span> <span class="pre">0.012275327011593617,</span> <span class="pre">'regex_method':</span> <span class="pre">0.001087999000446871,</span> <span class="pre">'remove_unwanted_line':</span> <span class="pre">0.003627862999564968},</span> <span class="pre">50000:</span> <span class="pre">{'dict_method':</span> <span class="pre">0.06564999600232113,</span> <span class="pre">'regex_method':</span> <span class="pre">0.005222084000706673,</span> <span class="pre">'remove_unwanted_line':</span> <span class="pre">0.01913853500445839},</span> <span class="pre">100000:</span> <span class="pre">{'dict_method':</span> <span class="pre">0.12778415600769222,</span> <span class="pre">'regex_method':</span> <span class="pre">0.010396135010523722,</span> <span class="pre">'remove_unwanted_line':</span> <span class="pre">0.042363385000498965},</span> <span class="pre">1000000:</span> <span class="pre">{'dict_method':</span> <span class="pre">1.2950513160030823,</span> <span class="pre">'regex_method':</span> <span class="pre">0.11124827999447007,</span> <span class="pre">'remove_unwanted_line':</span> <span class="pre">0.44287810899550095},</span> <span class="pre">10000000:</span> <span class="pre">{'dict_method':</span> <span class="pre">14.672513241996057,</span> <span class="pre">'regex_method':</span> <span class="pre">1.11586975598766,</span> <span class="pre">'remove_unwanted_line':</span> <span class="pre">4.886821313004475}}</span></em><a class="headerlink" href="#main.utils.runtime_measurement.runtimes" title="Permalink to this definition">¶</a></dt>
+<dd><p>For 10 lines:
+remove_unwanted_line took 0.00001 seconds.
+regex_method took 0.00000 seconds.
+dict_method took 0.00002 seconds.
+———————————————
+For 50 lines:
+remove_unwanted_line took 0.00003 seconds.
+regex_method took 0.00001 seconds.
+dict_method took 0.00006 seconds.
+———————————————
+For 100 lines:
+remove_unwanted_line took 0.00004 seconds.
+regex_method took 0.00001 seconds.
+dict_method took 0.00012 seconds.
+———————————————
+For 500 lines:
+remove_unwanted_line took 0.00021 seconds.
+regex_method took 0.00006 seconds.
+dict_method took 0.00063 seconds.
+———————————————
+For 1000 lines:
+remove_unwanted_line took 0.00039 seconds.
+regex_method took 0.00010 seconds.
+dict_method took 0.00124 seconds.
+———————————————
+For 5000 lines:
+remove_unwanted_line took 0.00193 seconds.
+regex_method took 0.00050 seconds.
+dict_method took 0.00588 seconds.
+———————————————
+For 10000 lines:
+remove_unwanted_line took 0.00380 seconds.
+regex_method took 0.00108 seconds.
+dict_method took 0.01218 seconds.
+———————————————
+For 50000 lines:
+remove_unwanted_line took 0.01958 seconds.
+regex_method took 0.00561 seconds.
+dict_method took 0.06098 seconds.
+———————————————
+For 100000 lines:
+remove_unwanted_line took 0.04078 seconds.
+regex_method took 0.01022 seconds.
+dict_method took 0.12191 seconds.
+———————————————
+For 1000000 lines:
+remove_unwanted_line took 0.40735 seconds.
+regex_method took 0.10590 seconds.
+dict_method took 1.25409 seconds.
+———————————————
+For 10000000 lines:
+remove_unwanted_line took 4.08598 seconds.
+regex_method took 1.07782 seconds.
+dict_method took 12.47559 seconds.
+———————————————</p>
+</dd></dl>
+
+</section>
+<section id="module-main.utils.utils">
+<span id="main-utils-utils-module"></span><h2>main.utils.utils module<a class="headerlink" href="#module-main.utils.utils" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="main.utils.utils.compaine_warn_details">
+<span class="sig-prename descclassname"><span class="pre">main.utils.utils.</span></span><span class="sig-name descname"><span class="pre">compaine_warn_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warning_content_llist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_line_number_llist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_content_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_file_name_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/utils/utils.html#compaine_warn_details"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.utils.utils.compaine_warn_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compile warning details into a list of prompts.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>warning_content_llist<span class="classifier">list</span></dt><dd><p>List of warning content.</p>
+</dd>
+<dt>warning_line_number_llist<span class="classifier">list</span></dt><dd><p>List of warning line numbers.</p>
+</dd>
+<dt>file_content_list<span class="classifier">list</span></dt><dd><p>List of file content.</p>
+</dd>
+<dt>header_file_name_list<span class="classifier">list</span></dt><dd><p>List of header file names.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>list</dt><dd><p>List of prompts created from warnings and file content.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.utils.utils.generate_html_diff">
+<span class="sig-prename descclassname"><span class="pre">main.utils.utils.</span></span><span class="sig-name descname"><span class="pre">generate_html_diff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/utils/utils.html#generate_html_diff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.utils.utils.generate_html_diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an HTML file from a diff text file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.utils.utils.perform_diff_on_files">
+<span class="sig-prename descclassname"><span class="pre">main.utils.utils.</span></span><span class="sig-name descname"><span class="pre">perform_diff_on_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/utils/utils.html#perform_diff_on_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.utils.utils.perform_diff_on_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare two files and output the difference to a text file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.utils.utils.rename_and_move">
+<span class="sig-prename descclassname"><span class="pre">main.utils.utils.</span></span><span class="sig-name descname"><span class="pre">rename_and_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/main/utils/utils.html#rename_and_move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.utils.utils.rename_and_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move and rename a specific file from source to target directory.</p>
+<p>This function takes a file named <cite>diff.html</cite> from the specified source path
+and moves it to the target directory. In the target directory, the file is
+renamed following the pattern <cite>test_diff_{n}.html</cite>, where <cite>{n}</cite> is determined
+by existing files in the target directory.</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>source_path<span class="classifier">str</span></dt><dd><p>The path to the directory containing the <cite>diff.html</cite> file.</p>
+</dd>
+<dt>target_dir<span class="classifier">str</span></dt><dd><p>The directory where the file will be moved and renamed.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h3>Raises<a class="headerlink" href="#raises" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>FileNotFoundError</dt><dd><p>If the <cite>diff.html</cite> file is not found in the source path.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rename_and_move</span><span class="p">(</span><span class="s1">&#39;/path/to/source&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/target&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-main.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-main.utils" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">AI-DoxygenCleaner</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="main.html">main package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="main.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="main.DoxygenWarningFixer.html">main.DoxygenWarningFixer package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.ai_doxygen_cleaner.html">main.ai_doxygen_cleaner package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.ai_language_model.html">main.ai_language_model package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.config.html">main.config package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.data.html">main.data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.db_operations.html">main.db_operations package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.doxy_warning_post_processor.html">main.doxy_warning_post_processor package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.doxygen_management.html">main.doxygen_management package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.error_handler.html">main.error_handler package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.print_data.html">main.print_data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.transport_data.html">main.transport_data package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">main.utils package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-main.utils.runtime_measurement">main.utils.runtime_measurement module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-main.utils.utils">main.utils.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-main.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#module-main.main">main.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#module-main">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="main.html">main package</a><ul>
+      <li>Previous: <a href="main.transport_data.html" title="previous chapter">main.transport_data package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Ismial Al Shuaybi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/main.utils.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

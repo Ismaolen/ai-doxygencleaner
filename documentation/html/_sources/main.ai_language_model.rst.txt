@@ -1,0 +1,21 @@
+main.ai\_language\_model package
+================================
+
+Submodules
+----------
+
+main.ai\_language\_model.ai\_language\_model module
+---------------------------------------------------
+
+.. automodule:: main.ai_language_model.ai_language_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: main.ai_language_model
+   :members:
+   :undoc-members:
+   :show-inheritance:

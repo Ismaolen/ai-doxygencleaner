@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>main.db_operations package &#8212; AI-DoxygenCleaner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="main.doxy_warning_post_processor package" href="main.doxy_warning_post_processor.html" />
+    <link rel="prev" title="main.data package" href="main.data.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="main-db-operations-package">
+<h1>main.db_operations package<a class="headerlink" href="#main-db-operations-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-main.db_operations.db_insertion_handler">
+<span id="main-db-operations-db-insertion-handler-module"></span><h2>main.db_operations.db_insertion_handler module<a class="headerlink" href="#module-main.db_operations.db_insertion_handler" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.db_operations.db_insertion_handler.</span></span><span class="sig-name descname"><span class="pre">DBInsertionHandler</span></span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handles database insert operations for doxygen warnings.</p>
+<p>This class manages connections to a MySQL database and provides methods for
+inserting information related to doxygen warnings, such as details about the
+pipeline, project, and warnings themselves.
+…</p>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>__db_name<span class="classifier">str</span></dt><dd><p>Name of the database.</p>
+</dd>
+<dt>__db_host<span class="classifier">str</span></dt><dd><p>Host of the database.</p>
+</dd>
+<dt>__db_user<span class="classifier">str</span></dt><dd><p>Username to connect to the database.</p>
+</dd>
+<dt>__db_pass<span class="classifier">str</span></dt><dd><p>Password to connect to the database.</p>
+</dd>
+<dt>last_header_file_id<span class="classifier">int</span></dt><dd><p>The ID of the last inserted header file.</p>
+</dd>
+<dt>last_project_id<span class="classifier">int</span></dt><dd><p>The ID of the last inserted project.</p>
+</dd>
+<dt>pipeline_link<span class="classifier">str</span></dt><dd><p>The link to the GitLab pipeline.</p>
+</dd>
+<dt>branch_name<span class="classifier">str</span></dt><dd><p>The branch name in the repository.</p>
+</dd>
+<dt>pipeline_id<span class="classifier">int</span></dt><dd><p>The ID of the pipeline.</p>
+</dd>
+<dt>cursor<span class="classifier">Cursor</span></dt><dd><p>A MySQL database cursor to execute SQL commands.</p>
+</dd>
+<dt>db<span class="classifier">Connection</span></dt><dd><p>A MySQL database connection.</p>
+</dd>
+</dl>
+</section>
+<section id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>connect_to_database():</dt><dd><p>Connects to the MySQL database using environment variables.</p>
+</dd>
+<dt>create_cursor():</dt><dd><p>Creates a new cursor to execute database commands.</p>
+</dd>
+<dt>set_pipeline_data():</dt><dd><p>Sets pipeline data by getting information from environment variables. If no pipeline ID is
+provided, generates a pseudo-random one.</p>
+</dd>
+<dt>update_last_project_id():</dt><dd><p>Updates the last_project_id member variable with the most recent project ID.</p>
+</dd>
+<dt>update_last_header_file_id():</dt><dd><p>Updates the last_header_file_id member variable with the most recent header file ID.</p>
+</dd>
+<dt>execute_sql(sql: str, values: tuple, optional):</dt><dd><p>Executes a SQL command.</p>
+</dd>
+<dt>insert_into_pipeline_table():</dt><dd><p>Inserts pipeline details into the pipeline table.</p>
+</dd>
+<dt>insert_into_project_table(project_folder_path: str):</dt><dd><p>Inserts project details into the project table and updates the last project ID.</p>
+</dd>
+<dt>insert_into_header_file_table(file_name: str, file_content: str, number_of_warnings: int):</dt><dd><p>Inserts header file details into the header file table and updates the last header file ID.</p>
+</dd>
+</dl>
+<p>insert_into_warning_table_pre_fix(warning_content: str, line_number_pre_fix: int, fixed_status: int =
+FIXED_STATUS_DEFAULT):</p>
+<blockquote>
+<div><p>Inserts warning details into the warning table.</p>
+</div></blockquote>
+<p>insert_warnings_details(project_folder_path: str, file_name_list: list, file_content_list: list,
+number_of_warnings_list: list, warning_content_llist: list, line_number_pre_fix_llist: list):</p>
+<blockquote>
+<div><p>Wrapper function that inserts pipeline, project, header file, and warning details into their respective tables.
+Once the data is inserted, it commits the changes and closes the database connection.</p>
+</div></blockquote>
+<p>update_post_fix_warning_details(self, pipeline_id, file_name_list, file_content_list, line_number_llist,
+warnings_content_llist):
+Update the database with the details of post-fix warnings.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler.connect_to_database">
+<span class="sig-name descname"><span class="pre">connect_to_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler.connect_to_database"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler.connect_to_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Establishes a connection to the MySQL database using the details obtained from the environment variables.</p>
+<section id="raises">
+<h4>Raises<a class="headerlink" href="#raises" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If there is an error while establishing the database connection.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler.create_cursor">
+<span class="sig-name descname"><span class="pre">create_cursor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler.create_cursor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler.create_cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new cursor to execute database commands.</p>
+<section id="id1">
+<h4>Raises<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If there is an error while creating a cursor.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler.insert_into_header_file_table">
+<span class="sig-name descname"><span class="pre">insert_into_header_file_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_warnings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler.insert_into_header_file_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler.insert_into_header_file_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts header file details into the header file table and updates the last header file ID.</p>
+<section id="parameters">
+<h4>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>file_name<span class="classifier">str</span></dt><dd><p>The name of the header file.</p>
+</dd>
+<dt>file_content<span class="classifier">str</span></dt><dd><p>The content of the header file.</p>
+</dd>
+<dt>number_of_warnings<span class="classifier">int</span></dt><dd><p>The number of warnings in the header file.</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h4>Raises<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If there is an error while executing the SQL command.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler.insert_into_pipeline_table">
+<span class="sig-name descname"><span class="pre">insert_into_pipeline_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler.insert_into_pipeline_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler.insert_into_pipeline_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts pipeline details into the pipeline table in the database.</p>
+<section id="id3">
+<h4>Raises<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If there is an error while executing the SQL command.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler.insert_into_project_table">
+<span class="sig-name descname"><span class="pre">insert_into_project_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project_folder_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler.insert_into_project_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler.insert_into_project_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts project details into the project table and updates the last project ID.</p>
+<section id="id4">
+<h4>Parameters<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>project_folder_path<span class="classifier">str</span></dt><dd><p>The path to the project folder.</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h4>Raises<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If there is an error while executing the SQL command.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler.insert_into_warning_table_pre_fix">
+<span class="sig-name descname"><span class="pre">insert_into_warning_table_pre_fix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warning_content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_number_pre_fix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler.insert_into_warning_table_pre_fix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler.insert_into_warning_table_pre_fix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts the warning details into the warning table before the warnings are resolved by ChatGPT.</p>
+<section id="id6">
+<h4>Parameters<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>warning_content<span class="classifier">str</span></dt><dd><p>The content of the warning.</p>
+</dd>
+<dt>line_number_pre_fix<span class="classifier">int</span></dt><dd><p>The line number of the warning before fixing by ChatGPT.</p>
+</dd>
+<dt>fixed_status<span class="classifier">int, optional</span></dt><dd><p>The fixed status of the warning (default is FIXED_STATUS_DEFAULT).</p>
+</dd>
+</dl>
+</section>
+<section id="id7">
+<h4>Raises<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If there is an error while executing the SQL command.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler.insert_warnings_details">
+<span class="sig-name descname"><span class="pre">insert_warnings_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project_folder_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_content_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_warnings_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_content_llist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_number_pre_fix_llist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler.insert_warnings_details"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler.insert_warnings_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper function that inserts pipeline, project, header file, and warning details into their respective tables.
+Once the data is inserted, it commits the changes and closes the database connection.</p>
+<section id="id8">
+<h4>Parameters<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>project_folder_path<span class="classifier">str</span></dt><dd><p>The path to the project folder.</p>
+</dd>
+<dt>file_name_list<span class="classifier">list</span></dt><dd><p>The list of file names.</p>
+</dd>
+<dt>file_content_list<span class="classifier">list</span></dt><dd><p>The list of file contents.</p>
+</dd>
+<dt>number_of_warnings_list<span class="classifier">list</span></dt><dd><p>The list of the number of warnings per file.</p>
+</dd>
+<dt>warning_content_llist<span class="classifier">list</span></dt><dd><p>The list of warning contents.</p>
+</dd>
+<dt>line_number_pre_fix_llist<span class="classifier">list</span></dt><dd><p>The list of line numbers of warnings before fixing.</p>
+</dd>
+</dl>
+</section>
+<section id="id9">
+<h4>Raises<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If there is an error while executing the SQL commands.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler.set_pipeline_data">
+<span class="sig-name descname"><span class="pre">set_pipeline_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler.set_pipeline_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler.set_pipeline_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets pipeline data by getting information from environment variables. If no pipeline ID is provided,
+generates a pseudo-random one.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler.update_last_header_file_id">
+<span class="sig-name descname"><span class="pre">update_last_header_file_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler.update_last_header_file_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler.update_last_header_file_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the last_header_file_id member variable with the most recent header file ID from the database.</p>
+<section id="id10">
+<h4>Raises<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If there is an error while executing the SQL command.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler.update_last_project_id">
+<span class="sig-name descname"><span class="pre">update_last_project_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler.update_last_project_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler.update_last_project_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the last_project_id member variable with the most recent project ID from the database.</p>
+<section id="id11">
+<h4>Raises<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If there is an error while executing the SQL command.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.db_operations.db_insertion_handler.DBInsertionHandler.update_post_fix_warning_details">
+<span class="sig-name descname"><span class="pre">update_post_fix_warning_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipeline_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_content_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_number_llist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warnings_content_llist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/db_operations/db_insertion_handler.html#DBInsertionHandler.update_post_fix_warning_details"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.db_operations.db_insertion_handler.DBInsertionHandler.update_post_fix_warning_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the database with the details of post-fix warnings.</p>
+<p>This method updates the header file content and warning fixed status in the database. It loops
+through the given list of file names, updates each file’s content, and then checks if there
+are any warnings. If there are, it sets the fixed status to 0 and updates this in the database.</p>
+<section id="id12">
+<h4>Parameters<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>pipeline_id<span class="classifier">str</span></dt><dd><p>The ID of the current pipeline.</p>
+</dd>
+<dt>file_name_list<span class="classifier">list</span></dt><dd><p>A list of the names of the files to update.</p>
+</dd>
+<dt>file_content_list<span class="classifier">list</span></dt><dd><p>A list containing the content of the files.</p>
+</dd>
+<dt>line_number_llist<span class="classifier">list</span></dt><dd><p>A list of lists, each sublist contains the line numbers where warnings occurred.</p>
+</dd>
+<dt>warnings_content_llist<span class="classifier">list</span></dt><dd><p>A list of lists, each sublist contains the warning content from a file.</p>
+</dd>
+</dl>
+</section>
+<section id="id13">
+<h4>Raises<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>Exception</dt><dd><p>If there is an error while executing the SQL commands.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-main.db_operations">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-main.db_operations" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">AI-DoxygenCleaner</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="main.html">main package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="main.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="main.DoxygenWarningFixer.html">main.DoxygenWarningFixer package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.ai_doxygen_cleaner.html">main.ai_doxygen_cleaner package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.ai_language_model.html">main.ai_language_model package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.config.html">main.config package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.data.html">main.data package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">main.db_operations package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-main.db_operations.db_insertion_handler">main.db_operations.db_insertion_handler module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-main.db_operations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="main.doxy_warning_post_processor.html">main.doxy_warning_post_processor package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.doxygen_management.html">main.doxygen_management package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.error_handler.html">main.error_handler package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.print_data.html">main.print_data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.transport_data.html">main.transport_data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.utils.html">main.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#module-main.main">main.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#module-main">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="main.html">main package</a><ul>
+      <li>Previous: <a href="main.data.html" title="previous chapter">main.data package</a></li>
+      <li>Next: <a href="main.doxy_warning_post_processor.html" title="next chapter">main.doxy_warning_post_processor package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Ismial Al Shuaybi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/main.db_operations.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

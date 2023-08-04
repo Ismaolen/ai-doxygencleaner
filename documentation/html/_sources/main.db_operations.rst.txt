@@ -1,0 +1,21 @@
+main.db\_operations package
+===========================
+
+Submodules
+----------
+
+main.db\_operations.db\_insertion\_handler module
+-------------------------------------------------
+
+.. automodule:: main.db_operations.db_insertion_handler
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: main.db_operations
+   :members:
+   :undoc-members:
+   :show-inheritance:

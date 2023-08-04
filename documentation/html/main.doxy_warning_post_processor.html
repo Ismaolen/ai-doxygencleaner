@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>main.doxy_warning_post_processor package &#8212; AI-DoxygenCleaner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="main.doxygen_management package" href="main.doxygen_management.html" />
+    <link rel="prev" title="main.db_operations package" href="main.db_operations.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="main-doxy-warning-post-processor-package">
+<h1>main.doxy_warning_post_processor package<a class="headerlink" href="#main-doxy-warning-post-processor-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-main.doxy_warning_post_processor.doxy_warning_post_processor">
+<span id="main-doxy-warning-post-processor-doxy-warning-post-processor-module"></span><h2>main.doxy_warning_post_processor.doxy_warning_post_processor module<a class="headerlink" href="#module-main.doxy_warning_post_processor.doxy_warning_post_processor" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="main.doxy_warning_post_processor.doxy_warning_post_processor.WarningPostProcessor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.doxy_warning_post_processor.doxy_warning_post_processor.</span></span><span class="sig-name descname"><span class="pre">WarningPostProcessor</span></span><a class="reference internal" href="_modules/main/doxy_warning_post_processor/doxy_warning_post_processor.html#WarningPostProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxy_warning_post_processor.doxy_warning_post_processor.WarningPostProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DoxyWarningDetector</span></code></p>
+<p>The WarningPostProcessor class handles detection and processing of warnings after fixes have been applied.</p>
+<section id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>apply_fix():</dt><dd><p>Applies fixes to the header files and saves changes.</p>
+</dd>
+<dt>detect_warning():</dt><dd><p>Detects and updates warning details post-fix.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxy_warning_post_processor.doxy_warning_post_processor.WarningPostProcessor.apply_fix">
+<span class="sig-name descname"><span class="pre">apply_fix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxy_warning_post_processor/doxy_warning_post_processor.html#WarningPostProcessor.apply_fix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxy_warning_post_processor.doxy_warning_post_processor.WarningPostProcessor.apply_fix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies fixes to the header files and saves changes.</p>
+<p>This method loads pre-warning details, loads post-fix file content, and writes the post-fix file
+content back to the header files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxy_warning_post_processor.doxy_warning_post_processor.WarningPostProcessor.detect_warning">
+<span class="sig-name descname"><span class="pre">detect_warning</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxy_warning_post_processor/doxy_warning_post_processor.html#WarningPostProcessor.detect_warning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxy_warning_post_processor.doxy_warning_post_processor.WarningPostProcessor.detect_warning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detects and updates warning details post-fix.</p>
+<p>This method loads pre-warning details, detects warnings after fixes, updates warning lists,
+and finally adds the updated warning details to the postprocessed_warnings_data.json file.</p>
+<section id="returns">
+<h4>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h4>
+<p>None</p>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-main.doxy_warning_post_processor">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-main.doxy_warning_post_processor" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">AI-DoxygenCleaner</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="main.html">main package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="main.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="main.DoxygenWarningFixer.html">main.DoxygenWarningFixer package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.ai_doxygen_cleaner.html">main.ai_doxygen_cleaner package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.ai_language_model.html">main.ai_language_model package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.config.html">main.config package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.data.html">main.data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.db_operations.html">main.db_operations package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">main.doxy_warning_post_processor package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-main.doxy_warning_post_processor.doxy_warning_post_processor">main.doxy_warning_post_processor.doxy_warning_post_processor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-main.doxy_warning_post_processor">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="main.doxygen_management.html">main.doxygen_management package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.error_handler.html">main.error_handler package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.print_data.html">main.print_data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.transport_data.html">main.transport_data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.utils.html">main.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#module-main.main">main.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#module-main">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="main.html">main package</a><ul>
+      <li>Previous: <a href="main.db_operations.html" title="previous chapter">main.db_operations package</a></li>
+      <li>Next: <a href="main.doxygen_management.html" title="next chapter">main.doxygen_management package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Ismial Al Shuaybi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/main.doxy_warning_post_processor.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

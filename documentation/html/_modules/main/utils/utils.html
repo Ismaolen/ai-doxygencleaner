@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>main.utils.utils &#8212; AI-DoxygenCleaner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for main.utils.utils</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<div class="viewcode-block" id="perform_diff_on_files"><a class="viewcode-back" href="../../../main.utils.html#main.utils.utils.perform_diff_on_files">[docs]</a><span class="k">def</span> <span class="nf">perform_diff_on_files</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compare two files and output the difference to a text file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Define the path to the files</span>
+    <span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;data/different_between_pre_and_post&#39;</span>
+
+    <span class="c1"># Define the command to perform the diff and output to a text file</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;diff -u </span><span class="si">{</span><span class="n">PATH</span><span class="si">}</span><span class="s2">/output_pre_fix.cpp </span><span class="si">{</span><span class="n">PATH</span><span class="si">}</span><span class="s2">/output_post_fix.cpp &gt; </span><span class="si">{</span><span class="n">PATH</span><span class="si">}</span><span class="s2">/diff.txt&quot;</span>
+
+    <span class="c1"># Execute the command</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="generate_html_diff"><a class="viewcode-back" href="../../../main.utils.html#main.utils.utils.generate_html_diff">[docs]</a><span class="k">def</span> <span class="nf">generate_html_diff</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate an HTML file from a diff text file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Define the path to the files</span>
+    <span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;data/different_between_pre_and_post&#39;</span>
+
+    <span class="c1"># Define the command to convert the diff text file to HTML</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;diff2html -s side -f html -i file -F </span><span class="si">{</span><span class="n">PATH</span><span class="si">}</span><span class="s2">/diff.html --hc -- </span><span class="si">{</span><span class="n">PATH</span><span class="si">}</span><span class="s2">/diff.txt&quot;</span>
+
+    <span class="c1"># Execute the command</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="compaine_warn_details"><a class="viewcode-back" href="../../../main.utils.html#main.utils.utils.compaine_warn_details">[docs]</a><span class="k">def</span> <span class="nf">compaine_warn_details</span><span class="p">(</span><span class="n">warning_content_llist</span><span class="p">,</span> <span class="n">warning_line_number_llist</span><span class="p">,</span> <span class="n">file_content_list</span><span class="p">,</span>
+                          <span class="n">header_file_name_list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compile warning details into a list of prompts.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    warning_content_llist : list</span>
+<span class="sd">        List of warning content.</span>
+<span class="sd">    warning_line_number_llist : list</span>
+<span class="sd">        List of warning line numbers.</span>
+<span class="sd">    file_content_list : list</span>
+<span class="sd">        List of file content.</span>
+<span class="sd">    header_file_name_list : list</span>
+<span class="sd">        List of header file names.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        List of prompts created from warnings and file content.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Initialize an empty list for the prompts</span>
+    <span class="n">prompt_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Iterate through each list</span>
+    <span class="k">for</span> <span class="n">warning_content_list</span><span class="p">,</span> <span class="n">warning_line_number_list</span><span class="p">,</span> <span class="n">file_content</span><span class="p">,</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">warning_content_llist</span><span class="p">,</span>
+                                                                                       <span class="n">warning_line_number_llist</span><span class="p">,</span>
+                                                                                       <span class="n">file_content_list</span><span class="p">,</span>
+                                                                                       <span class="n">header_file_name_list</span><span class="p">):</span>
+
+        <span class="c1"># Initialize an empty string for the query</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="c1"># Add warning details to the query</span>
+        <span class="k">for</span> <span class="n">warning_content</span><span class="p">,</span> <span class="n">warning_line_number</span><span class="p">,</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">warning_content_list</span><span class="p">,</span> <span class="n">warning_line_number_list</span><span class="p">):</span>
+            <span class="n">query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;line number:</span><span class="si">{</span><span class="n">warning_line_number</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">warning_content</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+        <span class="c1"># Add file content to the query</span>
+        <span class="n">query</span> <span class="o">+=</span> <span class="n">file_content</span>
+
+        <span class="c1"># Append the query to the list of prompts</span>
+        <span class="n">prompt_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+    <span class="c1"># Return the list of prompts</span>
+    <span class="k">return</span> <span class="n">prompt_list</span></div>
+
+
+<div class="viewcode-block" id="rename_and_move"><a class="viewcode-back" href="../../../main.utils.html#main.utils.utils.rename_and_move">[docs]</a><span class="k">def</span> <span class="nf">rename_and_move</span><span class="p">(</span><span class="n">source_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Move and rename a specific file from source to target directory.</span>
+
+<span class="sd">    This function takes a file named `diff.html` from the specified source path</span>
+<span class="sd">    and moves it to the target directory. In the target directory, the file is</span>
+<span class="sd">    renamed following the pattern `test_diff_{n}.html`, where `{n}` is determined</span>
+<span class="sd">    by existing files in the target directory.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    source_path : str</span>
+<span class="sd">        The path to the directory containing the `diff.html` file.</span>
+<span class="sd">    target_dir : str</span>
+<span class="sd">        The directory where the file will be moved and renamed.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        If the `diff.html` file is not found in the source path.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; rename_and_move(&#39;/path/to/source&#39;, &#39;/path/to/target&#39;)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Define path to the source file</span>
+    <span class="n">source_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">source_path</span><span class="p">,</span> <span class="s1">&#39;diff.html&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Check if source file exists</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">source_file_path</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">source_file_path</span><span class="si">}</span><span class="s2"> not found.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># List all files in the target directory</span>
+    <span class="n">existing_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">target_dir</span><span class="p">)</span>
+
+    <span class="c1"># Determine the highest existing number for test_diff_*.html files</span>
+    <span class="n">highest_number</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">existing_files</span><span class="p">:</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;test_diff_(\d+).html&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+            <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">highest_number</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">highest_number</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+
+    <span class="c1"># Determine new file number</span>
+    <span class="n">new_number</span> <span class="o">=</span> <span class="n">highest_number</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">target_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">target_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;test_diff_</span><span class="si">{</span><span class="n">new_number</span><span class="si">}</span><span class="s1">.html&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Copy and rename the file</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">source_file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source_file</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span>
+                                                                            <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">target_file</span><span class="p">:</span>
+        <span class="n">target_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">source_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span></div>
+
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">AI-DoxygenCleaner</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../main.html">main package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Ismial Al Shuaybi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

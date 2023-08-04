@@ -1,0 +1,21 @@
+main.print\_data package
+========================
+
+Submodules
+----------
+
+main.print\_data.print\_data module
+-----------------------------------
+
+.. automodule:: main.print_data.print_data
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: main.print_data
+   :members:
+   :undoc-members:
+   :show-inheritance:

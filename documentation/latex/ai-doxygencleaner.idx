@@ -1,0 +1,130 @@
+\indexentry{module@\spxentry{module}!main.DoxygenWarningFixer.doxygen\_warning\_fixer@\spxentry{main.DoxygenWarningFixer.doxygen\_warning\_fixer}|hyperpage}{1}
+\indexentry{main.DoxygenWarningFixer.doxygen\_warning\_fixer@\spxentry{main.DoxygenWarningFixer.doxygen\_warning\_fixer}!module@\spxentry{module}|hyperpage}{1}
+\indexentry{DoxygenWarningFixer (class in main.DoxygenWarningFixer.doxygen\_warning\_fixer)@\spxentry{DoxygenWarningFixer}\spxextra{class in main.DoxygenWarningFixer.doxygen\_warning\_fixer}|hyperpage}{1}
+\indexentry{print\_query() (main.DoxygenWarningFixer.doxygen\_warning\_fixer.DoxygenWarningFixer method)@\spxentry{print\_query()}\spxextra{main.DoxygenWarningFixer.doxygen\_warning\_fixer.DoxygenWarningFixer method}|hyperpage}{1}
+\indexentry{run() (main.DoxygenWarningFixer.doxygen\_warning\_fixer.DoxygenWarningFixer method)@\spxentry{run()}\spxextra{main.DoxygenWarningFixer.doxygen\_warning\_fixer.DoxygenWarningFixer method}|hyperpage}{2}
+\indexentry{wait() (main.DoxygenWarningFixer.doxygen\_warning\_fixer.DoxygenWarningFixer method)@\spxentry{wait()}\spxextra{main.DoxygenWarningFixer.doxygen\_warning\_fixer.DoxygenWarningFixer method}|hyperpage}{2}
+\indexentry{module@\spxentry{module}!main.DoxygenWarningFixer@\spxentry{main.DoxygenWarningFixer}|hyperpage}{2}
+\indexentry{main.DoxygenWarningFixer@\spxentry{main.DoxygenWarningFixer}!module@\spxentry{module}|hyperpage}{2}
+\indexentry{module@\spxentry{module}!main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner@\spxentry{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner}|hyperpage}{2}
+\indexentry{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner@\spxentry{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner}!module@\spxentry{module}|hyperpage}{2}
+\indexentry{AIDoxygenCleaner (class in main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner)@\spxentry{AIDoxygenCleaner}\spxextra{class in main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner}|hyperpage}{2}
+\indexentry{detect\_warnings\_post\_fix() (main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method)@\spxentry{detect\_warnings\_post\_fix()}\spxextra{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method}|hyperpage}{3}
+\indexentry{detect\_warnings\_pre\_fix() (main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method)@\spxentry{detect\_warnings\_pre\_fix()}\spxextra{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method}|hyperpage}{3}
+\indexentry{doxygen\_configuration() (main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method)@\spxentry{doxygen\_configuration()}\spxextra{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method}|hyperpage}{3}
+\indexentry{fix\_doxygen\_warning() (main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method)@\spxentry{fix\_doxygen\_warning()}\spxextra{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method}|hyperpage}{3}
+\indexentry{generate\_html\_diff\_page() (main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method)@\spxentry{generate\_html\_diff\_page()}\spxextra{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method}|hyperpage}{3}
+\indexentry{insert\_warnings\_to\_db() (main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method)@\spxentry{insert\_warnings\_to\_db()}\spxextra{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method}|hyperpage}{3}
+\indexentry{print\_pre\_post\_fix\_data\_to\_file() (main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method)@\spxentry{print\_pre\_post\_fix\_data\_to\_file()}\spxextra{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method}|hyperpage}{3}
+\indexentry{update\_warnings\_details\_post\_fix\_in\_db() (main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method)@\spxentry{update\_warnings\_details\_post\_fix\_in\_db()}\spxextra{main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner.AIDoxygenCleaner method}|hyperpage}{3}
+\indexentry{module@\spxentry{module}!main.ai\_doxygen\_cleaner@\spxentry{main.ai\_doxygen\_cleaner}|hyperpage}{4}
+\indexentry{main.ai\_doxygen\_cleaner@\spxentry{main.ai\_doxygen\_cleaner}!module@\spxentry{module}|hyperpage}{4}
+\indexentry{module@\spxentry{module}!main.ai\_language\_model.ai\_language\_model@\spxentry{main.ai\_language\_model.ai\_language\_model}|hyperpage}{4}
+\indexentry{main.ai\_language\_model.ai\_language\_model@\spxentry{main.ai\_language\_model.ai\_language\_model}!module@\spxentry{module}|hyperpage}{4}
+\indexentry{AILanguageModel (class in main.ai\_language\_model.ai\_language\_model)@\spxentry{AILanguageModel}\spxextra{class in main.ai\_language\_model.ai\_language\_model}|hyperpage}{4}
+\indexentry{create\_prompt\_content() (main.ai\_language\_model.ai\_language\_model.AILanguageModel method)@\spxentry{create\_prompt\_content()}\spxextra{main.ai\_language\_model.ai\_language\_model.AILanguageModel method}|hyperpage}{5}
+\indexentry{get\_num\_tokens\_from\_response() (main.ai\_language\_model.ai\_language\_model.AILanguageModel method)@\spxentry{get\_num\_tokens\_from\_response()}\spxextra{main.ai\_language\_model.ai\_language\_model.AILanguageModel method}|hyperpage}{5}
+\indexentry{set\_response\_content() (main.ai\_language\_model.ai\_language\_model.AILanguageModel method)@\spxentry{set\_response\_content()}\spxextra{main.ai\_language\_model.ai\_language\_model.AILanguageModel method}|hyperpage}{5}
+\indexentry{validate\_response\_content() (main.ai\_language\_model.ai\_language\_model.AILanguageModel method)@\spxentry{validate\_response\_content()}\spxextra{main.ai\_language\_model.ai\_language\_model.AILanguageModel method}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!main.ai\_language\_model@\spxentry{main.ai\_language\_model}|hyperpage}{5}
+\indexentry{main.ai\_language\_model@\spxentry{main.ai\_language\_model}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!main.config.config\_paths@\spxentry{main.config.config\_paths}|hyperpage}{5}
+\indexentry{main.config.config\_paths@\spxentry{main.config.config\_paths}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!main.config.config\_variables@\spxentry{main.config.config\_variables}|hyperpage}{5}
+\indexentry{main.config.config\_variables@\spxentry{main.config.config\_variables}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!main.config@\spxentry{main.config}|hyperpage}{6}
+\indexentry{main.config@\spxentry{main.config}!module@\spxentry{module}|hyperpage}{6}
+\indexentry{module@\spxentry{module}!main.data@\spxentry{main.data}|hyperpage}{6}
+\indexentry{main.data@\spxentry{main.data}!module@\spxentry{module}|hyperpage}{6}
+\indexentry{module@\spxentry{module}!main.db\_operations.db\_insertion\_handler@\spxentry{main.db\_operations.db\_insertion\_handler}|hyperpage}{6}
+\indexentry{main.db\_operations.db\_insertion\_handler@\spxentry{main.db\_operations.db\_insertion\_handler}!module@\spxentry{module}|hyperpage}{6}
+\indexentry{DBInsertionHandler (class in main.db\_operations.db\_insertion\_handler)@\spxentry{DBInsertionHandler}\spxextra{class in main.db\_operations.db\_insertion\_handler}|hyperpage}{6}
+\indexentry{connect\_to\_database() (main.db\_operations.db\_insertion\_handler.DBInsertionHandler method)@\spxentry{connect\_to\_database()}\spxextra{main.db\_operations.db\_insertion\_handler.DBInsertionHandler method}|hyperpage}{7}
+\indexentry{create\_cursor() (main.db\_operations.db\_insertion\_handler.DBInsertionHandler method)@\spxentry{create\_cursor()}\spxextra{main.db\_operations.db\_insertion\_handler.DBInsertionHandler method}|hyperpage}{7}
+\indexentry{insert\_into\_header\_file\_table() (main.db\_operations.db\_insertion\_handler.DBInsertionHandler method)@\spxentry{insert\_into\_header\_file\_table()}\spxextra{main.db\_operations.db\_insertion\_handler.DBInsertionHandler method}|hyperpage}{8}
+\indexentry{insert\_into\_pipeline\_table() (main.db\_operations.db\_insertion\_handler.DBInsertionHandler method)@\spxentry{insert\_into\_pipeline\_table()}\spxextra{main.db\_operations.db\_insertion\_handler.DBInsertionHandler method}|hyperpage}{8}
+\indexentry{insert\_into\_project\_table() (main.db\_operations.db\_insertion\_handler.DBInsertionHandler method)@\spxentry{insert\_into\_project\_table()}\spxextra{main.db\_operations.db\_insertion\_handler.DBInsertionHandler method}|hyperpage}{8}
+\indexentry{insert\_into\_warning\_table\_pre\_fix() (main.db\_operations.db\_insertion\_handler.DBInsertionHandler method)@\spxentry{insert\_into\_warning\_table\_pre\_fix()}\spxextra{main.db\_operations.db\_insertion\_handler.DBInsertionHandler method}|hyperpage}{9}
+\indexentry{insert\_warnings\_details() (main.db\_operations.db\_insertion\_handler.DBInsertionHandler method)@\spxentry{insert\_warnings\_details()}\spxextra{main.db\_operations.db\_insertion\_handler.DBInsertionHandler method}|hyperpage}{9}
+\indexentry{set\_pipeline\_data() (main.db\_operations.db\_insertion\_handler.DBInsertionHandler method)@\spxentry{set\_pipeline\_data()}\spxextra{main.db\_operations.db\_insertion\_handler.DBInsertionHandler method}|hyperpage}{10}
+\indexentry{update\_last\_header\_file\_id() (main.db\_operations.db\_insertion\_handler.DBInsertionHandler method)@\spxentry{update\_last\_header\_file\_id()}\spxextra{main.db\_operations.db\_insertion\_handler.DBInsertionHandler method}|hyperpage}{10}
+\indexentry{update\_last\_project\_id() (main.db\_operations.db\_insertion\_handler.DBInsertionHandler method)@\spxentry{update\_last\_project\_id()}\spxextra{main.db\_operations.db\_insertion\_handler.DBInsertionHandler method}|hyperpage}{10}
+\indexentry{update\_post\_fix\_warning\_details() (main.db\_operations.db\_insertion\_handler.DBInsertionHandler method)@\spxentry{update\_post\_fix\_warning\_details()}\spxextra{main.db\_operations.db\_insertion\_handler.DBInsertionHandler method}|hyperpage}{10}
+\indexentry{module@\spxentry{module}!main.db\_operations@\spxentry{main.db\_operations}|hyperpage}{11}
+\indexentry{main.db\_operations@\spxentry{main.db\_operations}!module@\spxentry{module}|hyperpage}{11}
+\indexentry{module@\spxentry{module}!main.doxy\_warning\_post\_processor.doxy\_warning\_post\_processor@\spxentry{main.doxy\_warning\_post\_processor.doxy\_warning\_post\_processor}|hyperpage}{11}
+\indexentry{main.doxy\_warning\_post\_processor.doxy\_warning\_post\_processor@\spxentry{main.doxy\_warning\_post\_processor.doxy\_warning\_post\_processor}!module@\spxentry{module}|hyperpage}{11}
+\indexentry{WarningPostProcessor (class in main.doxy\_warning\_post\_processor.doxy\_warning\_post\_processor)@\spxentry{WarningPostProcessor}\spxextra{class in main.doxy\_warning\_post\_processor.doxy\_warning\_post\_processor}|hyperpage}{11}
+\indexentry{apply\_fix() (main.doxy\_warning\_post\_processor.doxy\_warning\_post\_processor.WarningPostProcessor method)@\spxentry{apply\_fix()}\spxextra{main.doxy\_warning\_post\_processor.doxy\_warning\_post\_processor.WarningPostProcessor method}|hyperpage}{11}
+\indexentry{detect\_warning() (main.doxy\_warning\_post\_processor.doxy\_warning\_post\_processor.WarningPostProcessor method)@\spxentry{detect\_warning()}\spxextra{main.doxy\_warning\_post\_processor.doxy\_warning\_post\_processor.WarningPostProcessor method}|hyperpage}{11}
+\indexentry{module@\spxentry{module}!main.doxy\_warning\_post\_processor@\spxentry{main.doxy\_warning\_post\_processor}|hyperpage}{11}
+\indexentry{main.doxy\_warning\_post\_processor@\spxentry{main.doxy\_warning\_post\_processor}!module@\spxentry{module}|hyperpage}{11}
+\indexentry{module@\spxentry{module}!main.doxygen\_management.doxy\_warning\_detector@\spxentry{main.doxygen\_management.doxy\_warning\_detector}|hyperpage}{11}
+\indexentry{main.doxygen\_management.doxy\_warning\_detector@\spxentry{main.doxygen\_management.doxy\_warning\_detector}!module@\spxentry{module}|hyperpage}{11}
+\indexentry{DoxyWarningDetector (class in main.doxygen\_management.doxy\_warning\_detector)@\spxentry{DoxyWarningDetector}\spxextra{class in main.doxygen\_management.doxy\_warning\_detector}|hyperpage}{11}
+\indexentry{check\_project\_directory() (main.doxygen\_management.doxy\_warning\_detector.DoxyWarningDetector method)@\spxentry{check\_project\_directory()}\spxextra{main.doxygen\_management.doxy\_warning\_detector.DoxyWarningDetector method}|hyperpage}{12}
+\indexentry{extract\_warnings() (main.doxygen\_management.doxy\_warning\_detector.DoxyWarningDetector method)@\spxentry{extract\_warnings()}\spxextra{main.doxygen\_management.doxy\_warning\_detector.DoxyWarningDetector method}|hyperpage}{12}
+\indexentry{get\_all\_header\_files() (main.doxygen\_management.doxy\_warning\_detector.DoxyWarningDetector method)@\spxentry{get\_all\_header\_files()}\spxextra{main.doxygen\_management.doxy\_warning\_detector.DoxyWarningDetector method}|hyperpage}{13}
+\indexentry{run\_doxygen() (main.doxygen\_management.doxy\_warning\_detector.DoxyWarningDetector method)@\spxentry{run\_doxygen()}\spxextra{main.doxygen\_management.doxy\_warning\_detector.DoxyWarningDetector method}|hyperpage}{13}
+\indexentry{run\_doxygen\_for\_file() (main.doxygen\_management.doxy\_warning\_detector.DoxyWarningDetector method)@\spxentry{run\_doxygen\_for\_file()}\spxextra{main.doxygen\_management.doxy\_warning\_detector.DoxyWarningDetector method}|hyperpage}{13}
+\indexentry{module@\spxentry{module}!main.doxygen\_management.doxyfile\_configurator@\spxentry{main.doxygen\_management.doxyfile\_configurator}|hyperpage}{14}
+\indexentry{main.doxygen\_management.doxyfile\_configurator@\spxentry{main.doxygen\_management.doxyfile\_configurator}!module@\spxentry{module}|hyperpage}{14}
+\indexentry{DoxyfileConfigurator (class in main.doxygen\_management.doxyfile\_configurator)@\spxentry{DoxyfileConfigurator}\spxextra{class in main.doxygen\_management.doxyfile\_configurator}|hyperpage}{14}
+\indexentry{add\_spaces\_to\_string() (main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method)@\spxentry{add\_spaces\_to\_string()}\spxextra{main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method}|hyperpage}{14}
+\indexentry{configure\_doxyfile() (main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method)@\spxentry{configure\_doxyfile()}\spxextra{main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method}|hyperpage}{14}
+\indexentry{create\_doxyfile() (main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method)@\spxentry{create\_doxyfile()}\spxextra{main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method}|hyperpage}{15}
+\indexentry{get\_header\_files() (main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method)@\spxentry{get\_header\_files()}\spxextra{main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method}|hyperpage}{15}
+\indexentry{get\_single\_subfolder() (main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method)@\spxentry{get\_single\_subfolder()}\spxextra{main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method}|hyperpage}{15}
+\indexentry{remove\_doxyfile\_if\_exists() (main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method)@\spxentry{remove\_doxyfile\_if\_exists()}\spxextra{main.doxygen\_management.doxyfile\_configurator.DoxyfileConfigurator method}|hyperpage}{16}
+\indexentry{module@\spxentry{module}!main.doxygen\_management.file\_handler@\spxentry{main.doxygen\_management.file\_handler}|hyperpage}{16}
+\indexentry{main.doxygen\_management.file\_handler@\spxentry{main.doxygen\_management.file\_handler}!module@\spxentry{module}|hyperpage}{16}
+\indexentry{FileHandler (class in main.doxygen\_management.file\_handler)@\spxentry{FileHandler}\spxextra{class in main.doxygen\_management.file\_handler}|hyperpage}{16}
+\indexentry{find\_line\_numbers() (main.doxygen\_management.file\_handler.FileHandler method)@\spxentry{find\_line\_numbers()}\spxextra{main.doxygen\_management.file\_handler.FileHandler method}|hyperpage}{17}
+\indexentry{has\_single\_line() (main.doxygen\_management.file\_handler.FileHandler method)@\spxentry{has\_single\_line()}\spxextra{main.doxygen\_management.file\_handler.FileHandler method}|hyperpage}{17}
+\indexentry{read\_file() (main.doxygen\_management.file\_handler.FileHandler method)@\spxentry{read\_file()}\spxextra{main.doxygen\_management.file\_handler.FileHandler method}|hyperpage}{17}
+\indexentry{redirect\_print\_to\_file() (main.doxygen\_management.file\_handler.FileHandler method)@\spxentry{redirect\_print\_to\_file()}\spxextra{main.doxygen\_management.file\_handler.FileHandler method}|hyperpage}{18}
+\indexentry{write\_file() (main.doxygen\_management.file\_handler.FileHandler method)@\spxentry{write\_file()}\spxextra{main.doxygen\_management.file\_handler.FileHandler method}|hyperpage}{18}
+\indexentry{module@\spxentry{module}!main.doxygen\_management@\spxentry{main.doxygen\_management}|hyperpage}{19}
+\indexentry{main.doxygen\_management@\spxentry{main.doxygen\_management}!module@\spxentry{module}|hyperpage}{19}
+\indexentry{module@\spxentry{module}!main.error\_handler.error\_handler@\spxentry{main.error\_handler.error\_handler}|hyperpage}{19}
+\indexentry{main.error\_handler.error\_handler@\spxentry{main.error\_handler.error\_handler}!module@\spxentry{module}|hyperpage}{19}
+\indexentry{ErrorHandler (class in main.error\_handler.error\_handler)@\spxentry{ErrorHandler}\spxextra{class in main.error\_handler.error\_handler}|hyperpage}{19}
+\indexentry{execute\_sql() (main.error\_handler.error\_handler.ErrorHandler static method)@\spxentry{execute\_sql()}\spxextra{main.error\_handler.error\_handler.ErrorHandler static method}|hyperpage}{19}
+\indexentry{handle\_file\_not\_found\_error() (main.error\_handler.error\_handler.ErrorHandler static method)@\spxentry{handle\_file\_not\_found\_error()}\spxextra{main.error\_handler.error\_handler.ErrorHandler static method}|hyperpage}{19}
+\indexentry{handle\_subprocess\_error() (main.error\_handler.error\_handler.ErrorHandler static method)@\spxentry{handle\_subprocess\_error()}\spxextra{main.error\_handler.error\_handler.ErrorHandler static method}|hyperpage}{20}
+\indexentry{module@\spxentry{module}!main.error\_handler@\spxentry{main.error\_handler}|hyperpage}{20}
+\indexentry{main.error\_handler@\spxentry{main.error\_handler}!module@\spxentry{module}|hyperpage}{20}
+\indexentry{module@\spxentry{module}!main.print\_data.print\_data@\spxentry{main.print\_data.print\_data}|hyperpage}{20}
+\indexentry{main.print\_data.print\_data@\spxentry{main.print\_data.print\_data}!module@\spxentry{module}|hyperpage}{20}
+\indexentry{print\_project\_details() (in module main.print\_data.print\_data)@\spxentry{print\_project\_details()}\spxextra{in module main.print\_data.print\_data}|hyperpage}{20}
+\indexentry{print\_project\_details\_without\_color() (in module main.print\_data.print\_data)@\spxentry{print\_project\_details\_without\_color()}\spxextra{in module main.print\_data.print\_data}|hyperpage}{21}
+\indexentry{module@\spxentry{module}!main.print\_data@\spxentry{main.print\_data}|hyperpage}{22}
+\indexentry{main.print\_data@\spxentry{main.print\_data}!module@\spxentry{module}|hyperpage}{22}
+\indexentry{module@\spxentry{module}!main.transport\_data.transport\_data@\spxentry{main.transport\_data.transport\_data}|hyperpage}{22}
+\indexentry{main.transport\_data.transport\_data@\spxentry{main.transport\_data.transport\_data}!module@\spxentry{module}|hyperpage}{22}
+\indexentry{add\_data\_to\_json() (in module main.transport\_data.transport\_data)@\spxentry{add\_data\_to\_json()}\spxextra{in module main.transport\_data.transport\_data}|hyperpage}{22}
+\indexentry{load\_data\_from\_json() (in module main.transport\_data.transport\_data)@\spxentry{load\_data\_from\_json()}\spxextra{in module main.transport\_data.transport\_data}|hyperpage}{22}
+\indexentry{load\_post\_fix\_data\_from\_json() (in module main.transport\_data.transport\_data)@\spxentry{load\_post\_fix\_data\_from\_json()}\spxextra{in module main.transport\_data.transport\_data}|hyperpage}{22}
+\indexentry{load\_pre\_fix\_data\_from\_json() (in module main.transport\_data.transport\_data)@\spxentry{load\_pre\_fix\_data\_from\_json()}\spxextra{in module main.transport\_data.transport\_data}|hyperpage}{22}
+\indexentry{save\_data\_to\_json() (in module main.transport\_data.transport\_data)@\spxentry{save\_data\_to\_json()}\spxextra{in module main.transport\_data.transport\_data}|hyperpage}{23}
+\indexentry{module@\spxentry{module}!main.transport\_data@\spxentry{main.transport\_data}|hyperpage}{23}
+\indexentry{main.transport\_data@\spxentry{main.transport\_data}!module@\spxentry{module}|hyperpage}{23}
+\indexentry{module@\spxentry{module}!main.utils.runtime\_measurement@\spxentry{main.utils.runtime\_measurement}|hyperpage}{23}
+\indexentry{main.utils.runtime\_measurement@\spxentry{main.utils.runtime\_measurement}!module@\spxentry{module}|hyperpage}{23}
+\indexentry{measure\_runtimes\_for\_different\_lines() (in module main.utils.runtime\_measurement)@\spxentry{measure\_runtimes\_for\_different\_lines()}\spxextra{in module main.utils.runtime\_measurement}|hyperpage}{23}
+\indexentry{remove\_unwanted\_line() (in module main.utils.runtime\_measurement)@\spxentry{remove\_unwanted\_line()}\spxextra{in module main.utils.runtime\_measurement}|hyperpage}{23}
+\indexentry{remove\_unwanted\_lines\_more\_efficient() (in module main.utils.runtime\_measurement)@\spxentry{remove\_unwanted\_lines\_more\_efficient()}\spxextra{in module main.utils.runtime\_measurement}|hyperpage}{23}
+\indexentry{remove\_unwanted\_lines\_with\_dict() (in module main.utils.runtime\_measurement)@\spxentry{remove\_unwanted\_lines\_with\_dict()}\spxextra{in module main.utils.runtime\_measurement}|hyperpage}{23}
+\indexentry{runtimes (in module main.utils.runtime\_measurement)@\spxentry{runtimes}\spxextra{in module main.utils.runtime\_measurement}|hyperpage}{23}
+\indexentry{module@\spxentry{module}!main.utils.utils@\spxentry{main.utils.utils}|hyperpage}{24}
+\indexentry{main.utils.utils@\spxentry{main.utils.utils}!module@\spxentry{module}|hyperpage}{24}
+\indexentry{compaine\_warn\_details() (in module main.utils.utils)@\spxentry{compaine\_warn\_details()}\spxextra{in module main.utils.utils}|hyperpage}{24}
+\indexentry{generate\_html\_diff() (in module main.utils.utils)@\spxentry{generate\_html\_diff()}\spxextra{in module main.utils.utils}|hyperpage}{25}
+\indexentry{perform\_diff\_on\_files() (in module main.utils.utils)@\spxentry{perform\_diff\_on\_files()}\spxextra{in module main.utils.utils}|hyperpage}{25}
+\indexentry{rename\_and\_move() (in module main.utils.utils)@\spxentry{rename\_and\_move()}\spxextra{in module main.utils.utils}|hyperpage}{25}
+\indexentry{module@\spxentry{module}!main.utils@\spxentry{main.utils}|hyperpage}{26}
+\indexentry{main.utils@\spxentry{main.utils}!module@\spxentry{module}|hyperpage}{26}
+\indexentry{module@\spxentry{module}!main.main@\spxentry{main.main}|hyperpage}{26}
+\indexentry{main.main@\spxentry{main.main}!module@\spxentry{module}|hyperpage}{26}
+\indexentry{module@\spxentry{module}!main@\spxentry{main}|hyperpage}{26}
+\indexentry{main@\spxentry{main}!module@\spxentry{module}|hyperpage}{26}

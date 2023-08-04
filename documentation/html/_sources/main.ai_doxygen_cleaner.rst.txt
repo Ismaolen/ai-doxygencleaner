@@ -1,0 +1,21 @@
+main.ai\_doxygen\_cleaner package
+=================================
+
+Submodules
+----------
+
+main.ai\_doxygen\_cleaner.ai\_doxygen\_cleaner module
+-----------------------------------------------------
+
+.. automodule:: main.ai_doxygen_cleaner.ai_doxygen_cleaner
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: main.ai_doxygen_cleaner
+   :members:
+   :undoc-members:
+   :show-inheritance:
