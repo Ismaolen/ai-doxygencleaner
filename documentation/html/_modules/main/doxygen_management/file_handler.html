@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>main.doxygen_management.file_handler &#8212; AI-DoxygenCleaner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for main.doxygen_management.file_handler</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">print_data.print_data</span> <span class="kn">import</span> <span class="n">print_project_details_without_color</span>
+
+
+<div class="viewcode-block" id="FileHandler"><a class="viewcode-back" href="../../../main.doxygen_management.html#main.doxygen_management.file_handler.FileHandler">[docs]</a><span class="k">class</span> <span class="nc">FileHandler</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class used to handle file operations.</span>
+
+<span class="sd">    ...</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    read_file(filename: str) -&gt; list:</span>
+<span class="sd">        Reads a file and returns its contents as a list of lines.</span>
+<span class="sd">    write_file(filename: str, lines: list):</span>
+<span class="sd">        Writes a list of lines into a file.</span>
+<span class="sd">    has_single_line(list: list) -&gt; bool:</span>
+<span class="sd">        Checks if a list has only a single line.</span>
+<span class="sd">    find_line_numbers(filename: str, searched_text: str) -&gt; int:</span>
+<span class="sd">        Finds the line numbers of all the occurrences of a specific text in a file.</span>
+
+<span class="sd">    redirect_print_to_file(self, project_folder_path, header_file_name_list,</span>
+<span class="sd">                               warning_num_list, warning_content_llist,</span>
+<span class="sd">                               warning_line_number_llist, file_content_list, pre_or_post,</span>
+<span class="sd">                               output_file):</span>
+<span class="sd">        Redirects the output of the `print_project_details_without_color` function to a specified file.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FileHandler.read_file"><a class="viewcode-back" href="../../../main.doxygen_management.html#main.doxygen_management.file_handler.FileHandler.read_file">[docs]</a>    <span class="k">def</span> <span class="nf">read_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reads a file and returns its contents as a list of lines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            The name of the file to be read.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list</span>
+<span class="sd">            A list of lines from the file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
+        <span class="k">return</span> <span class="n">lines</span></div>
+
+<div class="viewcode-block" id="FileHandler.write_file"><a class="viewcode-back" href="../../../main.doxygen_management.html#main.doxygen_management.file_handler.FileHandler.write_file">[docs]</a>    <span class="k">def</span> <span class="nf">write_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Writes a list of lines into a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            The name of the file to write to.</span>
+<span class="sd">        lines : list</span>
+<span class="sd">            A list containing the lines to be written to the file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FileHandler.has_single_line"><a class="viewcode-back" href="../../../main.doxygen_management.html#main.doxygen_management.file_handler.FileHandler.has_single_line">[docs]</a>    <span class="k">def</span> <span class="nf">has_single_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">list</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if a list has only a single line.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        list : list</span>
+<span class="sd">            The list to check.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            True if the list has only a single line, else it exits the program.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;Error: More than one line detected.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FileHandler.find_line_numbers"><a class="viewcode-back" href="../../../main.doxygen_management.html#main.doxygen_management.file_handler.FileHandler.find_line_numbers">[docs]</a>    <span class="k">def</span> <span class="nf">find_line_numbers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">searched_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds the line numbers of all the occurrences of a specific text in a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            The name of the file to be searched.</span>
+<span class="sd">        searched_text : str</span>
+<span class="sd">            The text to be found.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            The line number of the first occurrence of the search text</span>
+<span class="sd">            if there is only one occurrence, else it exits the program.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">line_numbers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">searched_text</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                    <span class="n">line_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_single_line</span><span class="p">(</span><span class="n">line_numbers</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">line_numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="FileHandler.redirect_print_to_file"><a class="viewcode-back" href="../../../main.doxygen_management.html#main.doxygen_management.file_handler.FileHandler.redirect_print_to_file">[docs]</a>    <span class="k">def</span> <span class="nf">redirect_print_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">project_folder_path</span><span class="p">,</span> <span class="n">header_file_name_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                               <span class="n">warning_num_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">warning_content_llist</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                               <span class="n">warning_line_number_llist</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">file_content_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pre_or_post</span><span class="p">,</span>
+                               <span class="n">output_file</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Redirects the output of the `print_project_details_without_color` function to a specified file.</span>
+
+<span class="sd">        This function modifies the standard output (stdout) to a specified file,</span>
+<span class="sd">        calls a function to print data without color, and then restores stdout to its original state.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        project_folder_path : str</span>
+<span class="sd">            The path of the project folder.</span>
+<span class="sd">        header_file_name_list : list</span>
+<span class="sd">            List of header file names.</span>
+<span class="sd">        warning_num_list : list</span>
+<span class="sd">            List of warning numbers.</span>
+<span class="sd">        warning_content_llist : list</span>
+<span class="sd">            List of warning content.</span>
+<span class="sd">        warning_line_number_llist : list</span>
+<span class="sd">            List of warning line numbers.</span>
+<span class="sd">        file_content_list : list</span>
+<span class="sd">            List of file content.</span>
+<span class="sd">        pre_or_post : str</span>
+<span class="sd">            String indicating whether it&#39;s pre or post data.</span>
+<span class="sd">        output_file : str</span>
+<span class="sd">            Path to the output file where print statements are to be redirected.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>  <span class="c1"># Open the output file in write mode</span>
+            <span class="n">original_stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>  <span class="c1"># Save the original stdout</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">f</span>  <span class="c1"># Redirect the stdout to the file</span>
+
+            <span class="c1"># Call the function to print data without color</span>
+            <span class="n">print_project_details_without_color</span><span class="p">(</span><span class="n">project_folder_path</span><span class="p">,</span> <span class="n">header_file_name_list</span><span class="p">,</span>
+                                                <span class="n">warning_num_list</span><span class="p">,</span> <span class="n">warning_content_llist</span><span class="p">,</span>
+                                                <span class="n">warning_line_number_llist</span><span class="p">,</span> <span class="n">pre_or_post</span><span class="p">,</span> <span class="n">file_content_list</span><span class="p">)</span>
+
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">original_stdout</span>  <span class="c1"># Restore the original stdout</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">AI-DoxygenCleaner</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../main.html">main package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Ismial Al Shuaybi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

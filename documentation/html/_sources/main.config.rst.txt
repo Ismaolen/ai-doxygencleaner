@@ -1,0 +1,29 @@
+main.config package
+===================
+
+Submodules
+----------
+
+main.config.config\_paths module
+--------------------------------
+
+.. automodule:: main.config.config_paths
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+main.config.config\_variables module
+------------------------------------
+
+.. automodule:: main.config.config_variables
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: main.config
+   :members:
+   :undoc-members:
+   :show-inheritance:

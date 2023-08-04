@@ -1,0 +1,21 @@
+main.DoxygenWarningFixer package
+================================
+
+Submodules
+----------
+
+main.DoxygenWarningFixer.doxygen\_warning\_fixer module
+-------------------------------------------------------
+
+.. automodule:: main.DoxygenWarningFixer.doxygen_warning_fixer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: main.DoxygenWarningFixer
+   :members:
+   :undoc-members:
+   :show-inheritance:

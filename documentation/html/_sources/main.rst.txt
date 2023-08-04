@@ -1,0 +1,39 @@
+main package
+============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   main.DoxygenWarningFixer
+   main.ai_doxygen_cleaner
+   main.ai_language_model
+   main.config
+   main.db_operations
+   main.doxy_warning_post_processor
+   main.doxygen_management
+   main.error_handler
+   main.print_data
+   main.transport_data
+   main.utils
+
+Submodules
+----------
+
+main.main module
+----------------
+
+.. automodule:: main.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: main
+   :members:
+   :undoc-members:
+   :show-inheritance:

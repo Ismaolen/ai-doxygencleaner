@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>main.doxy_warning_post_processor.doxy_warning_post_processor &#8212; AI-DoxygenCleaner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for main.doxy_warning_post_processor.doxy_warning_post_processor</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">doxygen_management.doxy_warning_detector</span> <span class="kn">import</span> <span class="n">DoxyWarningDetector</span>
+<span class="kn">from</span> <span class="nn">print_data.print_data</span> <span class="kn">import</span> <span class="n">print_project_details</span>
+<span class="kn">from</span> <span class="nn">transport_data.transport_data</span> <span class="kn">import</span> <span class="n">load_data_from_json</span><span class="p">,</span> <span class="n">add_data_to_json</span><span class="p">,</span> <span class="n">load_pre_fix_data_from_json</span>
+
+
+<div class="viewcode-block" id="WarningPostProcessor"><a class="viewcode-back" href="../../../main.doxy_warning_post_processor.html#main.doxy_warning_post_processor.doxy_warning_post_processor.WarningPostProcessor">[docs]</a><span class="k">class</span> <span class="nc">WarningPostProcessor</span><span class="p">(</span><span class="n">DoxyWarningDetector</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The WarningPostProcessor class handles detection and processing of warnings after fixes have been applied.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    apply_fix():</span>
+<span class="sd">        Applies fixes to the header files and saves changes.</span>
+<span class="sd">    detect_warning():</span>
+<span class="sd">        Detects and updates warning details post-fix.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">DoxyWarningDetector</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructs all the necessary attributes for the WarningPostProcessor object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="WarningPostProcessor.apply_fix"><a class="viewcode-back" href="../../../main.doxy_warning_post_processor.html#main.doxy_warning_post_processor.doxy_warning_post_processor.WarningPostProcessor.apply_fix">[docs]</a>    <span class="k">def</span> <span class="nf">apply_fix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies fixes to the header files and saves changes.</span>
+
+<span class="sd">        This method loads pre-warning details, loads post-fix file content, and writes the post-fix file</span>
+<span class="sd">        content back to the header files.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Load warning details from preprocessed_warnings_data.json</span>
+        <span class="p">(</span><span class="n">project_folder_pre_fix_path</span><span class="p">,</span> <span class="n">header_file_name_pre_fix_list</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">load_pre_fix_data_from_json</span><span class="p">()</span>
+
+        <span class="c1"># Load post-fix file content list</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">load_data_from_json</span><span class="p">(</span><span class="s2">&quot;transport_data/postprocessed_warnings_data.json&quot;</span><span class="p">)</span>
+        <span class="n">file_content_post_fix_list</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;file_content_post_fix_list&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Write file_content_post_fix_list to header files</span>
+        <span class="k">for</span> <span class="n">file_content_post_fix</span><span class="p">,</span> <span class="n">header_file_name_pre_fix</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">file_content_post_fix_list</span><span class="p">,</span>
+                                                                   <span class="n">header_file_name_pre_fix_list</span><span class="p">):</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="n">project_folder_pre_fix_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">header_file_name_pre_fix</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">file_content_post_fix</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="WarningPostProcessor.detect_warning"><a class="viewcode-back" href="../../../main.doxy_warning_post_processor.html#main.doxy_warning_post_processor.doxy_warning_post_processor.WarningPostProcessor.detect_warning">[docs]</a>    <span class="k">def</span> <span class="nf">detect_warning</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Detects and updates warning details post-fix.</span>
+
+<span class="sd">        This method loads pre-warning details, detects warnings after fixes, updates warning lists,</span>
+<span class="sd">        and finally adds the updated warning details to the postprocessed_warnings_data.json file.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Load warning details from preprocessed_warnings_data.json</span>
+        <span class="p">(</span><span class="n">project_folder_pre_fix_path</span><span class="p">,</span> <span class="n">header_file_name_pre_fix_list</span><span class="p">,</span> <span class="n">file_content_pre_fix_list</span><span class="p">,</span>
+         <span class="n">warning_num_pre_fix_list</span><span class="p">,</span> <span class="n">warning_content_pre_fix_llist</span><span class="p">,</span>
+         <span class="n">warning_line_number_pre_fix_llist</span><span class="p">)</span> <span class="o">=</span> <span class="n">load_pre_fix_data_from_json</span><span class="p">()</span>
+
+        <span class="c1"># Detect warnings after fixes have been applied</span>
+        <span class="c1"># detect_warning = DoxyWarningDetector()</span>
+        <span class="n">project_folder_post_fix_path</span><span class="p">,</span> <span class="n">header_file_name_post_fix_list</span><span class="p">,</span> \
+            <span class="n">_</span><span class="p">,</span> <span class="n">warning_num_post_fix_list</span><span class="p">,</span> \
+            <span class="n">warning_content_post_fix_llist</span><span class="p">,</span> <span class="n">warning_line_number_post_fix_llist</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">run_doxygen</span><span class="p">()</span>
+
+        <span class="c1"># Update the warning lists with the post-fix warnings</span>
+        <span class="c1"># Step 1: Generate a dictionary where the keys are the names from the post-fix list</span>
+        <span class="c1"># and the values are their corresponding index positions.</span>
+        <span class="n">header_file_name_post_fix_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">header_file_name_post_fix_list</span><span class="p">)}</span>
+        <span class="c1"># Step 2: Loop over the pre-fix list.</span>
+        <span class="k">for</span> <span class="n">pos_pre</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">header_file_name_pre_fix_list</span><span class="p">):</span>
+            <span class="c1"># Step 3: Try to find the value of &#39;name&#39; in the dictionary.</span>
+            <span class="n">pos_post</span> <span class="o">=</span> <span class="n">header_file_name_post_fix_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="c1"># Step 4: If &#39;pos_post&#39; is not None (i.e., the name was found in the dictionary),</span>
+            <span class="c1"># update the values in the pre-fix lists with the corresponding values from the post-fix lists.</span>
+            <span class="k">if</span> <span class="n">pos_post</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">warning_num_pre_fix_list</span><span class="p">[</span><span class="n">pos_pre</span><span class="p">]</span> <span class="o">=</span> <span class="n">warning_num_post_fix_list</span><span class="p">[</span><span class="n">pos_post</span><span class="p">]</span>
+                <span class="n">warning_content_pre_fix_llist</span><span class="p">[</span><span class="n">pos_pre</span><span class="p">]</span> <span class="o">=</span> <span class="n">warning_content_post_fix_llist</span><span class="p">[</span><span class="n">pos_post</span><span class="p">]</span>
+                <span class="n">warning_line_number_pre_fix_llist</span><span class="p">[</span><span class="n">pos_pre</span><span class="p">]</span> <span class="o">=</span> <span class="n">warning_line_number_post_fix_llist</span><span class="p">[</span><span class="n">pos_post</span><span class="p">]</span>
+            <span class="c1"># If &#39;pos_post&#39; is None (i.e., the name was not found in the dictionary),</span>
+            <span class="c1"># set the values in the pre-fix lists to None.</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">warning_num_pre_fix_list</span><span class="p">[</span><span class="n">pos_pre</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">warning_content_pre_fix_llist</span><span class="p">[</span><span class="n">pos_pre</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">warning_line_number_pre_fix_llist</span><span class="p">[</span><span class="n">pos_pre</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Add updated warning details to postprocessed_warnings_data.json file</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;project_folder_post_fix_path&quot;</span><span class="p">:</span> <span class="n">project_folder_pre_fix_path</span><span class="p">,</span>
+            <span class="s2">&quot;header_file_name_post_fix_list&quot;</span><span class="p">:</span> <span class="n">header_file_name_pre_fix_list</span><span class="p">,</span>
+            <span class="s2">&quot;warning_num_post_fix_list&quot;</span><span class="p">:</span> <span class="n">warning_num_pre_fix_list</span><span class="p">,</span>
+            <span class="s2">&quot;warning_content_post_fix_llist&quot;</span><span class="p">:</span> <span class="n">warning_content_pre_fix_llist</span><span class="p">,</span>
+            <span class="s2">&quot;warning_line_number_post_fix_llist&quot;</span><span class="p">:</span> <span class="n">warning_line_number_pre_fix_llist</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">add_data_to_json</span><span class="p">(</span><span class="s2">&quot;transport_data/postprocessed_warnings_data.json&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="n">print_project_details</span><span class="p">(</span><span class="n">project_folder_pre_fix_path</span><span class="p">,</span> <span class="n">header_file_name_pre_fix_list</span><span class="p">,</span>
+                              <span class="n">warning_num_pre_fix_list</span><span class="p">,</span> <span class="n">warning_content_pre_fix_llist</span><span class="p">,</span>
+                              <span class="n">warning_line_number_pre_fix_llist</span><span class="p">,</span>
+                              <span class="s1">&#39;Post&#39;</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">AI-DoxygenCleaner</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../main.html">main package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Ismial Al Shuaybi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

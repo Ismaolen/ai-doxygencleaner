@@ -1,0 +1,21 @@
+main.error\_handler package
+===========================
+
+Submodules
+----------
+
+main.error\_handler.error\_handler module
+-----------------------------------------
+
+.. automodule:: main.error_handler.error_handler
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: main.error_handler
+   :members:
+   :undoc-members:
+   :show-inheritance:

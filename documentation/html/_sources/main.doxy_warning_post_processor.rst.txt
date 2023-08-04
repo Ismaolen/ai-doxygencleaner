@@ -1,0 +1,21 @@
+main.doxy\_warning\_post\_processor package
+===========================================
+
+Submodules
+----------
+
+main.doxy\_warning\_post\_processor.doxy\_warning\_post\_processor module
+-------------------------------------------------------------------------
+
+.. automodule:: main.doxy_warning_post_processor.doxy_warning_post_processor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: main.doxy_warning_post_processor
+   :members:
+   :undoc-members:
+   :show-inheritance:

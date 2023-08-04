@@ -1,0 +1,10 @@
+main.data package
+=================
+
+Module contents
+---------------
+
+.. automodule:: main.data
+   :members:
+   :undoc-members:
+   :show-inheritance:

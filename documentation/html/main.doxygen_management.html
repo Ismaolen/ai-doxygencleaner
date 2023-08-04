@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>main.doxygen_management package &#8212; AI-DoxygenCleaner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="main.error_handler package" href="main.error_handler.html" />
+    <link rel="prev" title="main.doxy_warning_post_processor package" href="main.doxy_warning_post_processor.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="main-doxygen-management-package">
+<h1>main.doxygen_management package<a class="headerlink" href="#main-doxygen-management-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-main.doxygen_management.doxy_warning_detector">
+<span id="main-doxygen-management-doxy-warning-detector-module"></span><h2>main.doxygen_management.doxy_warning_detector module<a class="headerlink" href="#module-main.doxygen_management.doxy_warning_detector" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="main.doxygen_management.doxy_warning_detector.DoxyWarningDetector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.doxygen_management.doxy_warning_detector.</span></span><span class="sig-name descname"><span class="pre">DoxyWarningDetector</span></span><a class="reference internal" href="_modules/main/doxygen_management/doxy_warning_detector.html#DoxyWarningDetector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxy_warning_detector.DoxyWarningDetector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DoxyfileConfigurator</span></code></p>
+<p>A class used to detect warnings in Doxygen documentation generation.</p>
+<p>…</p>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>warnings_list<span class="classifier">list</span></dt><dd><p>a list to hold the detected warnings (initialized as an empty list)</p>
+</dd>
+</dl>
+</section>
+<section id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>check_project_directory():</dt><dd><p>Checks the project directory for the existence of a single subfolder.</p>
+</dd>
+<dt>get_all_header_files(project_folder_path: str):</dt><dd><p>Gets all the header files in the given project folder path.</p>
+</dd>
+<dt>run_doxygen_for_file(header_file_name: str, lines: list, input_line: str, project_folder_path: str, line_num: int):</dt><dd><p>Runs Doxygen for the given header file.</p>
+</dd>
+<dt>extract_warnings(result: subprocess.CompletedProcess):</dt><dd><p>Extracts warnings from the result of a Doxygen run.</p>
+</dd>
+<dt>run_doxygen():</dt><dd><p>Executes the complete process to run Doxygen for all header files and extract warnings.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.doxy_warning_detector.DoxyWarningDetector.check_project_directory">
+<span class="sig-name descname"><span class="pre">check_project_directory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/doxy_warning_detector.html#DoxyWarningDetector.check_project_directory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxy_warning_detector.DoxyWarningDetector.check_project_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if there is only one subfolder in the project directory.
+If there are multiple subfolders, the program exits with an error message.
+Returns the name of the single subfolder if it exists.</p>
+<section id="returns">
+<h4>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>str</dt><dd><p>the name of the single subfolder</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.doxy_warning_detector.DoxyWarningDetector.extract_warnings">
+<span class="sig-name descname"><span class="pre">extract_warnings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/doxy_warning_detector.html#DoxyWarningDetector.extract_warnings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxy_warning_detector.DoxyWarningDetector.extract_warnings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts warnings from the result of a Doxygen run.
+Returns the extracted warnings.</p>
+<section id="parameters">
+<h4>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>result: subprocess.CompletedProcess</dt><dd><p>The result of the Doxygen run</p>
+</dd>
+</dl>
+</section>
+<section id="id1">
+<h4>Returns<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>list, list, int</dt><dd><p>Lists of warning contents, warning line numbers and total number of warnings.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.doxy_warning_detector.DoxyWarningDetector.get_all_header_files">
+<span class="sig-name descname"><span class="pre">get_all_header_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project_folder_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/doxy_warning_detector.html#DoxyWarningDetector.get_all_header_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxy_warning_detector.DoxyWarningDetector.get_all_header_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all the header files in the project directory.
+If there are no header files, the program exits with an error message.
+Returns the list of header files if they exist.</p>
+<section id="id2">
+<h4>Parameters<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>project_folder_path: str</dt><dd><p>The path to the project directory</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h4>Returns<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>list</dt><dd><p>A list of all header files in the project directory.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.doxy_warning_detector.DoxyWarningDetector.run_doxygen">
+<span class="sig-name descname"><span class="pre">run_doxygen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/doxy_warning_detector.html#DoxyWarningDetector.run_doxygen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxy_warning_detector.DoxyWarningDetector.run_doxygen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the complete process to run Doxygen for all header files and extract warnings.
+The process includes preparing the Doxyfile, running Doxygen, and extracting warnings.
+Returns a list of results containing the header file name, project folder path, file content, and warnings.</p>
+<section id="id4">
+<h4>Returns<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>tuple</dt><dd><p>The result of running doxygen and extracting warnings. It includes the project folder path,
+list of header file names, list of file contents, list of warning counts,
+list of warning contents, and list of warning line numbers.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.doxy_warning_detector.DoxyWarningDetector.run_doxygen_for_file">
+<span class="sig-name descname"><span class="pre">run_doxygen_for_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_line</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project_folder_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/doxy_warning_detector.html#DoxyWarningDetector.run_doxygen_for_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxy_warning_detector.DoxyWarningDetector.run_doxygen_for_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepares the Doxyfile with the given parameters and runs Doxygen for the header file.
+Returns the result of the Doxygen run.</p>
+<section id="id5">
+<h4>Parameters<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>header_file_name: str</dt><dd><p>The name of the header file</p>
+</dd>
+<dt>lines: list</dt><dd><p>A list of lines in the Doxyfile</p>
+</dd>
+<dt>input_line: str</dt><dd><p>The line to add to the Doxyfile</p>
+</dd>
+<dt>project_folder_path: str</dt><dd><p>The path to the project directory</p>
+</dd>
+<dt>line_num: int</dt><dd><p>The line number in the Doxyfile to modify</p>
+</dd>
+</dl>
+</section>
+<section id="id6">
+<h4>Returns<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>subprocess.CompletedProcess</dt><dd><p>The result of the Doxygen run</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-main.doxygen_management.doxyfile_configurator">
+<span id="main-doxygen-management-doxyfile-configurator-module"></span><h2>main.doxygen_management.doxyfile_configurator module<a class="headerlink" href="#module-main.doxygen_management.doxyfile_configurator" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.doxygen_management.doxyfile_configurator.</span></span><span class="sig-name descname"><span class="pre">DoxyfileConfigurator</span></span><a class="reference internal" href="_modules/main/doxygen_management/doxyfile_configurator.html#DoxyfileConfigurator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FileHandler</span></code></p>
+<p>A class used to configure a Doxyfile.</p>
+<p>…</p>
+<section id="id7">
+<h3>Methods<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>create_doxyfile(directory_path, cmd):</dt><dd><p>Tries to create a Doxyfile at the given directory path, using the provided command</p>
+</dd>
+<dt>add_spaces_to_string(config_parameters):</dt><dd><p>Adds specific spaces to configuration parameters</p>
+</dd>
+<dt>get_single_subfolder(directory):</dt><dd><p>Checks if there is only one subfolder in a given directory</p>
+</dd>
+<dt>configure_doxyfile(filename, config_parameters):</dt><dd><p>Configures the Doxyfile with the given parameters</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.add_spaces_to_string">
+<span class="sig-name descname"><span class="pre">add_spaces_to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/doxyfile_configurator.html#DoxyfileConfigurator.add_spaces_to_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.add_spaces_to_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to adds specific spaces to configuration parameters.</p>
+<section id="id8">
+<h4>Parameters<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>config_parameters<span class="classifier">list</span></dt><dd><p>A list of configuration parameters to which spaces are added</p>
+</dd>
+</dl>
+</section>
+<section id="id9">
+<h4>Returns<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>list</dt><dd><p>A list of configuration parameters with added spaces</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.configure_doxyfile">
+<span class="sig-name descname"><span class="pre">configure_doxyfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/doxyfile_configurator.html#DoxyfileConfigurator.configure_doxyfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.configure_doxyfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the Doxyfile with the given parameters.</p>
+<section id="id10">
+<h4>Parameters<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>filename<span class="classifier">str</span></dt><dd><p>The name of the file to be configured</p>
+</dd>
+<dt>config_parameters<span class="classifier">list</span></dt><dd><p>A list of configuration parameters</p>
+</dd>
+</dl>
+<p>It modifies the lines in the Doxyfile according to the provided configuration parameters.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.create_doxyfile">
+<span class="sig-name descname"><span class="pre">create_doxyfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/doxyfile_configurator.html#DoxyfileConfigurator.create_doxyfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.create_doxyfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to create a Doxyfile at the given directory path, using the provided command.</p>
+<section id="id11">
+<h4>Parameters<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>directory_path<span class="classifier">str</span></dt><dd><p>The path of the directory where the Doxyfile will be created</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h4>Raises<a class="headerlink" href="#raises" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>subprocess.CalledProcessError</dt><dd><p>If there is an error while executing the command</p>
+</dd>
+<dt>FileNotFoundError</dt><dd><p>If the directory path does not exist</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.get_header_files">
+<span class="sig-name descname"><span class="pre">get_header_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/doxyfile_configurator.html#DoxyfileConfigurator.get_header_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.get_header_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of .h and .hpp files in the given directory.</p>
+<section id="id12">
+<h4>Parameters<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>directory<span class="classifier">str</span></dt><dd><p>The directory to search</p>
+</dd>
+</dl>
+</section>
+<section id="id13">
+<h4>Returns<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>list</dt><dd><p>A list of .h and .hpp file paths</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.get_single_subfolder">
+<span class="sig-name descname"><span class="pre">get_single_subfolder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/doxyfile_configurator.html#DoxyfileConfigurator.get_single_subfolder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.get_single_subfolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if there is only one subfolder in a given directory.</p>
+<section id="id14">
+<h4>Parameters<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>directory<span class="classifier">str</span></dt><dd><p>The directory to check for subfolders</p>
+</dd>
+</dl>
+</section>
+<section id="id15">
+<h4>Returns<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>bool</dt><dd><p>A boolean value indicating the presence of a single subfolder</p>
+</dd>
+<dt>str</dt><dd><p>The name of the subfolder (if any)</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.remove_doxyfile_if_exists">
+<span class="sig-name descname"><span class="pre">remove_doxyfile_if_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/doxyfile_configurator.html#DoxyfileConfigurator.remove_doxyfile_if_exists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.doxyfile_configurator.DoxyfileConfigurator.remove_doxyfile_if_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to remove a Doxyfile at the given directory path.</p>
+<section id="id16">
+<h4>Parameters<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>directory_path<span class="classifier">str</span></dt><dd><p>The path of the directory where the Doxyfile will be removed</p>
+</dd>
+</dl>
+</section>
+<section id="id17">
+<h4>Raises<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>subprocess.CalledProcessError</dt><dd><p>If there is an error while executing the command</p>
+</dd>
+<dt>FileNotFoundError</dt><dd><p>If the directory path does not exist</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-main.doxygen_management.file_handler">
+<span id="main-doxygen-management-file-handler-module"></span><h2>main.doxygen_management.file_handler module<a class="headerlink" href="#module-main.doxygen_management.file_handler" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="main.doxygen_management.file_handler.FileHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.doxygen_management.file_handler.</span></span><span class="sig-name descname"><span class="pre">FileHandler</span></span><a class="reference internal" href="_modules/main/doxygen_management/file_handler.html#FileHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.file_handler.FileHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class used to handle file operations.</p>
+<p>…</p>
+<section id="id18">
+<h3>Methods<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h3>
+<dl>
+<dt>read_file(filename: str) -&gt; list:</dt><dd><p>Reads a file and returns its contents as a list of lines.</p>
+</dd>
+<dt>write_file(filename: str, lines: list):</dt><dd><p>Writes a list of lines into a file.</p>
+</dd>
+<dt>has_single_line(list: list) -&gt; bool:</dt><dd><p>Checks if a list has only a single line.</p>
+</dd>
+<dt>find_line_numbers(filename: str, searched_text: str) -&gt; int:</dt><dd><p>Finds the line numbers of all the occurrences of a specific text in a file.</p>
+</dd>
+<dt>redirect_print_to_file(self, project_folder_path, header_file_name_list,</dt><dd><blockquote>
+<div><p>warning_num_list, warning_content_llist,
+warning_line_number_llist, file_content_list, pre_or_post,
+output_file):</p>
+</div></blockquote>
+<p>Redirects the output of the <cite>print_project_details_without_color</cite> function to a specified file.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.file_handler.FileHandler.find_line_numbers">
+<span class="sig-name descname"><span class="pre">find_line_numbers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">searched_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/file_handler.html#FileHandler.find_line_numbers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.file_handler.FileHandler.find_line_numbers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the line numbers of all the occurrences of a specific text in a file.</p>
+<section id="id19">
+<h4>Parameters<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>filename<span class="classifier">str</span></dt><dd><p>The name of the file to be searched.</p>
+</dd>
+<dt>searched_text<span class="classifier">str</span></dt><dd><p>The text to be found.</p>
+</dd>
+</dl>
+</section>
+<section id="id20">
+<h4>Returns<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>int</dt><dd><p>The line number of the first occurrence of the search text
+if there is only one occurrence, else it exits the program.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.file_handler.FileHandler.has_single_line">
+<span class="sig-name descname"><span class="pre">has_single_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/file_handler.html#FileHandler.has_single_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.file_handler.FileHandler.has_single_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a list has only a single line.</p>
+<section id="id21">
+<h4>Parameters<a class="headerlink" href="#id21" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>list<span class="classifier">list</span></dt><dd><p>The list to check.</p>
+</dd>
+</dl>
+</section>
+<section id="id22">
+<h4>Returns<a class="headerlink" href="#id22" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>bool</dt><dd><p>True if the list has only a single line, else it exits the program.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.file_handler.FileHandler.read_file">
+<span class="sig-name descname"><span class="pre">read_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/file_handler.html#FileHandler.read_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.file_handler.FileHandler.read_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a file and returns its contents as a list of lines.</p>
+<section id="id23">
+<h4>Parameters<a class="headerlink" href="#id23" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>filename<span class="classifier">str</span></dt><dd><p>The name of the file to be read.</p>
+</dd>
+</dl>
+</section>
+<section id="id24">
+<h4>Returns<a class="headerlink" href="#id24" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>list</dt><dd><p>A list of lines from the file.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.file_handler.FileHandler.redirect_print_to_file">
+<span class="sig-name descname"><span class="pre">redirect_print_to_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project_folder_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_file_name_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_num_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_content_llist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_line_number_llist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_content_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_or_post</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/file_handler.html#FileHandler.redirect_print_to_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.file_handler.FileHandler.redirect_print_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Redirects the output of the <cite>print_project_details_without_color</cite> function to a specified file.</p>
+<p>This function modifies the standard output (stdout) to a specified file,
+calls a function to print data without color, and then restores stdout to its original state.</p>
+<section id="id25">
+<h4>Parameters<a class="headerlink" href="#id25" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>project_folder_path<span class="classifier">str</span></dt><dd><p>The path of the project folder.</p>
+</dd>
+<dt>header_file_name_list<span class="classifier">list</span></dt><dd><p>List of header file names.</p>
+</dd>
+<dt>warning_num_list<span class="classifier">list</span></dt><dd><p>List of warning numbers.</p>
+</dd>
+<dt>warning_content_llist<span class="classifier">list</span></dt><dd><p>List of warning content.</p>
+</dd>
+<dt>warning_line_number_llist<span class="classifier">list</span></dt><dd><p>List of warning line numbers.</p>
+</dd>
+<dt>file_content_list<span class="classifier">list</span></dt><dd><p>List of file content.</p>
+</dd>
+<dt>pre_or_post<span class="classifier">str</span></dt><dd><p>String indicating whether it’s pre or post data.</p>
+</dd>
+<dt>output_file<span class="classifier">str</span></dt><dd><p>Path to the output file where print statements are to be redirected.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.doxygen_management.file_handler.FileHandler.write_file">
+<span class="sig-name descname"><span class="pre">write_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main/doxygen_management/file_handler.html#FileHandler.write_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#main.doxygen_management.file_handler.FileHandler.write_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a list of lines into a file.</p>
+<section id="id26">
+<h4>Parameters<a class="headerlink" href="#id26" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>filename<span class="classifier">str</span></dt><dd><p>The name of the file to write to.</p>
+</dd>
+<dt>lines<span class="classifier">list</span></dt><dd><p>A list containing the lines to be written to the file.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-main.doxygen_management">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-main.doxygen_management" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">AI-DoxygenCleaner</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="main.html">main package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="main.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="main.DoxygenWarningFixer.html">main.DoxygenWarningFixer package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.ai_doxygen_cleaner.html">main.ai_doxygen_cleaner package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.ai_language_model.html">main.ai_language_model package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.config.html">main.config package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.db_operations.html">main.db_operations package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.doxy_warning_post_processor.html">main.doxy_warning_post_processor package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">main.doxygen_management package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-main.doxygen_management.doxy_warning_detector">main.doxygen_management.doxy_warning_detector module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-main.doxygen_management.doxyfile_configurator">main.doxygen_management.doxyfile_configurator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-main.doxygen_management.file_handler">main.doxygen_management.file_handler module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-main.doxygen_management">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="main.error_handler.html">main.error_handler package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.print_data.html">main.print_data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.transport_data.html">main.transport_data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.utils.html">main.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#module-main.main">main.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#module-main">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="main.html">main package</a><ul>
+      <li>Previous: <a href="main.doxy_warning_post_processor.html" title="previous chapter">main.doxy_warning_post_processor package</a></li>
+      <li>Next: <a href="main.error_handler.html" title="next chapter">main.error_handler package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Ismial Al Shuaybi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/main.doxygen_management.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

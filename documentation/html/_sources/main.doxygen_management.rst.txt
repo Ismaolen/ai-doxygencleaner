@@ -1,0 +1,37 @@
+main.doxygen\_management package
+================================
+
+Submodules
+----------
+
+main.doxygen\_management.doxy\_warning\_detector module
+-------------------------------------------------------
+
+.. automodule:: main.doxygen_management.doxy_warning_detector
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+main.doxygen\_management.doxyfile\_configurator module
+------------------------------------------------------
+
+.. automodule:: main.doxygen_management.doxyfile_configurator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+main.doxygen\_management.file\_handler module
+---------------------------------------------
+
+.. automodule:: main.doxygen_management.file_handler
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: main.doxygen_management
+   :members:
+   :undoc-members:
+   :show-inheritance:

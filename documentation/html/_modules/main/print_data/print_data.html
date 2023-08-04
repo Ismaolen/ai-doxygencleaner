@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>main.print_data.print_data &#8212; AI-DoxygenCleaner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for main.print_data.print_data</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span>
+<span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">CppLexer</span>
+<span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">TerminalFormatter</span>
+
+
+<div class="viewcode-block" id="print_project_details"><a class="viewcode-back" href="../../../main.print_data.html#main.print_data.print_data.print_project_details">[docs]</a><span class="k">def</span> <span class="nf">print_project_details</span><span class="p">(</span><span class="n">project_folder_post_fix_path</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">header_file_name_post_fix_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                          <span class="n">warning_num_post_fix_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">warning_content_post_fix_llist</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                          <span class="n">warning_line_number_post_fix_llist</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                          <span class="n">pre_or_post</span><span class="p">,</span> <span class="n">file_content_post_fix_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Print details of the project, including file contents, Doxygen warnings, and lines where the warnings occurred.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_folder_post_fix_path : str</span>
+<span class="sd">        The path to the project folder.</span>
+<span class="sd">    header_file_name_post_fix_list : list</span>
+<span class="sd">        List of the names of the header files.</span>
+<span class="sd">    warning_num_post_fix_list : list</span>
+<span class="sd">        List of the numbers of the Doxygen warnings detected.</span>
+<span class="sd">    warning_content_post_fix_llist : list</span>
+<span class="sd">        List of the content of the Doxygen warnings detected.</span>
+<span class="sd">    warning_line_number_post_fix_llist : list</span>
+<span class="sd">        List of the line numbers where the Doxygen warnings were detected.</span>
+<span class="sd">    pre_or_post : str</span>
+<span class="sd">        Indicate if the details are before the fix (&#39;pre&#39;) or after the fix (&#39;post&#39;).</span>
+<span class="sd">    file_content_post_fix_list : list, optional</span>
+<span class="sd">        List of the contents of the files, by default None.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Print header for the project details</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\033</span><span class="s2">[1;35m==================== PROJECT DETAILS ====================</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\033</span><span class="s2">[1;96mProject Folder (</span><span class="si">{</span><span class="n">pre_or_post</span><span class="si">}</span><span class="s2">-Fix) Path:</span><span class="se">\033</span><span class="s2">[0m </span><span class="se">\033</span><span class="s2">[4;33m</span><span class="si">{</span><span class="n">project_folder_post_fix_path</span><span class="si">}</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;35m=========================================================</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Loop over each header file in the project</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">header_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">header_file_name_post_fix_list</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;91m&gt;&gt; FILE:</span><span class="se">\033</span><span class="s2">[0m &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[4;32m</span><span class="si">{</span><span class="n">header_name</span><span class="si">}</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># If file contents are provided, print them</span>
+        <span class="k">if</span> <span class="n">file_content_post_fix_list</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;91m&gt;&gt; FILE CONTENT (</span><span class="si">{</span><span class="n">pre_or_post</span><span class="si">}</span><span class="s2">-Fix):</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">file_content_post_fix_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;94m</span><span class="si">{</span><span class="n">index</span><span class="si">:</span><span class="s2">4</span><span class="si">}</span><span class="se">\033</span><span class="s2">[0m: </span><span class="si">{</span><span class="n">highlight</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">CppLexer</span><span class="p">(),</span><span class="w"> </span><span class="n">TerminalFormatter</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Print the number of Doxygen warnings detected in the file</span>
+        <span class="n">num_warnings</span> <span class="o">=</span> <span class="n">warning_num_post_fix_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n\033</span><span class="s2">[1;93m&gt;&gt; Number of Doxygen Warnings Detected (</span><span class="si">{</span><span class="n">pre_or_post</span><span class="si">}</span><span class="s2">-Fix):</span><span class="se">\033</span><span class="s2">[0m </span><span class="se">\033</span><span class="s2">[4;31m</span><span class="si">{</span><span class="n">num_warnings</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">num_warnings</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kc">None</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">0</span><span class="si">}</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># If there are warnings, print their contents and lines where they occurred</span>
+        <span class="k">if</span> <span class="n">warning_content_post_fix_llist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">num_warnings</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;94m&gt;&gt; Warning Contents (</span><span class="si">{</span><span class="n">pre_or_post</span><span class="si">}</span><span class="s2">-Fix):</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">content</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">warning_content_post_fix_llist</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\033</span><span class="s2">[1;95m</span><span class="se">\t</span><span class="s2">&gt;&gt;&gt; Warning </span><span class="si">{</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">:</span><span class="se">\033</span><span class="s2">[0m </span><span class="se">\033</span><span class="s2">[4;33m</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">warning_line_number_post_fix_llist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;95m</span><span class="se">\t</span><span class="s2">&gt;&gt;&gt; On Line:</span><span class="se">\033</span><span class="s2">[0m </span><span class="se">\033</span><span class="s2">[4;33m</span><span class="si">{</span><span class="n">warning_line_number_post_fix_llist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># If no warnings were detected, print a success message</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;92mNo Doxygen Warnings Detected After Fixing.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                  <span class="s2">&quot;All Doxygen Warnings In This File Were Resolved Through The GPT Model.</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\033</span><span class="s2">[1;35m---------------------------------------------------------</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;92m</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> - File analysis completed.</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;35m=========================================================</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="print_project_details_without_color"><a class="viewcode-back" href="../../../main.print_data.html#main.print_data.print_data.print_project_details_without_color">[docs]</a><span class="k">def</span> <span class="nf">print_project_details_without_color</span><span class="p">(</span><span class="n">project_folder_post_fix_path</span><span class="p">,</span> <span class="n">header_file_name_post_fix_list</span><span class="p">,</span>
+                                        <span class="n">warning_num_post_fix_list</span><span class="p">,</span> <span class="n">warning_content_post_fix_llist</span><span class="p">,</span>
+                                        <span class="n">warning_line_number_post_fix_llist</span><span class="p">,</span>
+                                        <span class="n">pre_or_post</span><span class="p">,</span> <span class="n">file_content_post_fix_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Print details of the project, including file contents, Doxygen warnings, and lines where the warnings occurred.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_folder_post_fix_path : str</span>
+<span class="sd">        The path to the project folder.</span>
+<span class="sd">    header_file_name_post_fix_list : list</span>
+<span class="sd">        List of the names of the header files.</span>
+<span class="sd">    warning_num_post_fix_list : list</span>
+<span class="sd">        List of the numbers of the Doxygen warnings detected.</span>
+<span class="sd">    warning_content_post_fix_llist : list</span>
+<span class="sd">        List of the content of the Doxygen warnings detected.</span>
+<span class="sd">    warning_line_number_post_fix_llist : list</span>
+<span class="sd">        List of the line numbers where the Doxygen warnings were detected.</span>
+<span class="sd">    pre_or_post : str</span>
+<span class="sd">        Indicate if the details are before the fix (&#39;pre&#39;) or after the fix (&#39;post&#39;).</span>
+<span class="sd">    file_content_post_fix_list : list, optional</span>
+<span class="sd">        List of the contents of the files, by default None.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">==================== PROJECT DETAILS ====================&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&lt; Project Folder (</span><span class="si">{</span><span class="n">pre_or_post</span><span class="si">}</span><span class="s1">-Fix) Path: </span><span class="si">{</span><span class="n">project_folder_post_fix_path</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=========================================================</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">header_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">header_file_name_post_fix_list</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&gt;&gt; FILE: &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">header_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">file_content_post_fix_list</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&gt;&gt; FILE CONTENT (</span><span class="si">{</span><span class="n">pre_or_post</span><span class="si">}</span><span class="s2">-Fix):</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">file_content_post_fix_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---------------------------------------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">num_warnings</span> <span class="o">=</span> <span class="n">warning_num_post_fix_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&gt;&gt; Number of Doxygen Warnings Detected (</span><span class="si">{</span><span class="n">pre_or_post</span><span class="si">}</span><span class="s2">-Fix): </span><span class="si">{</span><span class="n">num_warnings</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">num_warnings</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kc">None</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">0</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">warning_content_post_fix_llist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">num_warnings</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&gt;&gt; Warning Contents (</span><span class="si">{</span><span class="n">pre_or_post</span><span class="si">}</span><span class="s2">-Fix):&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">content</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">warning_content_post_fix_llist</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">&gt;&gt;&gt; Warning </span><span class="si">{</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">warning_line_number_post_fix_llist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&gt;&gt;&gt; On Line: </span><span class="si">{</span><span class="n">warning_line_number_post_fix_llist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No Doxygen Warnings Detected After Fixing.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                  <span class="s2">&quot;All Doxygen Warnings In This File Were Resolved Through The GPT Model.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---------------------------------------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> - File analysis completed.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=========================================================</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">AI-DoxygenCleaner</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../main.html">main package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Ismial Al Shuaybi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
