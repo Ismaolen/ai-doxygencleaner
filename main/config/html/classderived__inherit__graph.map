@@ -1,0 +1,4 @@
+<map id="derived" name="derived">
+<area shape="rect" id="node1" title="The derived class, which is derived from the base class." alt="" coords="5,80,76,107"/>
+<area shape="rect" id="node2" href="$classbase.html" title="The base class." alt="" coords="14,5,67,32"/>
+</map>
