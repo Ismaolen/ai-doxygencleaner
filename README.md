@@ -253,9 +253,9 @@ individual function and class.
 In addition to this, the [documentation](./documentation) folder 
 contains both  LaTeX and HTML versions of the  `ai_doxygencleaner` Python code's documentation.
 - **View the most recent LaTeX documentation**: 
-<u>**<a href="https://ai-doxygencleaner-ismsh-7c9bb5e50494833fcd52330bb524af661447594.gitlab.io/latex/ai-doxygencleaner.pdf" target="_blank"> click here</a>**</u>
+<u>**<a href="https://ismsh.gitlab.io/ai-doxygencleaner/latex/ai-doxygencleaner.pdf" target="_blank"> click here</a>**</u>
 - **View the most recent HTML documentation**: 
-<u>**<a href="https://ai-doxygencleaner-ismsh-7c9bb5e50494833fcd52330bb524af661447594.gitlab.io/html/" target="_blank"> click here</a>**</u>
+<u>**<a href="https://ismsh.gitlab.io/ai-doxygencleaner/html/" target="_blank"> click here</a>**</u>
 
 These resources, created from Numpydoc strings, 
 can further assist your understanding of the code. 
