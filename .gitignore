@@ -1,4 +1,7 @@
 .idea
 __pycache__
 logs
+docs
 *.bak
+*.env
+uml
