@@ -1,5 +1,5 @@
 <map id="MMU" name="MMU">
-<area shape="rect" id="node1" title=" " alt="" coords="61,80,117,107"/>
+<area shape="rect" id="node1" title="Memory Management Unit (MMU) class that provides interfaces for memory operations." alt="" coords="61,80,117,107"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,5,65,32"/>
 <area shape="rect" id="node3" title=" " alt="" coords="90,5,197,32"/>
 </map>

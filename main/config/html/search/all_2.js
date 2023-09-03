@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uidevice_28_29_4',['UIDevice()',['../categoryUIDevice_07_08.html',1,'']]]
+  ['writebyte_2',['WriteByte',['../classSerial.html#ac584bbc7e8acf88325c9f11d3f9ef44c',1,'Serial']]]
 ];

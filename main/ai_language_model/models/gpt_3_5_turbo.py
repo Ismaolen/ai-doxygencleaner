@@ -194,7 +194,8 @@ class GPT3_5TurboModel(AILanguageModel):
             'Please', 'I have added', 'Explanation:', '\. Added', '\. Fixed', '\. Documented',
             '- Added', '- Fixed', '- Documented', '- Line', '- Provided', 'Note:',
             '- Used', 'Doxygen-Warnings:', 'Line number:', 'File name:', 'File content:', "Let's fix",
-            'The added', "Sure, I'll", "This revised", "Here's the", "The provided", 'I hope', 'Here is'
+            'The added', "Sure, I'll", "This revised", "Here's the", "The provided", 'I hope', 'Here is', 'Certainly!',
+            'Feel free', 'These comments', 'This version'
         ]
 
         # Construct a regex pattern to match lines that start with any of the unwanted phrases.

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['init_4',['Init',['../classNotifications.html#a79f089774845c18645ec86f333a4f843',1,'Notifications']]]
+  ['_7eserial_3',['~Serial',['../classSerial.html#a5b32c394c0ff923a4ef1c13cfb20a6ba',1,'Serial']]]
 ];

@@ -1,61 +1,124 @@
 
 ==================== PROJECT DETAILS ====================
 
-< Project Folder (Post-Fix) Path: doxygen_projects/chrono
+< Project Folder (Post-Fix) Path: doxygen_projects/chrone_2
 
 =========================================================
 
->> FILE: compatibility.h
+>> FILE: classepost.h
 >> FILE CONTENT (Post-Fix):
 
-Here's the revised `compatibility.h` file with added Doxygen comments to address the warnings:
-```objc
-#import <UIKit/UIKit.h>
-// Add newer API stuff. This shouldn't be needed, unfortunately
-// it seems as though the 'gcc' from Cydia for iOS (my version at least)
-// doesn't support either the 'IPHONEOS_DEPLOYMENT_TARGET' env var nor
-// the '-miphoneos-version-min' compiler flag... lame...
+#pragma once
+
+class Serial : public IMemoryUnit
+{
+public:
+    /**
+     * @brief Constructs a new Serial object.
+     */
+    Serial();
+
+    ~Serial();
+
+    // IMemoryUnit
+
+    /**
+     * @brief Reads a byte from the specified address in memory.
+     *
+     * @param address The address to read from.
+     * @return The byte value read from memory.
+     */
+    byte ReadByte(const ushort& address);
+
+    /**
+     * @brief Writes a byte to the specified address in memory.
+     *
+     * @param address The address to write to.
+     * @param val The byte value to write.
+     * @return True if the write operation was successful, false otherwise.
+     */
+    bool WriteByte(const ushort& address, const byte val);
+
+private:
+    byte m_Data; ///< Member variable to hold data.
+};
+
 /**
- * @brief Represents the possible battery states for a device.
- */
-typedef enum {
-    UIDeviceBatteryStateUnknown,           /**< The battery state is unknown. */
-    UIDeviceBatteryStateUnplugged,         /**< The device is on battery and discharging. */
-    UIDeviceBatteryStateCharging,          /**< The device is plugged in and battery percentage is less than 100%. */
-    UIDeviceBatteryStateFull               /**< The device is plugged in and battery percentage is 100%. */
-} UIDeviceBatteryState;                   // available in iPhone 3.0
-/**
- * @brief An extension of the UIDevice class with additional methods and properties.
- */
-@interface UIDevice ()
-/**
- * @brief Sets the orientation of the device.
- * @param orientation The desired orientation.
- */
-- (void) setOrientation:(UIInterfaceOrientation)orientation;
-/**
- * @brief Indicates if battery monitoring is enabled or not.
+ * @class Serial
+ * 
+ * @brief Represents a serial communication interface that implements the IMemoryUnit interface. 
  *
- * If set to YES, battery monitoring is enabled. If set to NO, it is disabled.
- */
-@property(getter=isBatteryMonitoringEnabled) BOOL batteryMonitoringEnabled;
-/**
- * @brief Provides the current state of the battery.
- *
- * The returned value can be one of the `UIDeviceBatteryState` enumeration values.
- */
-@property(readonly) UIDeviceBatteryState          batteryState;
-/**
- * @brief Provides the current battery level.
- *
- * The returned value is a float ranging from 0.0 (0%) to 1.0 (100%).
- */
-@property(readonly) float                         batteryLevel;
-@end
-```
-This code contains the necessary Doxygen comments to resolve the warnings specified.
+ * This class provides methods for reading and writing bytes from/to memory addresses. It also has a member variable m_Data to store data.
 
 ---------------------------------------------------------
+
+
+
+>> Number of Doxygen Warnings Detected (Post-Fix): 2
+
+>> Warning Contents (Post-Fix):
+
+	>>> Warning 1: warning: Reached end of file while still inside a (nested) comment. Nesting level 1 (probable line reference: 36)
+	>>> On Line: 42
+
+	>>> Warning 2: warning: Compound Serial is not documented.
+	>>> On Line: 4
+
+---------------------------------------------------------
+
+2023-08-18 05:14:01 - File analysis completed.
+=========================================================
+
+>> FILE: classepre.h
+>> FILE CONTENT (Post-Fix):
+
+#pragma once
+
+/**
+ * @brief The Serial class represents a serial communication interface.
+ *
+ * This class inherits from the IMemoryUnit interface.
+ */
+class Serial : public IMemoryUnit
+{
+public:
+
+    /**
+     * @brief Constructs a Serial object.
+     */
+    Serial();
+
+    /**
+     * @brief Destroys the Serial object.
+     */
+    ~Serial();
+
+    // IMemoryUnit
+
+    /**
+     * @brief Reads a byte of data from the specified address in memory.
+     *
+     * @param address The address to read from.
+     * @return The byte of data read from the specified address.
+     */
+    byte ReadByte(const ushort& address);
+
+    /**
+     * @brief Writes a byte of data to the specified address in memory.
+     *
+     * @param address The address to write to.
+     * @param val The value to write.
+     * @return True if the write operation was successful, false otherwise.
+     */
+    bool WriteByte(const ushort& address, const byte val);
+
+private:
+    byte m_Data;
+};
+
+---------------------------------------------------------
+
+
 
 >> Number of Doxygen Warnings Detected (Post-Fix): 0
 
@@ -63,3 +126,7 @@ No Doxygen Warnings Detected After Fixing.
 All Doxygen Warnings In This File Were Resolved Through The GPT Model.
 
 ---------------------------------------------------------
+
+2023-08-18 05:14:01 - File analysis completed.
+=========================================================
+

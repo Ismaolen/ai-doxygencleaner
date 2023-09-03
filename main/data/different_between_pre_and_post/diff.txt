@@ -1,97 +1,96 @@
---- data/different_between_pre_and_post/output_pre_fix.cpp	2023-08-04 19:59:16.358319690 +0200
-+++ data/different_between_pre_and_post/output_post_fix.cpp	2023-08-04 19:59:11.461653935 +0200
-@@ -1,50 +1,65 @@
+--- data/different_between_pre_and_post/output_pre_fix.cpp	2023-08-18 05:14:01.002786705 +0200
++++ data/different_between_pre_and_post/output_post_fix.cpp	2023-08-18 05:14:01.002786705 +0200
+@@ -1,12 +1,12 @@
  
  ==================== PROJECT DETAILS ====================
  
--< Project Folder (Pre-Fix) Path: doxygen_projects/chrono
-+< Project Folder (Post-Fix) Path: doxygen_projects/chrono
+-< Project Folder (Pre-Fix) Path: doxygen_projects/chrone_2
++< Project Folder (Post-Fix) Path: doxygen_projects/chrone_2
  
  =========================================================
  
- >> FILE: compatibility.h
+ >> FILE: classepost.h
 ->> FILE CONTENT (Pre-Fix):
 +>> FILE CONTENT (Post-Fix):
  
-+Here's the revised `compatibility.h` file with added Doxygen comments to address the warnings:
-+```objc
- #import <UIKit/UIKit.h>
- // Add newer API stuff. This shouldn't be needed, unfortunately
- // it seems as though the 'gcc' from Cydia for iOS (my version at least)
- // doesn't support either the 'IPHONEOS_DEPLOYMENT_TARGET' env var nor
- // the '-miphoneos-version-min' compiler flag... lame...
-+/**
-+ * @brief Represents the possible battery states for a device.
-+ */
- typedef enum {
--    UIDeviceBatteryStateUnknown,
--    UIDeviceBatteryStateUnplugged,   // on battery, discharging
--    UIDeviceBatteryStateCharging,    // plugged in, less than 100%
--    UIDeviceBatteryStateFull,        // plugged in, at 100%
--} UIDeviceBatteryState;              // available in iPhone 3.0
-+    UIDeviceBatteryStateUnknown,           /**< The battery state is unknown. */
-+    UIDeviceBatteryStateUnplugged,         /**< The device is on battery and discharging. */
-+    UIDeviceBatteryStateCharging,          /**< The device is plugged in and battery percentage is less than 100%. */
-+    UIDeviceBatteryStateFull               /**< The device is plugged in and battery percentage is 100%. */
-+} UIDeviceBatteryState;                   // available in iPhone 3.0
-+/**
-+ * @brief An extension of the UIDevice class with additional methods and properties.
-+ */
- @interface UIDevice ()
--  - (void) setOrientation:(UIInterfaceOrientation)orientation;
--  @property(getter=isBatteryMonitoringEnabled) BOOL batteryMonitoringEnabled;
--  @property(readonly) UIDeviceBatteryState          batteryState;
--  @property(readonly) float                         batteryLevel;
-+/**
-+ * @brief Sets the orientation of the device.
-+ * @param orientation The desired orientation.
-+ */
-+- (void) setOrientation:(UIInterfaceOrientation)orientation;
-+/**
-+ * @brief Indicates if battery monitoring is enabled or not.
-+ *
-+ * If set to YES, battery monitoring is enabled. If set to NO, it is disabled.
-+ */
-+@property(getter=isBatteryMonitoringEnabled) BOOL batteryMonitoringEnabled;
-+/**
-+ * @brief Provides the current state of the battery.
-+ *
-+ * The returned value can be one of the `UIDeviceBatteryState` enumeration values.
-+ */
-+@property(readonly) UIDeviceBatteryState          batteryState;
-+/**
-+ * @brief Provides the current battery level.
-+ *
-+ * The returned value is a float ranging from 0.0 (0%) to 1.0 (100%).
-+ */
-+@property(readonly) float                         batteryLevel;
- @end
-+```
-+This code contains the necessary Doxygen comments to resolve the warnings specified.
+ #pragma once
  
+@@ -43,15 +43,25 @@
+     byte m_Data; ///< Member variable to hold data.
+ };
+ 
++/**
++ * @class Serial
++ * 
++ * @brief Represents a serial communication interface that implements the IMemoryUnit interface. 
++ *
++ * This class provides methods for reading and writing bytes from/to memory addresses. It also has a member variable m_Data to store data.
++
  ---------------------------------------------------------
  
-->> Number of Doxygen Warnings Detected (Pre-Fix): 5
-+>> Number of Doxygen Warnings Detected (Post-Fix): 0
+ 
+ 
+->> Number of Doxygen Warnings Detected (Pre-Fix): 1
++>> Number of Doxygen Warnings Detected (Post-Fix): 2
++
++>> Warning Contents (Post-Fix):
  
 ->> Warning Contents (Pre-Fix):
++	>>> Warning 1: warning: Reached end of file while still inside a (nested) comment. Nesting level 1 (probable line reference: 36)
++	>>> On Line: 42
+ 
+-	>>> Warning 1: warning: Compound Serial is not documented.
++	>>> Warning 2: warning: Compound Serial is not documented.
+ 	>>> On Line: 4
+ 
+ ---------------------------------------------------------
+@@ -60,10 +70,15 @@
+ =========================================================
+ 
+ >> FILE: classepre.h
+->> FILE CONTENT (Pre-Fix):
++>> FILE CONTENT (Post-Fix):
+ 
+ #pragma once
+ 
++/**
++ * @brief The Serial class represents a serial communication interface.
++ *
++ * This class inherits from the IMemoryUnit interface.
++ */
+ class Serial : public IMemoryUnit
+ {
+ public:
+@@ -80,7 +95,12 @@
+ 
+     // IMemoryUnit
+ 
 -
--        >>> Warning 1: warning: Compound UIDevice() is not documented.
--        >>> On Line: 14
++    /**
++     * @brief Reads a byte of data from the specified address in memory.
++     *
++     * @param address The address to read from.
++     * @return The byte of data read from the specified address.
++     */
+     byte ReadByte(const ushort& address);
+ 
+     /**
+@@ -100,15 +120,10 @@
+ 
+ 
+ 
+->> Number of Doxygen Warnings Detected (Pre-Fix): 2
 -
--        >>> Warning 2: warning: Member setOrientation:(UIInterfaceOrientation orientation) (function) of class UIDevice() is not documented.
--        >>> On Line: 1
+->> Warning Contents (Pre-Fix):
 -
--        >>> Warning 3: warning: Member batteryMonitoringEnabled (property) of class UIDevice() is not documented.
--        >>> On Line: 16
--
--        >>> Warning 4: warning: Member batteryState (property) of class UIDevice() is not documented.
--        >>> On Line: 17
--
--        >>> Warning 5: warning: Member batteryLevel (property) of class UIDevice() is not documented.
--        >>> On Line: 18
+-	>>> Warning 1: warning: Compound Serial is not documented.
+-	>>> On Line: 4
++>> Number of Doxygen Warnings Detected (Post-Fix): 0
+ 
+-	>>> Warning 2: warning: Member ReadByte(const ushort &address) (function) of class Serial is not documented.
+-	>>> On Line: 20
 +No Doxygen Warnings Detected After Fixing.
 +All Doxygen Warnings In This File Were Resolved Through The GPT Model.
  
  ---------------------------------------------------------
-\ No newline at end of file
+ 

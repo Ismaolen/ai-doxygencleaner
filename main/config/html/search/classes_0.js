@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['record_1',['Record',['../classRecord.html',1,'']]]
+  ['serial_4',['Serial',['../classSerial.html',1,'']]]
 ];

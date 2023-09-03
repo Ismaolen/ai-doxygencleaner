@@ -68,24 +68,88 @@ $(function() {
 <div class="title">async_request Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This struct represents an asynchronous request.  
+ <a href="structasync__request.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="classepre_8h_source.html">classepre.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a1b9c4cb298d9e5a3891212fc9cdef1a8"><td class="memItemLeft" align="right" valign="top"><a id="a1b9c4cb298d9e5a3891212fc9cdef1a8"></a>
-v8::Persistent&lt; v8::Function &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cb</b></td></tr>
+<tr class="memitem:a1b9c4cb298d9e5a3891212fc9cdef1a8"><td class="memItemLeft" align="right" valign="top">v8::Persistent&lt; v8::Function &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structasync__request.html#a1b9c4cb298d9e5a3891212fc9cdef1a8">cb</a></td></tr>
 <tr class="separator:a1b9c4cb298d9e5a3891212fc9cdef1a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab351eda9bd1c37d7f424280107812f55"><td class="memItemLeft" align="right" valign="top"><a id="ab351eda9bd1c37d7f424280107812f55"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCb</b></td></tr>
+<tr class="memitem:ab351eda9bd1c37d7f424280107812f55"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structasync__request.html#ab351eda9bd1c37d7f424280107812f55">hasCb</a></td></tr>
 <tr class="separator:ab351eda9bd1c37d7f424280107812f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab86707f3a7c36c91d4eefad156032780"><td class="memItemLeft" align="right" valign="top"><a id="ab86707f3a7c36c91d4eefad156032780"></a>
-CFIndex&#160;</td><td class="memItemRight" valign="bottom"><b>resultsCount</b></td></tr>
+<tr class="memitem:ab86707f3a7c36c91d4eefad156032780"><td class="memItemLeft" align="right" valign="top">CFIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structasync__request.html#ab86707f3a7c36c91d4eefad156032780">resultsCount</a></td></tr>
 <tr class="separator:ab86707f3a7c36c91d4eefad156032780"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae63cf2616c4d28c55b4b47e1322d63a4"><td class="memItemLeft" align="right" valign="top"><a id="ae63cf2616c4d28c55b4b47e1322d63a4"></a>
-Record **&#160;</td><td class="memItemRight" valign="bottom"><b>results</b></td></tr>
+<tr class="memitem:ae63cf2616c4d28c55b4b47e1322d63a4"><td class="memItemLeft" align="right" valign="top">Record **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structasync__request.html#ae63cf2616c4d28c55b4b47e1322d63a4">results</a></td></tr>
 <tr class="separator:ae63cf2616c4d28c55b4b47e1322d63a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This struct represents an asynchronous request. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1b9c4cb298d9e5a3891212fc9cdef1a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b9c4cb298d9e5a3891212fc9cdef1a8">&#9670;&nbsp;</a></span>cb</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">v8::Persistent&lt;v8::Function&gt; async_request::cb</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Callback function for the request. </p>
+
+</div>
+</div>
+<a id="ab351eda9bd1c37d7f424280107812f55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab351eda9bd1c37d7f424280107812f55">&#9670;&nbsp;</a></span>hasCb</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool async_request::hasCb</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Flag indicating if a callback function is provided. </p>
+
+</div>
+</div>
+<a id="ae63cf2616c4d28c55b4b47e1322d63a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae63cf2616c4d28c55b4b47e1322d63a4">&#9670;&nbsp;</a></span>results</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Record** async_request::results</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array of pointers to "Record" instances. </p>
+
+</div>
+</div>
+<a id="ab86707f3a7c36c91d4eefad156032780"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab86707f3a7c36c91d4eefad156032780">&#9670;&nbsp;</a></span>resultsCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CFIndex async_request::resultsCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of results returned by the request. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/ismail/Desktop/bachelorarbeit/ai-doxygencleaner/main/doxygen_projects/chrono/<a class="el" href="class1_8h_source.html">class1.h</a></li>
+<li>/home/ismail/Desktop/bachelorarbeit/ai-doxygencleaner/main/doxygen_projects/chrono/<a class="el" href="classepre_8h_source.html">classepre.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

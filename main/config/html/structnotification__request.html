@@ -68,27 +68,105 @@ $(function() {
 <div class="title">notification_request Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Structure to hold the notification request details.  
+ <a href="structnotification__request.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="classepre_8h_source.html">classepre.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aac8116ccbd14b22250dfcaa87a100b95"><td class="memItemLeft" align="right" valign="top"><a id="aac8116ccbd14b22250dfcaa87a100b95"></a>
-CFOptionFlags&#160;</td><td class="memItemRight" valign="bottom"><b>options</b></td></tr>
+<tr class="memitem:aac8116ccbd14b22250dfcaa87a100b95"><td class="memItemLeft" align="right" valign="top">CFOptionFlags&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnotification__request.html#aac8116ccbd14b22250dfcaa87a100b95">options</a></td></tr>
 <tr class="separator:aac8116ccbd14b22250dfcaa87a100b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e53dfda152bc079de9ef29b0ac3115e"><td class="memItemLeft" align="right" valign="top"><a id="a6e53dfda152bc079de9ef29b0ac3115e"></a>
-CFUserNotificationRef&#160;</td><td class="memItemRight" valign="bottom"><b>notif</b></td></tr>
+<tr class="memitem:a6e53dfda152bc079de9ef29b0ac3115e"><td class="memItemLeft" align="right" valign="top">CFUserNotificationRef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnotification__request.html#a6e53dfda152bc079de9ef29b0ac3115e">notif</a></td></tr>
 <tr class="separator:a6e53dfda152bc079de9ef29b0ac3115e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a45594b887d7e792d61c36502ba488e"><td class="memItemLeft" align="right" valign="top"><a id="a7a45594b887d7e792d61c36502ba488e"></a>
-SInt32&#160;</td><td class="memItemRight" valign="bottom"><b>error</b></td></tr>
+<tr class="memitem:a7a45594b887d7e792d61c36502ba488e"><td class="memItemLeft" align="right" valign="top">SInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnotification__request.html#a7a45594b887d7e792d61c36502ba488e">error</a></td></tr>
 <tr class="separator:a7a45594b887d7e792d61c36502ba488e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f6a071a3e4cbbd6a5aad28afd748fec"><td class="memItemLeft" align="right" valign="top"><a id="a3f6a071a3e4cbbd6a5aad28afd748fec"></a>
-v8::Persistent&lt; v8::Function &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cb</b></td></tr>
+<tr class="memitem:a3f6a071a3e4cbbd6a5aad28afd748fec"><td class="memItemLeft" align="right" valign="top">v8::Persistent&lt; v8::Function &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnotification__request.html#a3f6a071a3e4cbbd6a5aad28afd748fec">cb</a></td></tr>
 <tr class="separator:a3f6a071a3e4cbbd6a5aad28afd748fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad54de192e9a799e93dd18e035dc00204"><td class="memItemLeft" align="right" valign="top"><a id="ad54de192e9a799e93dd18e035dc00204"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasCb</b></td></tr>
+<tr class="memitem:ad54de192e9a799e93dd18e035dc00204"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnotification__request.html#ad54de192e9a799e93dd18e035dc00204">hasCb</a></td></tr>
 <tr class="separator:ad54de192e9a799e93dd18e035dc00204"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure to hold the notification request details. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3f6a071a3e4cbbd6a5aad28afd748fec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f6a071a3e4cbbd6a5aad28afd748fec">&#9670;&nbsp;</a></span>cb</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">v8::Persistent&lt;v8::Function&gt; notification_request::cb</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The callback function for the notification. </p>
+
+</div>
+</div>
+<a id="a7a45594b887d7e792d61c36502ba488e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a45594b887d7e792d61c36502ba488e">&#9670;&nbsp;</a></span>error</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SInt32 notification_request::error</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The error code if any occurred during notification creation. </p>
+
+</div>
+</div>
+<a id="ad54de192e9a799e93dd18e035dc00204"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad54de192e9a799e93dd18e035dc00204">&#9670;&nbsp;</a></span>hasCb</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool notification_request::hasCb</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Flag indicating if a callback function is provided or not. </p>
+
+</div>
+</div>
+<a id="a6e53dfda152bc079de9ef29b0ac3115e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e53dfda152bc079de9ef29b0ac3115e">&#9670;&nbsp;</a></span>notif</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CFUserNotificationRef notification_request::notif</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The reference to the user notification. </p>
+
+</div>
+</div>
+<a id="aac8116ccbd14b22250dfcaa87a100b95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac8116ccbd14b22250dfcaa87a100b95">&#9670;&nbsp;</a></span>options</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CFOptionFlags notification_request::options</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The options for the notification. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/ismail/Desktop/bachelorarbeit/ai-doxygencleaner/main/doxygen_projects/chrono/<a class="el" href="class1_8h_source.html">class1.h</a></li>
+<li>/home/ismail/Desktop/bachelorarbeit/ai-doxygencleaner/main/doxygen_projects/chrono/<a class="el" href="classepre_8h_source.html">classepre.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

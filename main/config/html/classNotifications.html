@@ -68,18 +68,99 @@ $(function() {
 <div class="title">Notifications Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class for managing notifications.  
+ <a href="classNotifications.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="classepost_8h_source.html">classepost.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a79f089774845c18645ec86f333a4f843"><td class="memItemLeft" align="right" valign="top"><a id="a79f089774845c18645ec86f333a4f843"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (v8::Handle&lt; v8::Object &gt; target)</td></tr>
+<tr class="memitem:a79f089774845c18645ec86f333a4f843"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotifications.html#a79f089774845c18645ec86f333a4f843">Init</a> (v8::Handle&lt; v8::Object &gt; target)</td></tr>
+<tr class="memdesc:a79f089774845c18645ec86f333a4f843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="classNotifications.html" title="Class for managing notifications.">Notifications</a> class.  <a href="classNotifications.html#a79f089774845c18645ec86f333a4f843">More...</a><br /></td></tr>
 <tr class="separator:a79f089774845c18645ec86f333a4f843"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac26c33963396c97025ace373387d71a7"><td class="memItemLeft" align="right" valign="top"><a id="ac26c33963396c97025ace373387d71a7"></a>
-static v8::Handle&lt; v8::Value &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>createNotification</b> (const v8::Arguments &amp;args)</td></tr>
+<tr class="memitem:ac26c33963396c97025ace373387d71a7"><td class="memItemLeft" align="right" valign="top">static v8::Handle&lt; v8::Value &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotifications.html#ac26c33963396c97025ace373387d71a7">createNotification</a> (const v8::Arguments &amp;args)</td></tr>
+<tr class="memdesc:ac26c33963396c97025ace373387d71a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new user notification.  <a href="classNotifications.html#ac26c33963396c97025ace373387d71a7">More...</a><br /></td></tr>
 <tr class="separator:ac26c33963396c97025ace373387d71a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class for managing notifications. </p>
+<p>This class provides methods to create and manage notifications. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac26c33963396c97025ace373387d71a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac26c33963396c97025ace373387d71a7">&#9670;&nbsp;</a></span>createNotification()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static v8::Handle&lt;v8::Value&gt; Notifications::createNotification </td>
+          <td>(</td>
+          <td class="paramtype">const v8::Arguments &amp;&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new user notification. </p>
+<p>This method creates a new user notification based on the provided arguments and returns its reference.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The arguments passed to the createNotification method.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The reference to the created user notification. </dd></dl>
+
+</div>
+</div>
+<a id="a79f089774845c18645ec86f333a4f843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79f089774845c18645ec86f333a4f843">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Notifications::Init </td>
+          <td>(</td>
+          <td class="paramtype">v8::Handle&lt; v8::Object &gt;&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the <a class="el" href="classNotifications.html" title="Class for managing notifications.">Notifications</a> class. </p>
+<p>This method should be called to initialize the <a class="el" href="classNotifications.html" title="Class for managing notifications.">Notifications</a> class and bind it to a target object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>The target object to bind the <a class="el" href="classNotifications.html" title="Class for managing notifications.">Notifications</a> class to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/ismail/Desktop/bachelorarbeit/ai-doxygencleaner/main/doxygen_projects/chrono/<a class="el" href="class1_8h_source.html">class1.h</a></li>
+<li>/home/ismail/Desktop/bachelorarbeit/ai-doxygencleaner/main/doxygen_projects/chrono/<a class="el" href="classepost_8h_source.html">classepost.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

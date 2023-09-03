@@ -303,7 +303,7 @@ class AIDoxygenCleaner(WarningPostProcessor, DBInsertionHandler, DoxygenWarningF
               "\033[1;35m=================\033[0m\n\n")
         perform_diff_on_files()
         generate_html_diff()
-        # rename_and_move('data/different_between_pre_and_post/', '../../implementation_doxygen/Tests/Test_diff_files')
+        rename_and_move('data/different_between_pre_and_post/', '../../implementation_doxygen/Tests/Test_diff_files')
         print("\n\033[1;35m-------------------------------------------------------------------------------\033[0m\n")
         print(f"\033[1;92m{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} -"
               f" Successfully created an HTML page at the filepath \nmain/data/different_between_pre_and_post/diff.html "

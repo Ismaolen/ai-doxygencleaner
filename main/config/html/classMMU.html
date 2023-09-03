@@ -68,12 +68,17 @@ $(function() {
 <div class="title">MMU Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Memory Management Unit (<a class="el" href="classMMU.html" title="Memory Management Unit (MMU) class that provides interfaces for memory operations.">MMU</a>) class that provides interfaces for memory operations.  
+ <a href="classMMU.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="classepost_8h_source.html">classepost.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MMU:</div>
 <div class="dyncontent">
 <div class="center"><img src="classMMU__inherit__graph.png" border="0" usemap="#MMU_inherit__map" alt="Inheritance graph"/></div>
 <map name="MMU_inherit__map" id="MMU_inherit__map">
-<area shape="rect" title=" " alt="" coords="61,80,117,107"/>
+<area shape="rect" title="Memory Management Unit (MMU) class that provides interfaces for memory operations." alt="" coords="61,80,117,107"/>
 <area shape="rect" title=" " alt="" coords="5,5,65,32"/>
 <area shape="rect" title=" " alt="" coords="90,5,197,32"/>
 </map>
@@ -83,7 +88,7 @@ Collaboration diagram for MMU:</div>
 <div class="dyncontent">
 <div class="center"><img src="classMMU__coll__graph.png" border="0" usemap="#MMU_coll__map" alt="Collaboration graph"/></div>
 <map name="MMU_coll__map" id="MMU_coll__map">
-<area shape="rect" title=" " alt="" coords="61,80,117,107"/>
+<area shape="rect" title="Memory Management Unit (MMU) class that provides interfaces for memory operations." alt="" coords="61,80,117,107"/>
 <area shape="rect" title=" " alt="" coords="5,5,65,32"/>
 <area shape="rect" title=" " alt="" coords="90,5,197,32"/>
 </map>
@@ -93,35 +98,38 @@ Collaboration diagram for MMU:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3cc26755183540beee71619d7549b189"><td class="memItemLeft" align="right" valign="top"><a id="a3cc26755183540beee71619d7549b189"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMMU.html#a3cc26755183540beee71619d7549b189">MMU</a> ()</td></tr>
-<tr class="memdesc:a3cc26755183540beee71619d7549b189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classMMU.html">MMU</a> class. <br /></td></tr>
+<tr class="memdesc:a3cc26755183540beee71619d7549b189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classMMU.html" title="Memory Management Unit (MMU) class that provides interfaces for memory operations.">MMU</a>. <br /></td></tr>
 <tr class="separator:a3cc26755183540beee71619d7549b189"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6037c8609281c7d11b74bebee6287ad5"><td class="memItemLeft" align="right" valign="top"><a id="a6037c8609281c7d11b74bebee6287ad5"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMMU.html#a6037c8609281c7d11b74bebee6287ad5">~MMU</a> ()</td></tr>
-<tr class="memdesc:a6037c8609281c7d11b74bebee6287ad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classMMU.html">MMU</a> class. <br /></td></tr>
+<tr class="memdesc:a6037c8609281c7d11b74bebee6287ad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classMMU.html" title="Memory Management Unit (MMU) class that provides interfaces for memory operations.">MMU</a>. <br /></td></tr>
 <tr class="separator:a6037c8609281c7d11b74bebee6287ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29a080faf3c781246848bb6d76828812"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMMU.html#a29a080faf3c781246848bb6d76828812">RegisterMemoryUnit</a> (const ushort &amp;startRange, const ushort &amp;endRange, IMemoryUnit *pUnit)</td></tr>
-<tr class="memdesc:a29a080faf3c781246848bb6d76828812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a memory unit with the specified start and end range.  <a href="classMMU.html#a29a080faf3c781246848bb6d76828812">More...</a><br /></td></tr>
+<tr class="memdesc:a29a080faf3c781246848bb6d76828812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a memory unit within a specified range.  <a href="classMMU.html#a29a080faf3c781246848bb6d76828812">More...</a><br /></td></tr>
 <tr class="separator:a29a080faf3c781246848bb6d76828812"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a098ff0e156964901d6d00956b44ddaa5"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMMU.html#a098ff0e156964901d6d00956b44ddaa5">ReadUShort</a> (const ushort &amp;address)</td></tr>
-<tr class="memdesc:a098ff0e156964901d6d00956b44ddaa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an unsigned short value from the specified address in memory.  <a href="classMMU.html#a098ff0e156964901d6d00956b44ddaa5">More...</a><br /></td></tr>
+<tr class="memdesc:a098ff0e156964901d6d00956b44ddaa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an unsigned short value from the given address.  <a href="classMMU.html#a098ff0e156964901d6d00956b44ddaa5">More...</a><br /></td></tr>
 <tr class="separator:a098ff0e156964901d6d00956b44ddaa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9d57148f085c89c7f18e2388eccbd4a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMMU.html#ad9d57148f085c89c7f18e2388eccbd4a">LoadBootROM</a> (const char *bootROMPath)</td></tr>
-<tr class="memdesc:ad9d57148f085c89c7f18e2388eccbd4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a boot ROM file into memory.  <a href="classMMU.html#ad9d57148f085c89c7f18e2388eccbd4a">More...</a><br /></td></tr>
+<tr class="memdesc:ad9d57148f085c89c7f18e2388eccbd4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the Boot ROM from the specified path.  <a href="classMMU.html#ad9d57148f085c89c7f18e2388eccbd4a">More...</a><br /></td></tr>
 <tr class="separator:ad9d57148f085c89c7f18e2388eccbd4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc539252a71c874d70ac5d1124855d79"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMMU.html#afc539252a71c874d70ac5d1124855d79">Read</a> (const ushort &amp;address)</td></tr>
-<tr class="memdesc:afc539252a71c874d70ac5d1124855d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a byte value from the specified address in memory.  <a href="classMMU.html#afc539252a71c874d70ac5d1124855d79">More...</a><br /></td></tr>
+<tr class="memdesc:afc539252a71c874d70ac5d1124855d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a byte from the given address.  <a href="classMMU.html#afc539252a71c874d70ac5d1124855d79">More...</a><br /></td></tr>
 <tr class="separator:afc539252a71c874d70ac5d1124855d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3484a11ec6778acb991ebfef06abe562"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMMU.html#a3484a11ec6778acb991ebfef06abe562">Write</a> (const ushort &amp;address, const byte val)</td></tr>
-<tr class="memdesc:a3484a11ec6778acb991ebfef06abe562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a byte value to the specified address in memory.  <a href="classMMU.html#a3484a11ec6778acb991ebfef06abe562">More...</a><br /></td></tr>
+<tr class="memdesc:a3484a11ec6778acb991ebfef06abe562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a byte value to the specified address.  <a href="classMMU.html#a3484a11ec6778acb991ebfef06abe562">More...</a><br /></td></tr>
 <tr class="separator:a3484a11ec6778acb991ebfef06abe562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c3096a18c1b6da9be91ad809f5c8f86"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMMU.html#a6c3096a18c1b6da9be91ad809f5c8f86">ReadByte</a> (const ushort &amp;address)</td></tr>
-<tr class="memdesc:a6c3096a18c1b6da9be91ad809f5c8f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a byte value from the specified address in memory.  <a href="classMMU.html#a6c3096a18c1b6da9be91ad809f5c8f86">More...</a><br /></td></tr>
+<tr class="memdesc:a6c3096a18c1b6da9be91ad809f5c8f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a byte from the given address (IMemoryUnit interface).  <a href="classMMU.html#a6c3096a18c1b6da9be91ad809f5c8f86">More...</a><br /></td></tr>
 <tr class="separator:a6c3096a18c1b6da9be91ad809f5c8f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a961da11751869968342476deaf8de600"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMMU.html#a961da11751869968342476deaf8de600">WriteByte</a> (const ushort &amp;address, const byte val)</td></tr>
-<tr class="memdesc:a961da11751869968342476deaf8de600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a byte value to the specified address in memory.  <a href="classMMU.html#a961da11751869968342476deaf8de600">More...</a><br /></td></tr>
+<tr class="memdesc:a961da11751869968342476deaf8de600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a byte value to the specified address (IMemoryUnit interface).  <a href="classMMU.html#a961da11751869968342476deaf8de600">More...</a><br /></td></tr>
 <tr class="separator:a961da11751869968342476deaf8de600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Memory Management Unit (<a class="el" href="classMMU.html" title="Memory Management Unit (MMU) class that provides interfaces for memory operations.">MMU</a>) class that provides interfaces for memory operations. </p>
+<p>This class is responsible for the management of memory units, including the registration, reading, and writing operations. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad9d57148f085c89c7f18e2388eccbd4a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad9d57148f085c89c7f18e2388eccbd4a">&#9670;&nbsp;</a></span>LoadBootROM()</h2>
 
@@ -138,14 +146,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loads a boot ROM file into memory. </p>
+<p>Loads the Boot ROM from the specified path. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bootROMPath</td><td>The path to the boot ROM file.</td></tr>
+    <tr><td class="paramname">bootROMPath</td><td>Path to the Boot ROM file. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the boot ROM was loaded successfully, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the Boot ROM is loaded successfully, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -165,14 +173,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads a byte value from the specified address in memory. </p>
+<p>Reads a byte from the given address. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The address to read from.</td></tr>
+    <tr><td class="paramname">address</td><td>Address to read from. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The value read from memory as a byte. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Byte value read from the specified address. </dd></dl>
 
 </div>
 </div>
@@ -192,14 +200,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads a byte value from the specified address in memory. </p>
+<p>Reads a byte from the given address (IMemoryUnit interface). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The address to read from.</td></tr>
+    <tr><td class="paramname">address</td><td>Address to read from. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The value read from memory as a byte. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Byte value read from the specified address. </dd></dl>
 
 </div>
 </div>
@@ -219,14 +227,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads an unsigned short value from the specified address in memory. </p>
+<p>Reads an unsigned short value from the given address. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The address to read from.</td></tr>
+    <tr><td class="paramname">address</td><td>Address to read from. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The value read from memory as an unsigned short. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned short value read from the specified address. </dd></dl>
 
 </div>
 </div>
@@ -262,15 +270,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Registers a memory unit with the specified start and end range. </p>
+<p>Registers a memory unit within a specified range. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">startRange</td><td>The starting address of the memory unit. </td></tr>
-    <tr><td class="paramname">endRange</td><td>The ending address of the memory unit. </td></tr>
-    <tr><td class="paramname">pUnit</td><td>Pointer to the memory unit object. </td></tr>
+    <tr><td class="paramname">startRange</td><td>Starting address of the range. </td></tr>
+    <tr><td class="paramname">endRange</td><td>Ending address of the range. </td></tr>
+    <tr><td class="paramname">pUnit</td><td>Pointer to the memory unit to be registered. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -300,11 +309,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Writes a byte value to the specified address in memory. </p>
+<p>Writes a byte value to the specified address. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The address to write to. </td></tr>
-    <tr><td class="paramname">val</td><td>The value to write.</td></tr>
+    <tr><td class="paramname">address</td><td>Address to write to. </td></tr>
+    <tr><td class="paramname">val</td><td>Byte value to be written. </td></tr>
   </table>
   </dd>
 </dl>
@@ -338,11 +347,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Writes a byte value to the specified address in memory. </p>
+<p>Writes a byte value to the specified address (IMemoryUnit interface). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The address to write to. </td></tr>
-    <tr><td class="paramname">val</td><td>The value to write.</td></tr>
+    <tr><td class="paramname">address</td><td>Address to write to. </td></tr>
+    <tr><td class="paramname">val</td><td>Byte value to be written. </td></tr>
   </table>
   </dd>
 </dl>
@@ -351,7 +360,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/ismail/Desktop/bachelorarbeit/ai-doxygencleaner/main/doxygen_projects/chrono/<a class="el" href="MMU_8hpp_source.html">MMU.hpp</a></li>
+<li>/home/ismail/Desktop/bachelorarbeit/ai-doxygencleaner/main/doxygen_projects/chrono/<a class="el" href="classepost_8h_source.html">classepost.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
