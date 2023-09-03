@@ -1,4 +1,4 @@
-# AIDoxygenCleaner:
+# AI-DoxygenCleaner:
 
 ## Description
 AI-DoxygenCleaner is a robust, AI-powered tool that simplifies and streamlines 
