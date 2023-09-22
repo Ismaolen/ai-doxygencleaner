@@ -44,16 +44,16 @@ pre_fix_warning_detection:                        # Job for detecting warnings b
       - ./main/transport_data/preprocessed_warnings_data.json  # Specify artifact
     expire_in: 4 month                                        # Set artifact expiration time
 
-warnings_database_insertion:                      # Job for inserting warnings into the database
-  stage: preparation                              # Assign to 'preparation' stage
-  needs: ["pre_fix_warning_detection"]            # Specify job dependency
-  script:
-    - cd main
-    - python3 main.py --insert-warnings-db        # Run script for database insertion
-  artifacts:
-    paths:
-      - ./main/transport_data/pipeline_id.json    # Specify artifact
-    expire_in: 4 month                            # Set artifact expiration time
+#warnings_database_insertion:                      # Job for inserting warnings into the database
+#  stage: preparation                              # Assign to 'preparation' stage
+#  needs: ["pre_fix_warning_detection"]            # Specify job dependency
+#  script:
+#    - cd main
+#    - python3 main.py --insert-warnings-db        # Run script for database insertion
+#  artifacts:
+#   paths:
+#      - ./main/transport_data/pipeline_id.json    # Specify artifact
+#    expire_in: 4 month                            # Set artifact expiration time
 
 doxygen_warning_fix:                              # Job for fixing Doxygen warnings
   stage: execution                                # Assign to 'execution' stage
@@ -92,12 +92,12 @@ post_fix_warning_detection:                       # Job for detecting warnings a
       - ./main/transport_data                     # Specify artifact
     expire_in: 4 month                            # Set artifact expiration time
 
-warning_data_db_update:                           # Job for updating warning data in the database
-  stage: evaluation                               # Assign to 'evaluation' stage
-  needs: ["post_fix_warning_detection", "warnings_database_insertion"] # Specify job dependencies
-  script:
-    - cd main
-    - python3 main.py --update-warning-data-in-db # Run script for database update
+#warning_data_db_update:                           # Job for updating warning data in the database
+#  stage: evaluation                               # Assign to 'evaluation' stage
+#  needs: ["post_fix_warning_detection", "warnings_database_insertion"] # Specify job dependencies
+#  script:
+#    - cd main
+#    - python3 main.py --update-warning-data-in-db # Run script for database update
 
 warnings_diff_extraction:                         # Job for extracting differences in warnings
   stage: results_presentation                     # Assign to 'results_presentation' stage
