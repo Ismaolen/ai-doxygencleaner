@@ -5,60 +5,6 @@
 
 =========================================================
 
->> FILE: classepost.h
->> FILE CONTENT (Pre-Fix):
-
-#pragma once
-
-class Serial : public IMemoryUnit
-{
-public:
-    /**
-     * @brief Constructs a new Serial object.
-     */
-    Serial();
-
-    ~Serial();
-
-    // IMemoryUnit
-
-    /**
-     * @brief Reads a byte from the specified address in memory.
-     *
-     * @param address The address to read from.
-     * @return The byte value read from memory.
-     */
-    byte ReadByte(const ushort& address);
-
-    /**
-     * @brief Writes a byte to the specified address in memory.
-     *
-     * @param address The address to write to.
-     * @param val The byte value to write.
-     * @return True if the write operation was successful, false otherwise.
-     */
-    bool WriteByte(const ushort& address, const byte val);
-
-private:
-    byte m_Data; ///< Member variable to hold data.
-};
-
----------------------------------------------------------
-
-
-
->> Number of Doxygen Warnings Detected (Pre-Fix): 1
-
->> Warning Contents (Pre-Fix):
-
-	>>> Warning 1: warning: Compound Serial is not documented.
-	>>> On Line: 4
-
----------------------------------------------------------
-
-2023-08-18 05:14:01 - File analysis completed.
-=========================================================
-
 >> FILE: classepre.h
 >> FILE CONTENT (Pre-Fix):
 
@@ -68,28 +14,16 @@ class Serial : public IMemoryUnit
 {
 public:
 
-    /**
-     * @brief Constructs a Serial object.
-     */
+
     Serial();
 
-    /**
-     * @brief Destroys the Serial object.
-     */
-    ~Serial();
 
-    // IMemoryUnit
+    ~Serial();
 
 
     byte ReadByte(const ushort& address);
 
-    /**
-     * @brief Writes a byte of data to the specified address in memory.
-     *
-     * @param address The address to write to.
-     * @param val The value to write.
-     * @return True if the write operation was successful, false otherwise.
-     */
+
     bool WriteByte(const ushort& address, const byte val);
 
 private:
@@ -100,18 +34,21 @@ private:
 
 
 
->> Number of Doxygen Warnings Detected (Pre-Fix): 2
+>> Number of Doxygen Warnings Detected (Pre-Fix): 3
 
 >> Warning Contents (Pre-Fix):
 
 	>>> Warning 1: warning: Compound Serial is not documented.
-	>>> On Line: 4
+	>>> On Line: 3
 
 	>>> Warning 2: warning: Member ReadByte(const ushort &address) (function) of class Serial is not documented.
-	>>> On Line: 20
+	>>> On Line: 14
+
+	>>> Warning 3: warning: Member WriteByte(const ushort &address, const byte val) (function) of class Serial is not documented.
+	>>> On Line: 17
 
 ---------------------------------------------------------
 
-2023-08-18 05:14:01 - File analysis completed.
+2023-09-22 19:44:48 - File analysis completed.
 =========================================================
 

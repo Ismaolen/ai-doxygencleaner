@@ -1,50 +1,12 @@
---- data/different_between_pre_and_post/output_pre_fix.cpp	2023-08-18 05:14:01.002786705 +0200
-+++ data/different_between_pre_and_post/output_post_fix.cpp	2023-08-18 05:14:01.002786705 +0200
-@@ -1,12 +1,12 @@
+--- data/different_between_pre_and_post/output_pre_fix.cpp
++++ data/different_between_pre_and_post/output_post_fix.cpp
+@@ -1,29 +1,48 @@
  
  ==================== PROJECT DETAILS ====================
  
 -< Project Folder (Pre-Fix) Path: doxygen_projects/chrone_2
 +< Project Folder (Post-Fix) Path: doxygen_projects/chrone_2
  
- =========================================================
- 
- >> FILE: classepost.h
-->> FILE CONTENT (Pre-Fix):
-+>> FILE CONTENT (Post-Fix):
- 
- #pragma once
- 
-@@ -43,15 +43,25 @@
-     byte m_Data; ///< Member variable to hold data.
- };
- 
-+/**
-+ * @class Serial
-+ * 
-+ * @brief Represents a serial communication interface that implements the IMemoryUnit interface. 
-+ *
-+ * This class provides methods for reading and writing bytes from/to memory addresses. It also has a member variable m_Data to store data.
-+
- ---------------------------------------------------------
- 
- 
- 
-->> Number of Doxygen Warnings Detected (Pre-Fix): 1
-+>> Number of Doxygen Warnings Detected (Post-Fix): 2
-+
-+>> Warning Contents (Post-Fix):
- 
-->> Warning Contents (Pre-Fix):
-+	>>> Warning 1: warning: Reached end of file while still inside a (nested) comment. Nesting level 1 (probable line reference: 36)
-+	>>> On Line: 42
- 
--	>>> Warning 1: warning: Compound Serial is not documented.
-+	>>> Warning 2: warning: Compound Serial is not documented.
- 	>>> On Line: 4
- 
- ---------------------------------------------------------
-@@ -60,10 +70,15 @@
  =========================================================
  
  >> FILE: classepre.h
@@ -61,34 +23,56 @@
  class Serial : public IMemoryUnit
  {
  public:
-@@ -80,7 +95,12 @@
- 
-     // IMemoryUnit
+-
+-
++    /**
++     * @brief Constructs a new Serial object.
++     */
+     Serial();
  
 -
 +    /**
-+     * @brief Reads a byte of data from the specified address in memory.
++     * @brief Destroys the Serial object.
++     */
+     ~Serial();
+ 
+-
++    /**
++     * @brief Reads a byte from the specified address in memory.
 +     *
 +     * @param address The address to read from.
-+     * @return The byte of data read from the specified address.
++     * @return The byte value read from the memory address.
 +     */
      byte ReadByte(const ushort& address);
  
-     /**
-@@ -100,15 +120,10 @@
- 
- 
- 
-->> Number of Doxygen Warnings Detected (Pre-Fix): 2
 -
++    /**
++     * @brief Writes a byte to the specified address in memory.
++     *
++     * @param address The address to write to.
++     * @param val The byte value to write to the memory address.
++     * @return True if the write operation was successful, false otherwise.
++     */
+     bool WriteByte(const ushort& address, const byte val);
+ 
+ private:
+@@ -34,18 +53,10 @@
+ 
+ 
+ 
+->> Number of Doxygen Warnings Detected (Pre-Fix): 3
++>> Number of Doxygen Warnings Detected (Post-Fix): 0
+ 
 ->> Warning Contents (Pre-Fix):
 -
 -	>>> Warning 1: warning: Compound Serial is not documented.
--	>>> On Line: 4
-+>> Number of Doxygen Warnings Detected (Post-Fix): 0
- 
+-	>>> On Line: 3
+-
 -	>>> Warning 2: warning: Member ReadByte(const ushort &address) (function) of class Serial is not documented.
--	>>> On Line: 20
+-	>>> On Line: 14
+-
+-	>>> Warning 3: warning: Member WriteByte(const ushort &address, const byte val) (function) of class Serial is not documented.
+-	>>> On Line: 17
 +No Doxygen Warnings Detected After Fixing.
 +All Doxygen Warnings In This File Were Resolved Through The GPT Model.
  
