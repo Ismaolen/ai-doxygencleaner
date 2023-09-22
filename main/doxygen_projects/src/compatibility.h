@@ -1,19 +1,44 @@
-#import <UIKit/UIKit.h>
-
-// Add newer API stuff. This shouldn't be needed, unfortunately
-// it seems as though the 'gcc' from Cydia for iOS (my version at least)
-// doesn't support either the 'IPHONEOS_DEPLOYMENT_TARGET' env var nor
-// the '-miphoneos-version-min' compiler flag... lame...
-typedef enum {
-    UIDeviceBatteryStateUnknown,
-    UIDeviceBatteryStateUnplugged,   // on battery, discharging
-    UIDeviceBatteryStateCharging,    // plugged in, less than 100%
-    UIDeviceBatteryStateFull,        // plugged in, at 100%
-} UIDeviceBatteryState;              // available in iPhone 3.0
-
+/**
+ * @brief The UIDevice class provides a way to access and manipulate information about the device.
+ *
+ * This class is a singleton, meaning that only one instance of it can exist at any given time.
+ */
 @interface UIDevice ()
-  - (void) setOrientation:(UIInterfaceOrientation)orientation;
-  @property(getter=isBatteryMonitoringEnabled) BOOL batteryMonitoringEnabled;
-  @property(readonly) UIDeviceBatteryState          batteryState;
-  @property(readonly) float                         batteryLevel;
+
+/**
+ * @brief Sets the orientation of the device.
+ *
+ * @param orientation The new orientation of the device.
+ */
+- (void) setOrientation:(UIInterfaceOrientation)orientation;
+
+/**
+ * @brief A Boolean value indicating whether battery monitoring is enabled for the device.
+ *
+ * If this property is set to YES, the device will monitor changes in battery state and update
+ * the batteryState and batteryLevel properties accordingly. If set to NO, battery monitoring
+ * will be disabled.
+ */
+@property(getter=isBatteryMonitoringEnabled) BOOL batteryMonitoringEnabled;
+
+/**
+ * @brief The current state of the device's battery.
+ *
+ * This property represents the current state of the device's battery. It can have one of four values:
+ * - UIDeviceBatteryStateUnknown: The state of the battery is unknown.
+ * - UIDeviceBatteryStateUnplugged: The device is on battery power and discharging.
+ * - UIDeviceBatteryStateCharging: The device is plugged in and charging, but not yet at 100% capacity.
+ * - UIDeviceBatteryStateFull: The device is plugged in and fully charged (at 100% capacity).
+ */
+@property(readonly) UIDeviceBatteryState          batteryState;
+
+/**
+ * @brief The current level of charge on the device's battery.
+ *
+ * This property represents the current level of charge on the device's battery as a floating-point value
+ * between 0.0 (empty) and 1.0 (full). If no battery monitoring is enabled or if there are errors in obtaining
+ * this information, this property will return -1.0.
+ */
+@property(readonly) float                         batteryLevel;
+
 @end
