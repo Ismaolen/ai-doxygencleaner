@@ -1,19 +1,34 @@
-#import <UIKit/UIKit.h>
-
-// Add newer API stuff. This shouldn't be needed, unfortunately
-// it seems as though the 'gcc' from Cydia for iOS (my version at least)
-// doesn't support either the 'IPHONEOS_DEPLOYMENT_TARGET' env var nor
-// the '-miphoneos-version-min' compiler flag... lame...
-typedef enum {
-    UIDeviceBatteryStateUnknown,
-    UIDeviceBatteryStateUnplugged,   // on battery, discharging
-    UIDeviceBatteryStateCharging,    // plugged in, less than 100%
-    UIDeviceBatteryStateFull,        // plugged in, at 100%
-} UIDeviceBatteryState;              // available in iPhone 3.0
-
+/**
+ * @brief The UIDevice class provides access to information about the device such as battery state and orientation.
+ */
 @interface UIDevice ()
-  - (void) setOrientation:(UIInterfaceOrientation)orientation;
-  @property(getter=isBatteryMonitoringEnabled) BOOL batteryMonitoringEnabled;
-  @property(readonly) UIDeviceBatteryState          batteryState;
-  @property(readonly) float                         batteryLevel;
+
+/**
+ * @brief Sets the orientation of the device.
+ *
+ * @param orientation The new orientation of the device.
+ */
+- (void) setOrientation:(UIInterfaceOrientation)orientation;
+
+/**
+ * @brief A Boolean value indicating whether battery monitoring is enabled (YES) or not (NO).
+ *
+ * @return None
+ */
+@property(getter=isBatteryMonitoringEnabled) BOOL batteryMonitoringEnabled;
+
+/**
+ * @brief The current battery state of the device.
+ *
+ * @return None
+ */
+@property(readonly) UIDeviceBatteryState batteryState;
+
+/**
+ * @brief The current battery level of the device, ranging from 0.0 (empty) to 1.0 (full).
+ *
+ * @return None
+ */
+@property(readonly) float batteryLevel;
+
 @end

@@ -1,26 +1,30 @@
-#import <node.h>
-#import <v8.h>
-#import <CoreFoundation/CoreFoundation.h>
-#import <Foundation/Foundation.h>
-#import <AddressBook/AddressBook.h>
-#import "addressBook-Record.h"
-#import "addressBook-Contact.h"
+/**
+ * @class AddressBook
+ * @brief This class provides functions to interact with the Address Book on macOS.
+ */
 
-int GetContacts_DoRequest (eio_req *);
-int GetContacts_AfterResponse (eio_req *);
+/**
+ * @fn void AddressBook::Init(v8::Handle<v8::Object> target)
+ * @brief Initializes the AddressBook class and adds it to the target object.
+ * @param target The target object to add the AddressBook class to.
+ */
 
-struct async_request {
-  v8::Persistent<v8::Function> cb;
-  bool hasCb;
-  CFIndex resultsCount;
-  // 'results' is an array of pointers to "Record" instances
-  Record **results;
-};
+/**
+ * @fn v8::Handle<v8::Value> AddressBook::GetContacts(const v8::Arguments& args)
+ * @brief Retrieves all contacts from the Address Book.
+ * @param args The arguments passed to the function (none required).
+ * @return An array of contact objects.
+ */
 
-class AddressBook {
-  public:
-    static void Init(v8::Handle<v8::Object> target);
-    static v8::Handle<v8::Value> GetContacts(const v8::Arguments& args);
-    static v8::Handle<v8::Value> GetGroups(const v8::Arguments& args);
-    static v8::Handle<v8::Value> Save(const v8::Arguments& args);
-};
+/**
+ * @fn v8::Handle<v8::Value> AddressBook::GetGroups(const v8::Arguments& args)
+ * @brief Retrieves all groups from the Address Book.
+ * @param args The arguments passed to the function (none required).
+ * @return An array of group objects.
+ */
+
+/**
+ * @fn v8::Handle<v8::Value> AddressBook::Save(const v8::Arguments& args)
+ * @brief Saves changes made to the Address Book.
+ * @param args The arguments passed to the function (none required).
+ */

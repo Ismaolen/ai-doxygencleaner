@@ -1,94 +1,598 @@
---- data/different_between_pre_and_post/output_pre_fix.cpp	2023-08-18 05:14:01.002786705 +0200
-+++ data/different_between_pre_and_post/output_post_fix.cpp	2023-08-18 05:14:01.002786705 +0200
-@@ -1,12 +1,12 @@
+--- data/different_between_pre_and_post/output_pre_fix.cpp
++++ data/different_between_pre_and_post/output_post_fix.cpp
+@@ -1,22 +1,48 @@
  
  ==================== PROJECT DETAILS ====================
  
--< Project Folder (Pre-Fix) Path: doxygen_projects/chrone_2
-+< Project Folder (Post-Fix) Path: doxygen_projects/chrone_2
+-< Project Folder (Pre-Fix) Path: doxygen_projects/src
++< Project Folder (Post-Fix) Path: doxygen_projects/src
  
  =========================================================
  
- >> FILE: classepost.h
+ >> FILE: telephony.h
 ->> FILE CONTENT (Pre-Fix):
 +>> FILE CONTENT (Post-Fix):
  
- #pragma once
++/**
++ * @file telephony.h
++ * @brief This file contains the declaration of the Telephony class.
++ */
++
+ #import <node.h>
+ #import <v8.h>
+ #import <Foundation/Foundation.h>
+ #import <CoreFoundation/CoreFoundation.h>
+ #import <CoreTelephony/CoreTelephony.h>
  
-@@ -43,15 +43,25 @@
-     byte m_Data; ///< Member variable to hold data.
++/**
++ * @class Telephony
++ * @brief This class provides functionality related to telephony operations.
++ */
+ class Telephony {
+   public:
++    /**
++     * @brief Initializes the Telephony class.
++     *
++     * This function initializes the Telephony class and sets up necessary resources.
++     *
++     * @param args The arguments passed to the function (not used).
++     * @return None
++     */
+     static v8::Handle<v8::Value> Init(const v8::Arguments& args);
++
++    /**
++     * @brief Sends an SMS message.
++     *
++     * This function sends an SMS message using the specified parameters.
++     *
++     * @param args The arguments passed to the function (not used).
++     * @return None
++     */
+     static v8::Handle<v8::Value> SendSMS(const v8::Arguments& args);
  };
  
-+/**
-+ * @class Serial
-+ * 
-+ * @brief Represents a serial communication interface that implements the IMemoryUnit interface. 
-+ *
-+ * This class provides methods for reading and writing bytes from/to memory addresses. It also has a member variable m_Data to store data.
-+
- ---------------------------------------------------------
+@@ -24,112 +50,120 @@
  
  
  
-->> Number of Doxygen Warnings Detected (Pre-Fix): 1
-+>> Number of Doxygen Warnings Detected (Post-Fix): 2
-+
-+>> Warning Contents (Post-Fix):
+->> Number of Doxygen Warnings Detected (Pre-Fix): 3
++>> Number of Doxygen Warnings Detected (Post-Fix): 0
  
 ->> Warning Contents (Pre-Fix):
-+	>>> Warning 1: warning: Reached end of file while still inside a (nested) comment. Nesting level 1 (probable line reference: 36)
-+	>>> On Line: 42
++No Doxygen Warnings Detected After Fixing.
++All Doxygen Warnings In This File Were Resolved Through The GPT Model.
  
--	>>> Warning 1: warning: Compound Serial is not documented.
-+	>>> Warning 2: warning: Compound Serial is not documented.
- 	>>> On Line: 4
- 
+-	>>> Warning 1: warning: Compound Telephony is not documented.
+-	>>> On Line: 7
+-
+-	>>> Warning 2: warning: Member Init(const v8::Arguments &args) (function) of class Telephony is not documented.
+-	>>> On Line: 9
+-
+-	>>> Warning 3: warning: Member SendSMS(const v8::Arguments &args) (function) of class Telephony is not documented.
+-	>>> On Line: 10
+-
  ---------------------------------------------------------
-@@ -60,10 +70,15 @@
+ 
+ 2023-09-25 16:17:23 - File analysis completed.
  =========================================================
  
- >> FILE: classepre.h
+ >> FILE: addressBook.h
 ->> FILE CONTENT (Pre-Fix):
 +>> FILE CONTENT (Post-Fix):
  
- #pragma once
+-#import <node.h>
+-#import <v8.h>
+-#import <CoreFoundation/CoreFoundation.h>
+-#import <Foundation/Foundation.h>
+-#import <AddressBook/AddressBook.h>
+-#import "addressBook-Record.h"
+-#import "addressBook-Contact.h"
++/**
++ * @class AddressBook
++ * @brief This class provides functions to interact with the Address Book on macOS.
++ */
+ 
+-int GetContacts_DoRequest (eio_req *);
+-int GetContacts_AfterResponse (eio_req *);
++/**
++ * @fn void AddressBook::Init(v8::Handle<v8::Object> target)
++ * @brief Initializes the AddressBook class and adds it to the target object.
++ * @param target The target object to add the AddressBook class to.
++ */
+ 
+-struct async_request {
+-  v8::Persistent<v8::Function> cb;
+-  bool hasCb;
+-  CFIndex resultsCount;
+-  // 'results' is an array of pointers to "Record" instances
+-  Record **results;
+-};
++/**
++ * @fn v8::Handle<v8::Value> AddressBook::GetContacts(const v8::Arguments& args)
++ * @brief Retrieves all contacts from the Address Book.
++ * @param args The arguments passed to the function (none required).
++ * @return An array of contact objects.
++ */
+ 
+-class AddressBook {
+-  public:
+-    static void Init(v8::Handle<v8::Object> target);
+-    static v8::Handle<v8::Value> GetContacts(const v8::Arguments& args);
+-    static v8::Handle<v8::Value> GetGroups(const v8::Arguments& args);
+-    static v8::Handle<v8::Value> Save(const v8::Arguments& args);
+-};
++/**
++ * @fn v8::Handle<v8::Value> AddressBook::GetGroups(const v8::Arguments& args)
++ * @brief Retrieves all groups from the Address Book.
++ * @param args The arguments passed to the function (none required).
++ * @return An array of group objects.
++ */
  
 +/**
-+ * @brief The Serial class represents a serial communication interface.
-+ *
-+ * This class inherits from the IMemoryUnit interface.
++ * @fn v8::Handle<v8::Value> AddressBook::Save(const v8::Arguments& args)
++ * @brief Saves changes made to the Address Book.
++ * @param args The arguments passed to the function (none required).
 + */
- class Serial : public IMemoryUnit
- {
- public:
-@@ -80,7 +95,12 @@
++
+ ---------------------------------------------------------
  
-     // IMemoryUnit
  
+ 
+->> Number of Doxygen Warnings Detected (Pre-Fix): 10
++>> Number of Doxygen Warnings Detected (Post-Fix): 4
+ 
+->> Warning Contents (Pre-Fix):
++>> Warning Contents (Post-Fix):
+ 
+-	>>> Warning 1: warning: Compound AddressBook is not documented.
+-	>>> On Line: 20
++	>>> Warning 1: warning: documented symbol 'void AddressBook::Init' was not declared or defined.
++	>>> On Line: 7
+ 
+-	>>> Warning 2: warning: Compound async_request is not documented.
+-	>>> On Line: 12
 -
-+    /**
-+     * @brief Reads a byte of data from the specified address in memory.
-+     *
-+     * @param address The address to read from.
-+     * @return The byte of data read from the specified address.
-+     */
-     byte ReadByte(const ushort& address);
+-	>>> Warning 3: warning: Member Init(v8::Handle< v8::Object > target) (function) of class AddressBook is not documented.
+-	>>> On Line: 22
+-
+-	>>> Warning 4: warning: Member GetContacts(const v8::Arguments &args) (function) of class AddressBook is not documented.
+-	>>> On Line: 23
+-
+-	>>> Warning 5: warning: Member GetGroups(const v8::Arguments &args) (function) of class AddressBook is not documented.
+-	>>> On Line: 24
+-
+-	>>> Warning 6: warning: Member Save(const v8::Arguments &args) (function) of class AddressBook is not documented.
+-	>>> On Line: 25
+-
+-	>>> Warning 7: warning: Member cb (variable) of struct async_request is not documented.
++	>>> Warning 2: warning: documented symbol 'v8::Handle< v8::Value > AddressBook::GetContacts' was not declared or defined.
+ 	>>> On Line: 13
  
-     /**
-@@ -100,15 +120,10 @@
+-	>>> Warning 8: warning: Member hasCb (variable) of struct async_request is not documented.
+-	>>> On Line: 14
++	>>> Warning 3: warning: documented symbol 'v8::Handle< v8::Value > AddressBook::GetGroups' was not declared or defined.
++	>>> On Line: 20
+ 
+-	>>> Warning 9: warning: Member resultsCount (variable) of struct async_request is not documented.
+-	>>> On Line: 15
++	>>> Warning 4: warning: documented symbol 'v8::Handle< v8::Value > AddressBook::Save' was not declared or defined.
++	>>> On Line: 27
+ 
+-	>>> Warning 10: warning: Member results (variable) of struct async_request is not documented.
+-	>>> On Line: 17
+-
+ ---------------------------------------------------------
+ 
+ 2023-09-25 16:17:23 - File analysis completed.
+ =========================================================
+ 
+ >> FILE: graphicServices.h
+->> FILE CONTENT (Pre-Fix):
++>> FILE CONTENT (Post-Fix):
+ 
++/**
++ * @file graphicServices.h
++ * @brief This file contains the declaration of the GraphicServices class.
++ */
++
+ #import <v8.h>
+ #import <node.h>
+ #import <GraphicsServices/GraphicsServices.h>
+ 
+-/* Private, undocumented APIs */
+-//void GSEventLockDevice();
+-//void GSEventQuitTopApplication();
+-
++/**
++ * @class GraphicServices
++ * @brief This class provides access to private, undocumented APIs in GraphicsServices.
++ */
+ class GraphicServices {
+   public:
++    /**
++     * @brief Initializes the GraphicServices class and sets up the target object.
++     *
++     * @param target The target object to set up.
++     */
+     static void Init(v8::Handle<v8::Object> target);
++
++    /**
++     * @brief Locks the screen.
++     *
++     * This function locks the screen by calling GSEventLockDevice().
++     *
++     * @param args The arguments passed to the function (none required).
++     *
++     * @return None
++     */
+     static v8::Handle<v8::Value> LockScreen(const v8::Arguments& args);
++
++    /**
++     * @brief Quits the top application.
++     *
++     * This function quits the top application by calling GSEventQuitTopApplication().
++     *
++     * @param args The arguments passed to the function (none required).
++     *
++     * @return None
++     */
+     static v8::Handle<v8::Value> QuitTopApplication(const v8::Arguments& args);
+ };
+ 
+@@ -137,75 +171,98 @@
+ 
+ 
+ 
+->> Number of Doxygen Warnings Detected (Pre-Fix): 4
++>> Number of Doxygen Warnings Detected (Post-Fix): 0
+ 
+->> Warning Contents (Pre-Fix):
++No Doxygen Warnings Detected After Fixing.
++All Doxygen Warnings In This File Were Resolved Through The GPT Model.
+ 
+-	>>> Warning 1: warning: Compound GraphicServices is not documented.
+-	>>> On Line: 9
+-
+-	>>> Warning 2: warning: Member Init(v8::Handle< v8::Object > target) (function) of class GraphicServices is not documented.
+-	>>> On Line: 11
+-
+-	>>> Warning 3: warning: Member LockScreen(const v8::Arguments &args) (function) of class GraphicServices is not documented.
+-	>>> On Line: 12
+-
+-	>>> Warning 4: warning: Member QuitTopApplication(const v8::Arguments &args) (function) of class GraphicServices is not documented.
+-	>>> On Line: 13
+-
+ ---------------------------------------------------------
+ 
+ 2023-09-25 16:17:23 - File analysis completed.
+ =========================================================
+ 
+ >> FILE: addressBook-Record.h
+->> FILE CONTENT (Pre-Fix):
++>> FILE CONTENT (Post-Fix):
+ 
+-#import <node.h>
+-#import <AddressBook/AddressBook.h>
+-
++/**
++ * @class Record
++ * @brief Represents a record in an address book.
++ *
++ * This class is used to store information about a record in an address book.
++ */
+ class Record : public node::ObjectWrap {
+   public:
+-    ABRecordID recordId;
++    ABRecordID recordId; /**< The unique identifier of the record. */
+ }; // class Record
+ 
+ ---------------------------------------------------------
  
  
  
 ->> Number of Doxygen Warnings Detected (Pre-Fix): 2
--
-->> Warning Contents (Pre-Fix):
--
--	>>> Warning 1: warning: Compound Serial is not documented.
--	>>> On Line: 4
 +>> Number of Doxygen Warnings Detected (Post-Fix): 0
  
--	>>> Warning 2: warning: Member ReadByte(const ushort &address) (function) of class Serial is not documented.
--	>>> On Line: 20
+->> Warning Contents (Pre-Fix):
++No Doxygen Warnings Detected After Fixing.
++All Doxygen Warnings In This File Were Resolved Through The GPT Model.
+ 
+-	>>> Warning 1: warning: Compound Record is not documented.
+-	>>> On Line: 4
+-
+-	>>> Warning 2: warning: Member recordId (variable) of class Record is not documented.
+-	>>> On Line: 6
+-
+ ---------------------------------------------------------
+ 
+ 2023-09-25 16:17:23 - File analysis completed.
+ =========================================================
+ 
+ >> FILE: addressBook-Contact.h
+->> FILE CONTENT (Pre-Fix):
++>> FILE CONTENT (Post-Fix):
+ 
+-#import "addressBook-Record.h"
+-
++/**
++ * @class Contact
++ * @brief Represents a contact in an address book.
++ *
++ * This class inherits from the base class Record and adds additional fields to represent a person's contact information.
++ */
+ class Contact : public Record {
+   public:
+-    // Person
++    /**
++     * @brief The first name of the contact.
++     */
+     const char *firstName;
++    
++    /**
++     * @brief The middle name of the contact.
++     */
+     const char *middleName;
++    
++    /**
++     * @brief The last name of the contact.
++     */
+     const char *lastName;
+-    // Organization
++    
++    /**
++     * @brief The organization of the contact.
++     */
+     const char *organization;
++    
++    /**
++     * @brief The job title of the contact.
++     */
+     const char *jobTitle;
++    
++    /**
++     * @brief The department of the contact.
++     */
+     const char *department;
+-    // Phone Numbers
++    
++    /**
++     * @brief The number of phone numbers associated with the contact.
++     */
+     int numNumbers;
++    
++    /**
++     * @brief An array containing names for each phone number associated with the contact.
++     */
+     const char **numbersNames;
++    
++    /**
++     * @brief An array containing values for each phone number associated with the contact.
++     */
+     const char **numbersValues;
+ }; // class Contact
+ 
+@@ -213,90 +270,62 @@
+ 
+ 
+ 
+->> Number of Doxygen Warnings Detected (Pre-Fix): 10
++>> Number of Doxygen Warnings Detected (Post-Fix): 0
+ 
+->> Warning Contents (Pre-Fix):
++No Doxygen Warnings Detected After Fixing.
++All Doxygen Warnings In This File Were Resolved Through The GPT Model.
+ 
+-	>>> Warning 1: warning: Compound Contact is not documented.
+-	>>> On Line: 3
+-
+-	>>> Warning 2: warning: Member firstName (variable) of class Contact is not documented.
+-	>>> On Line: 6
+-
+-	>>> Warning 3: warning: Member middleName (variable) of class Contact is not documented.
+-	>>> On Line: 7
+-
+-	>>> Warning 4: warning: Member lastName (variable) of class Contact is not documented.
+-	>>> On Line: 8
+-
+-	>>> Warning 5: warning: Member organization (variable) of class Contact is not documented.
+-	>>> On Line: 10
+-
+-	>>> Warning 6: warning: Member jobTitle (variable) of class Contact is not documented.
+-	>>> On Line: 11
+-
+-	>>> Warning 7: warning: Member department (variable) of class Contact is not documented.
+-	>>> On Line: 12
+-
+-	>>> Warning 8: warning: Member numNumbers (variable) of class Contact is not documented.
+-	>>> On Line: 14
+-
+-	>>> Warning 9: warning: Member numbersNames (variable) of class Contact is not documented.
+-	>>> On Line: 15
+-
+-	>>> Warning 10: warning: Member numbersValues (variable) of class Contact is not documented.
+-	>>> On Line: 16
+-
+ ---------------------------------------------------------
+ 
+ 2023-09-25 16:17:23 - File analysis completed.
+ =========================================================
+ 
+ >> FILE: compatibility.h
+->> FILE CONTENT (Pre-Fix):
++>> FILE CONTENT (Post-Fix):
+ 
+-#import <UIKit/UIKit.h>
+-
+-// Add newer API stuff. This shouldn't be needed, unfortunately
+-// it seems as though the 'gcc' from Cydia for iOS (my version at least)
+-// doesn't support either the 'IPHONEOS_DEPLOYMENT_TARGET' env var nor
+-// the '-miphoneos-version-min' compiler flag... lame...
+-typedef enum {
+-    UIDeviceBatteryStateUnknown,
+-    UIDeviceBatteryStateUnplugged,   // on battery, discharging
+-    UIDeviceBatteryStateCharging,    // plugged in, less than 100%
+-    UIDeviceBatteryStateFull,        // plugged in, at 100%
+-} UIDeviceBatteryState;              // available in iPhone 3.0
+-
++/**
++ * @brief The UIDevice class provides access to information about the device such as battery state and orientation.
++ */
+ @interface UIDevice ()
+-  - (void) setOrientation:(UIInterfaceOrientation)orientation;
+-  @property(getter=isBatteryMonitoringEnabled) BOOL batteryMonitoringEnabled;
+-  @property(readonly) UIDeviceBatteryState          batteryState;
+-  @property(readonly) float                         batteryLevel;
+-@end
+ 
+----------------------------------------------------------
++/**
++ * @brief Sets the orientation of the device.
++ *
++ * @param orientation The new orientation of the device.
++ */
++- (void) setOrientation:(UIInterfaceOrientation)orientation;
+ 
++/**
++ * @brief A Boolean value indicating whether battery monitoring is enabled (YES) or not (NO).
++ *
++ * @return None
++ */
++@property(getter=isBatteryMonitoringEnabled) BOOL batteryMonitoringEnabled;
+ 
++/**
++ * @brief The current battery state of the device.
++ *
++ * @return None
++ */
++@property(readonly) UIDeviceBatteryState batteryState;
+ 
+->> Number of Doxygen Warnings Detected (Pre-Fix): 5
++/**
++ * @brief The current battery level of the device, ranging from 0.0 (empty) to 1.0 (full).
++ *
++ * @return None
++ */
++@property(readonly) float batteryLevel;
+ 
+->> Warning Contents (Pre-Fix):
++@end
+ 
+-	>>> Warning 1: warning: Compound UIDevice() is not documented.
+-	>>> On Line: 14
++---------------------------------------------------------
+ 
+-	>>> Warning 2: warning: Member setOrientation:(UIInterfaceOrientation orientation) (function) of category UIDevice() is not documented.
+-	>>> On Line: 1
+ 
+-	>>> Warning 3: warning: Member batteryMonitoringEnabled (property) of category UIDevice() is not documented.
+-	>>> On Line: 16
+ 
+-	>>> Warning 4: warning: Member batteryState (property) of category UIDevice() is not documented.
+-	>>> On Line: 17
++>> Number of Doxygen Warnings Detected (Post-Fix): 0
+ 
+-	>>> Warning 5: warning: Member batteryLevel (property) of category UIDevice() is not documented.
+-	>>> On Line: 18
++No Doxygen Warnings Detected After Fixing.
++All Doxygen Warnings In This File Were Resolved Through The GPT Model.
+ 
+ ---------------------------------------------------------
+ 
+@@ -304,7 +333,7 @@
+ =========================================================
+ 
+ >> FILE: notifications.h
+->> FILE CONTENT (Pre-Fix):
++>> FILE CONTENT (Post-Fix):
+ 
+ #import <node.h>
+ #import <v8.h>
+@@ -313,20 +342,42 @@
+ #import <CoreFoundation/CoreFoundation.h>
+ #import <CoreFoundation/CFUserNotification.h>
+ 
+-int CreateNotification_WaitForResponse (eio_req *);
+-int CreateNotification_AfterResponse (eio_req *);
+-
++/**
++ * @brief Structure to hold the notification request details.
++ */
+ struct notification_request {
+-  CFOptionFlags options;
+-  CFUserNotificationRef notif;
+-  SInt32 error;
+-  v8::Persistent<v8::Function> cb;
+-  bool hasCb;
++  CFOptionFlags options; /**< The options for the notification. */
++  CFUserNotificationRef notif; /**< The reference to the user notification. */
++  SInt32 error; /**< The error code if any occurred during the notification creation. */
++  v8::Persistent<v8::Function> cb; /**< The callback function for the notification. */
++  bool hasCb; /**< Flag indicating whether a callback function is provided or not. */
+ };
+ 
++/**
++ * @brief Class to handle notifications.
++ *
++ * This class provides methods to create and manage notifications.
++ */
+ class Notifications {
+   public:
++    /**
++     * @brief Initialize the Notifications class.
++     *
++     * This method should be called to initialize the Notifications class before using it.
++     *
++     * @param target The target object where the Notifications class will be attached.
++     */
+     static void Init(v8::Handle<v8::Object> target);
++
++    /**
++     * @brief Create a new notification.
++     *
++     * This method creates a new user notification with the specified options and returns its reference.
++     *
++     * @param args The arguments passed to the createNotification method.
++     *
++     * @return None
++     */
+     static v8::Handle<v8::Value> createNotification(const v8::Arguments& args);
+ };
+ 
+@@ -334,36 +385,10 @@
+ 
+ 
+ 
+->> Number of Doxygen Warnings Detected (Pre-Fix): 9
++>> Number of Doxygen Warnings Detected (Post-Fix): 0
+ 
+->> Warning Contents (Pre-Fix):
+-
+-	>>> Warning 1: warning: Compound Notifications is not documented.
+-	>>> On Line: 19
+-
+-	>>> Warning 2: warning: Compound notification_request is not documented.
+-	>>> On Line: 11
+-
+-	>>> Warning 3: warning: Member options (variable) of struct notification_request is not documented.
+-	>>> On Line: 12
+-
+-	>>> Warning 4: warning: Member notif (variable) of struct notification_request is not documented.
+-	>>> On Line: 13
+-
+-	>>> Warning 5: warning: Member error (variable) of struct notification_request is not documented.
+-	>>> On Line: 14
+-
+-	>>> Warning 6: warning: Member cb (variable) of struct notification_request is not documented.
+-	>>> On Line: 15
+-
+-	>>> Warning 7: warning: Member hasCb (variable) of struct notification_request is not documented.
+-	>>> On Line: 16
+-
+-	>>> Warning 8: warning: Member Init(v8::Handle< v8::Object > target) (function) of class Notifications is not documented.
+-	>>> On Line: 21
+-
+-	>>> Warning 9: warning: Member createNotification(const v8::Arguments &args) (function) of class Notifications is not documented.
+-	>>> On Line: 22
 +No Doxygen Warnings Detected After Fixing.
 +All Doxygen Warnings In This File Were Resolved Through The GPT Model.
  
