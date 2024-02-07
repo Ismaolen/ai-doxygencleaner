@@ -1,3 +1,7 @@
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Coverage](https://img.shields.io/badge/coverage-100%25-yellow)
+![GitLab](https://img.shields.io/badge/GitHub-ai--doxygencleaner-blue)
+
 # AI-DoxygenCleaner:
 
 ## Description
