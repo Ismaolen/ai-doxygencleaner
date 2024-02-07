@@ -12,3 +12,4 @@
 *.hpp linguist-detectable=false
 *.html linguist-detectable=false
 Dockerfile linguist-detectable=false
+update_docker_image.sh linguist-detectable=false
