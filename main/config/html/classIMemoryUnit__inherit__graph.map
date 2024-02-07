@@ -1,9 +1,0 @@
-<map id="IMemoryUnit" name="IMemoryUnit">
-<area shape="rect" id="node1" title="Interface for memory units." alt="" coords="243,5,350,32"/>
-<area shape="rect" id="node2" href="$classMBC.html" title="Base class for Memory Bank Controllers (MBCs)." alt="" coords="271,80,323,107"/>
-<area shape="rect" id="node3" href="$classMBC1__MBC.html" title="Memory Bank Controller (MBC) for MBC1 cartridges." alt="" coords="5,155,103,181"/>
-<area shape="rect" id="node4" href="$classMBC2__MBC.html" title="Memory Bank Controller (MBC) for MBC2 cartridges." alt="" coords="127,155,224,181"/>
-<area shape="rect" id="node5" href="$classMBC3__MBC.html" title="Memory Bank Controller (MBC) for MBC3 cartridges." alt="" coords="248,155,345,181"/>
-<area shape="rect" id="node6" href="$classMBC5__MBC.html" title="Memory Bank Controller (MBC) for MBC5 cartridges." alt="" coords="369,155,467,181"/>
-<area shape="rect" id="node7" href="$classROMOnly__MBC.html" title="Memory Bank Controller (MBC) for ROM&#45;only cartridges." alt="" coords="491,155,611,181"/>
-</map>
