@@ -1,4 +1,13 @@
-*.c++, *.json, *.js, *.txt, *.css, *.png, *.pdf, *.sql, *.md, *.py linguist-detectable=false
+*.c++ linguist-detectable=false
+*.json linguist-detectable=false
+*.js linguist-detectable=false
+*.txt linguist-detectable=false
+*.css linguist-detectable=false
+*.png linguist-detectable=false
+*.pdf linguist-detectable=false
+*.sql linguist-detectable=false
+*.md linguist-detectable=false
+*.py linguist-detectable=false
 *.cpp linguist-detectable=false
 *.h linguist-detectable=false
 *.hpp linguist-detectable=false
