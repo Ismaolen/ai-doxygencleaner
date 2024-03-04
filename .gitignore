@@ -6,3 +6,4 @@ docs
 *.env
 uml
 __init__.py
+*.txt
